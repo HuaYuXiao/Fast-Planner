@@ -52,17 +52,31 @@ sudo make install
 
 
 ## 2. 编译
-$ cd Prometheus/  
-$ ./compile_control_planning.sh
+
+```bash
+cd ~/catkin_ws
+```
+
+```bash
+```basg
+catkin_make install --source src/Fast-Planner --build build/Fast-Planner
+```
 
 ## 3. 运行
 
 * 运行轨迹优化，加载离线地图，等待目标点输入.  
-  $ roslaunch prometheus_plan_manage prometheus_planning_test_static.launch
+
+```bash
+roslaunch prometheus_plan_manage prometheus_planning_test_static.launch
+```
+
 > 修改 pcd_file 为自己的配置参数
 
 * 运行rviz显示地图、轨迹，同时给出目标点.  
-  $ roslaunch prometheus_plan_manage rviz_static.launch
+
+```bash
+roslaunch prometheus_plan_manage rviz_static.launch
+```
 
 * 从rviz输入需要的期望goal, 选择3d navigation, 同时按下鼠标左右键，然后上下移动标记z大小.
 
