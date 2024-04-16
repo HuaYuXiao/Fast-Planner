@@ -2,6 +2,13 @@
 
 **Fast-Planner** is developed aiming to enable quadrotor fast flight in complex unknown environments. It contains a rich set of carefully designed planning algorithms. 
 
+![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2FFast-Planner.json%3Fcolor%3Dpink)
+![Static Badge](https://img.shields.io/badge/ROS-melodic-22314E?logo=ros)
+![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
+![Static Badge](https://img.shields.io/badge/Python-3.6.9-3776AB?logo=python)
+![Static Badge](https://img.shields.io/badge/Ubuntu-18.04.6-E95420?logo=ubuntu)
+![Static Badge](https://img.shields.io/badge/NVIDIA-Jetson_Nano-76B900?LOGO=nvidia)
+
 **News**: 
 
 - __Mar 13, 2021__: Code for fast autonomous exploration is available now! Check this [repo](https://github.com/HKUST-Aerial-Robotics/FUEL) for more details.
