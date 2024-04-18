@@ -45,6 +45,12 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(so3_control)
 
+set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-std=c++14")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall")
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -56,7 +62,7 @@ find_package(catkin REQUIRED COMPONENTS
   nodelet
   cmake_utils
 )
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
