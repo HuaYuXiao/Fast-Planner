@@ -361,7 +361,7 @@ public:
   {
     // Basic map info
     msg.header.stamp            = ros::Time::now();
-    msg.header.frame_id         = string("/map");
+    msg.header.frame_id         = string("map");
     msg.info.map_load_time      = ros::Time::now();
     msg.info.resolution         = resolution;
     msg.info.origin.position.x  = originX;
