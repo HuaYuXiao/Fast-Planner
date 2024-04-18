@@ -233,7 +233,7 @@ public:
   {
     map.header.stamp       = ros::Time::now();
     map.info.map_load_time = ros::Time::now();
-    map.header.frame_id    = string("/map");
+    map.header.frame_id    = string("map");
     updated = false;
     return map;
   }

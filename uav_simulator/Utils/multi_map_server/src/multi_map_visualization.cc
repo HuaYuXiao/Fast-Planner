@@ -70,7 +70,7 @@ void maps3d_callback(const multi_map_server::MultiSparseMap3D::ConstPtr &msg)
   }
   // Publish
   m.header.stamp    = ros::Time::now();
-  m.header.frame_id = string("/map");
+  m.header.frame_id = string("map");
   pub2.publish(m);
 }
 
