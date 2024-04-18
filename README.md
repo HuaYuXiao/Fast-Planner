@@ -59,7 +59,7 @@ The project has been tested on Ubuntu 16.04(ROS Kinetic) and 18.04(ROS Melodic).
   cd ${YOUR_WORKSPACE_PATH}/src
   git clone https://github.com/HKUST-Aerial-Robotics/Fast-Planner.git
   cd ../ 
-  catkin_make
+catkin_make install --source src/Fast-Planner --build build/Fast-Planner
 ```
 
 You may check the detailed [instruction](#3-setup-and-config) to setup the project. 
