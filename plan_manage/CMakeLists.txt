@@ -7,7 +7,6 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
 
 find_package(Eigen3 REQUIRED)
 find_package(PCL 1.7 REQUIRED)
-
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
@@ -19,6 +18,14 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
         sdf_tools
         sensor_msgs
+        rospy
+        tf
+        octomap_msgs
+        visualization_msgs
+        sdf_tools
+        nav_msgs
+        pcl_ros
+        prometheus_msgs
 )
 
 # Generate messages in the 'msg' folder
@@ -51,7 +58,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/include
   ${EIGEN3_INCLUDE_DIR}
   ${PCL_INCLUDE_DIRS}
-  ${PROJECT_SOURCE_DIR}/../../../common/include
+        $ENV{HOME}/Prometheus/Modules/common/include
 )
 
 
@@ -76,4 +83,3 @@ target_link_libraries(test_planning_static
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
   )
-
