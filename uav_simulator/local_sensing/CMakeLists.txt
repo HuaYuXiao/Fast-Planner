@@ -1,8 +1,10 @@
 PROJECT(local_sensing_node)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.3)
-SET(CMAKE_BUILD_TYPE Release) # Release, RelWithDebInfo
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-std=c++14")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall")
 set(ENABLE_CUDA false)
 # set(ENABLE_CUDA true)
 

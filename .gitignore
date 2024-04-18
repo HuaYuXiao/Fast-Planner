@@ -1,3 +1,5 @@
 fast_planner/.vscode
 .vscode/
 .clang-format
+.idea/
+cmake-build-debug/

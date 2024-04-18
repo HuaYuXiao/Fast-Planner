@@ -39,6 +39,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(multi_map_server)
 
+set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-std=c++14")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall")
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
