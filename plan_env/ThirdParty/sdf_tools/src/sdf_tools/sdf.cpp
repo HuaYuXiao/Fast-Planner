@@ -912,12 +912,12 @@ namespace sdf_tools
         return distance_field_.LocationToGridIndex(x, y, z);
     }
 
-    std::vector<double> SignedDistanceField::GridIndexToLocation(const VoxelGrid::GRID_INDEX& index) const
+    Eigen::Vector4d SignedDistanceField::GridIndexToLocation(const VoxelGrid::GRID_INDEX& index) const
     {
         return distance_field_.GridIndexToLocation(index);
     }
 
-    std::vector<double> SignedDistanceField::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
+    Eigen::Vector4d SignedDistanceField::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
     {
         return distance_field_.GridIndexToLocation(x_index, y_index, z_index);
     }

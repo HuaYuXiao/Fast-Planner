@@ -898,7 +898,7 @@ namespace sdf_tools
         return collision_field_.LocationToGridIndex(x, y, z);
     }
 
-    std::vector<double> TaggedObjectCollisionMapGrid::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
+    Eigen::Vector4d TaggedObjectCollisionMapGrid::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
     {
         return collision_field_.GridIndexToLocation(x_index, y_index, z_index);
     }

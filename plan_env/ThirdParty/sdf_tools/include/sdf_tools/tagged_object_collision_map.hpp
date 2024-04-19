@@ -188,7 +188,7 @@ namespace sdf_tools
 
         VoxelGrid::GRID_INDEX LocationToGridIndex(const double x, const double y, const double z) const;
 
-        std::vector<double> GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const;
+        Eigen::Vector4d GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const;
 
         bool SaveToFile(const std::string& filepath) const;
 
