@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python2
 
 #   Calder Phillips-Grafflin -- ARC Lab
 #
