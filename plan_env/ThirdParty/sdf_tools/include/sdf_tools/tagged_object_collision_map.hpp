@@ -182,11 +182,11 @@ namespace sdf_tools
 
         std::pair<uint32_t, bool> GetNumConnectedComponents() const;
 
-        std::vector<int64_t> LocationToGridIndex3d(const Eigen::Vector3d& location) const;
+        VoxelGrid::GRID_INDEX LocationToGridIndex3d(const Eigen::Vector3d& location) const;
 
-        std::vector<int64_t> LocationToGridIndex4d(const Eigen::Vector4d& location) const;
+        VoxelGrid::GRID_INDEX LocationToGridIndex4d(const Eigen::Vector4d& location) const;
 
-        std::vector<int64_t> LocationToGridIndex(const double x, const double y, const double z) const;
+        VoxelGrid::GRID_INDEX LocationToGridIndex(const double x, const double y, const double z) const;
 
         std::vector<double> GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const;
 

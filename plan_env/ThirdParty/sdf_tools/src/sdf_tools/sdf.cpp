@@ -897,17 +897,17 @@ namespace sdf_tools
         return frame_;
     }
 
-    std::vector<int64_t> SignedDistanceField::LocationToGridIndex3d(const Eigen::Vector3d& location) const
+    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex3d(const Eigen::Vector3d& location) const
     {
         return distance_field_.LocationToGridIndex3d(location);
     }
 
-    std::vector<int64_t> SignedDistanceField::LocationToGridIndex4d(const Eigen::Vector4d& location) const
+    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex4d(const Eigen::Vector4d& location) const
     {
         return distance_field_.LocationToGridIndex4d(location);
     }
 
-    std::vector<int64_t> SignedDistanceField::LocationToGridIndex(const double x, const double y, const double z) const
+    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex(const double x, const double y, const double z) const
     {
         return distance_field_.LocationToGridIndex(x, y, z);
     }

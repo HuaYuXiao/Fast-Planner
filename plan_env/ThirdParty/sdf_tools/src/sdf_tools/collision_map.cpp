@@ -543,17 +543,17 @@ namespace sdf_tools
         return std::pair<uint32_t, bool>(number_of_components_, components_valid_);
     }
 
-    std::vector<int64_t> CollisionMapGrid::LocationToGridIndex3d(const Eigen::Vector3d& location) const
+    VoxelGrid::GRID_INDEX CollisionMapGrid::LocationToGridIndex3d(const Eigen::Vector3d& location) const
     {
         return collision_field_.LocationToGridIndex3d(location);
     }
 
-    std::vector<int64_t> CollisionMapGrid::LocationToGridIndex4d(const Eigen::Vector4d& location) const
+    VoxelGrid::GRID_INDEX CollisionMapGrid::LocationToGridIndex4d(const Eigen::Vector4d& location) const
     {
         return collision_field_.LocationToGridIndex4d(location);
     }
 
-    std::vector<int64_t> CollisionMapGrid::LocationToGridIndex(double x, double y, double z) const
+    VoxelGrid::GRID_INDEX CollisionMapGrid::LocationToGridIndex(double x, double y, double z) const
     {
         return collision_field_.LocationToGridIndex(x, y, z);
     }
