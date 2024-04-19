@@ -10,8 +10,8 @@
 #include <unordered_map>
 #include <vector>
 #include <Eigen/Geometry>
-#include <arc_utilities/arc_helpers.hpp>
-#include <arc_utilities/serialization.hpp>
+#include "arc_utilities/arc_helpers.hpp"
+#include "arc_utilities/serialization.hpp"
 
 namespace arc_dijkstras
 {

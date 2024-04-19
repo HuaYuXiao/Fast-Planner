@@ -1,13 +1,13 @@
+#include <ros/ros.h>
+#include <visualization_msgs/MarkerArray.h>
+#include <chrono>
+#include <random>
 #include "arc_utilities/voxel_grid.hpp"
 #include "arc_utilities/pretty_print.hpp"
 #include "sdf_tools/collision_map.hpp"
 #include "arc_utilities/dynamic_spatial_hashed_voxel_grid.hpp"
 #include "sdf_tools/dynamic_spatial_hashed_collision_map.hpp"
 #include "sdf_tools/sdf.hpp"
-#include "ros/ros.h"
-#include "visualization_msgs/MarkerArray.h"
-#include <chrono>
-#include <random>
 
 void test_voxel_grid_indices()
 {

@@ -7,9 +7,9 @@
 #include <algorithm>
 #include <unordered_map>
 #include <Eigen/Geometry>
-#include <arc_utilities/voxel_grid.hpp>
-#include <arc_utilities/eigen_helpers.hpp>
-#include <arc_utilities/pretty_print.hpp>
+#include "arc_utilities/voxel_grid.hpp"
+#include "arc_utilities/eigen_helpers.hpp"
+#include "arc_utilities/pretty_print.hpp"
 
 #ifndef DYNAMIC_SPATIAL_HASHED_VOXEL_GRID_HPP
 #define DYNAMIC_SPATIAL_HASHED_VOXEL_GRID_HPP

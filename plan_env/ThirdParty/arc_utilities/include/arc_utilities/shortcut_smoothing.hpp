@@ -1,6 +1,6 @@
 #include <functional>
-#include <arc_utilities/arc_helpers.hpp>
-#include <arc_utilities/eigen_helpers.hpp>
+#include "arc_utilities/arc_helpers.hpp"
+#include "arc_utilities/eigen_helpers.hpp"
 
 #ifndef SHORTCUT_SMOOTHING_HPP
 #define SHORTCUT_SMOOTHING_HPP

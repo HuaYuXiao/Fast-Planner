@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <zlib.h>
 #include <octomap_msgs/conversions.h>
+#include "arc_utilities/voxel_grid.hpp"
 #include "sdf_tools/sdf.hpp"
 #include "sdf_tools/sdf_builder.hpp"
 #include "sdf_tools/SDF.h"

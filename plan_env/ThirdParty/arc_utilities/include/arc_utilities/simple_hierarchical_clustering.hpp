@@ -6,8 +6,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <functional>
-#include <arc_utilities/arc_helpers.hpp>
 #include <Eigen/Geometry>
+#include "arc_utilities/arc_helpers.hpp"
 
 #ifdef ENABLE_PARALLEL_COMPLETE_LINK_CLUSTERING
     #include <omp.h>

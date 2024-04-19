@@ -9,14 +9,12 @@
 #include <functional>
 #include <algorithm>
 #include <chrono>
-
-#include <arc_utilities/eigen_helpers.hpp>
-
-//#include <ros/ros.h>
-//#include <visualization_msgs/Marker.h>
-//#include <arc_utilities/arc_helpers.hpp>
-//#include <arc_utilities/ros_helpers.hpp>
-//#include <arc_utilities/eigen_helpers_conversions.hpp>
+#include <ros/ros.h>
+#include <visualization_msgs/Marker.h>
+#include "arc_utilities/eigen_helpers.hpp"
+#include "arc_utilities/arc_helpers.hpp"
+#include "arc_utilities/ros_helpers.hpp"
+#include "arc_utilities/eigen_helpers_conversions.hpp"
 
 namespace simple_astar_planner
 {

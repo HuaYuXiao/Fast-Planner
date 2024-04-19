@@ -6,7 +6,7 @@
 #include <random>
 #include <memory>
 #include <Eigen/Dense>
-#include <arc_utilities/serialization.hpp>
+#include "arc_utilities/serialization.hpp"
 
 #ifndef SIMPLE_RRT_PLANNER_HPP
 #define SIMPLE_RRT_PLANNER_HPP

@@ -9,10 +9,11 @@
 #include <unordered_map>
 #include <zlib.h>
 #include <ros/ros.h>
-#include <arc_utilities/eigen_helpers_conversions.hpp>
-#include <arc_utilities/zlib_helpers.hpp>
-#include <sdf_tools/sdf.hpp>
-#include <sdf_tools/SDF.h>
+#include "arc_utilities/eigen_helpers_conversions.hpp"
+#include "arc_utilities/zlib_helpers.hpp"
+#include "arc_utilities/voxel_grid.hpp"
+#include "sdf_tools/sdf.hpp"
+#include "sdf_tools/SDF.h"
 
 namespace sdf_tools
 {
@@ -897,27 +898,27 @@ namespace sdf_tools
         return frame_;
     }
 
-    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex3d(const Eigen::Vector3d& location) const
+    std::vector<int64_t> SignedDistanceField::LocationToGridIndex3d(const Eigen::Vector3d& location) const
     {
         return distance_field_.LocationToGridIndex3d(location);
     }
 
-    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex4d(const Eigen::Vector4d& location) const
+    std::vector<int64_t> SignedDistanceField::LocationToGridIndex4d(const Eigen::Vector4d& location) const
     {
         return distance_field_.LocationToGridIndex4d(location);
     }
 
-    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex(const double x, const double y, const double z) const
+    std::vector<int64_t> SignedDistanceField::LocationToGridIndex(const double x, const double y, const double z) const
     {
         return distance_field_.LocationToGridIndex(x, y, z);
     }
 
-    Eigen::Vector4d SignedDistanceField::GridIndexToLocation(const VoxelGrid::GRID_INDEX& index) const
+    std::vector<double> SignedDistanceField::GridIndexToLocation(const VoxelGrid::GRID_INDEX& index) const
     {
         return distance_field_.GridIndexToLocation(index);
     }
 
-    Eigen::Vector4d SignedDistanceField::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
+    std::vector<double> SignedDistanceField::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
     {
         return distance_field_.GridIndexToLocation(x_index, y_index, z_index);
     }
