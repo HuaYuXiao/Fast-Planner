@@ -3,11 +3,10 @@
 **Fast-Planner** is developed aiming to enable quadrotor fast flight in complex unknown environments. It contains a rich set of carefully designed planning algorithms. 
 
 ![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2FFast-Planner.json%3Fcolor%3Dpink)
-![Static Badge](https://img.shields.io/badge/ROS-melodic-22314E?logo=ros)
+![Static Badge](https://img.shields.io/badge/ROS-noetic-22314E?logo=ros)
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
-![Static Badge](https://img.shields.io/badge/Python-3.6.9-3776AB?logo=python)
-![Static Badge](https://img.shields.io/badge/Ubuntu-18.04.6-E95420?logo=ubuntu)
-![Static Badge](https://img.shields.io/badge/NVIDIA-Jetson_Nano-76B900?LOGO=nvidia)
+![Static Badge](https://img.shields.io/badge/Python-2.7.18-3776AB?logo=python)
+![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
 
 Planning模块从fast-planner框架借鉴而来，可以实现无人机快速自主飞行。
 框架前端kinodynamic路径搜索，后端采用基于样条的轨迹生成，同时还包含了时间调节系统。
@@ -20,24 +19,44 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
 
 ## 1. 安装
 
-* 非线性优化工具箱 [**NLopt**](https://github.com/stevengj/nlopt)
+### libboost
+
+version: 1.65.1
+
+https://www.boost.org/users/history/version_1_65_1.html
+
+### NLopt: 非线性优化工具箱
 
 ```bash
-cd ~/tool_ws/src/
 git clone https://github.com/stevengj/nlopt.git
-cd nlopt
-mkdir build
-cd build
-cmake ..
-make
-sudo make install
+cd nlopt && mkdir build && cd build && cmake .. && make && sudo make install
 ```
 
+### arc_utilities
+
+```bash
+catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/arc_utilities --build build/arc_utilities
+```
+
+### sdf_tools
+
+```bash
+catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/sdf_tools --build build/sdf_tools
+```
 
 ## 2. 编译
 
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 5 packages in topological order:
+-- ~~  - plan_env
+-- ~~  - bspline_opt
+-- ~~  - path_searching
+-- ~~  - traj_utils
+-- ~~  - prometheus_plan_manage
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 ```bash
-cd ~/planner_ws
 catkin_make install --source src/Fast-Planner --build build/Fast-Planner
 ```
 
