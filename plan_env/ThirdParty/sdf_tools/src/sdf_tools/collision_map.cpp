@@ -1257,7 +1257,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < collision_field_.GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -1318,7 +1318,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < collision_field_.GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];

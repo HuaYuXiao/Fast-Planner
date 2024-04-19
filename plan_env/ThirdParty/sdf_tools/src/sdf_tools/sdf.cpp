@@ -121,7 +121,7 @@ namespace sdf_tools
             Eigen::Vector3d current_gradient(raw_gradient[0], raw_gradient[1], raw_gradient[2]);
             if (GradientIsEffectiveFlat(current_gradient))
             {
-                std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                 Eigen::Vector3d local_maxima(location[0], location[1], location[2]);
                 watershed_map.SetValue(x_index, y_index, z_index, local_maxima);
             }
@@ -143,7 +143,7 @@ namespace sdf_tools
                     {
                         //std::cerr << "LMAX found by cycle detect" << std::endl;
                         // If we've already been here, then we are done
-                        std::vector<double> location = GridIndexToLocation(current_index);
+                        Eigen::Vector4d location = GridIndexToLocation(current_index);
                         local_maxima = Eigen::Vector3d(location[0], location[1], location[2]);
                         break;
                     }
@@ -171,7 +171,7 @@ namespace sdf_tools
                         {
                             //std::cerr << "LMAX found by flat detect" << std::endl;
                             // We have the local maxima
-                            std::vector<double> location = GridIndexToLocation(current_index);
+                            Eigen::Vector4d location = GridIndexToLocation(current_index);
                             local_maxima = Eigen::Vector3d(location[0], location[1], location[2]);
                             break;
                         }
@@ -543,7 +543,7 @@ namespace sdf_tools
 
     double SignedDistanceField::EstimateDistanceInternal(const double x, const double y, const double z, const int64_t x_idx, const int64_t y_idx, const int64_t z_idx) const
     {
-        const std::vector<double> cell_center = GridIndexToLocation(x_idx, y_idx, z_idx);
+        const Eigen::Vector4d cell_center = GridIndexToLocation(x_idx, y_idx, z_idx);
         const Eigen::Vector3d cell_center_to_location_vector(x - cell_center[0], y - cell_center[1], z - cell_center[2]);
         const double nominal_sdf_distance = (double)distance_field_.GetImmutable(x_idx, y_idx, z_idx).first;
 
@@ -1064,7 +1064,7 @@ namespace sdf_tools
                         max_distance = distance;
                     }
                     // Convert SDF indices into a real-world location
-                    std::vector<double> location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -1139,7 +1139,7 @@ namespace sdf_tools
                     if (distance <= 0.0)
                     {
                         // Convert SDF indices into a real-world location
-                        std::vector<double> location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
+                        Eigen::Vector4d location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
                         geometry_msgs::Point new_point;
                         new_point.x = location[0];
                         new_point.y = location[1];
@@ -1185,7 +1185,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < distance_field_.GetNumZCells(); z_index++)
                 {
                     // Convert SDF indices into a real-world location
-                    std::vector<double> location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];

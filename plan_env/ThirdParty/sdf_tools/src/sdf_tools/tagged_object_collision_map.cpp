@@ -1022,7 +1022,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     const TAGGED_OBJECT_COLLISION_CELL& current_cell = GetImmutable(x_index, y_index, z_index).first;
-                    const std::vector<double> raw_current_cell_location = GridIndexToLocation(x_index, y_index, z_index);
+                    const Eigen::Vector4d raw_current_cell_location = GridIndexToLocation(x_index, y_index, z_index);
                     assert(raw_current_cell_location.size() == 3);
                     const Eigen::Vector4d current_cell_location(raw_current_cell_location[0], raw_current_cell_location[1], raw_current_cell_location[2], 1.0);
                     resampled.Set4d(current_cell_location, current_cell);
@@ -2188,7 +2188,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -2236,7 +2236,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -2297,7 +2297,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -2358,7 +2358,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -2423,7 +2423,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -2484,7 +2484,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                    Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -2548,7 +2548,7 @@ namespace sdf_tools
                     if ((current_cell.object_id == object_id) && (current_cell.IsPartOfConvexSegment(convex_segment)))
                     {
                         // Convert grid indices into a real-world location
-                        std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
+                        Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
                         geometry_msgs::Point new_point;
                         new_point.x = location[0];
                         new_point.y = location[1];
@@ -2591,7 +2591,7 @@ namespace sdf_tools
             if (validity == 1)
             {
                 // Convert grid indices into a real-world location
-                std::vector<double> location = GridIndexToLocation(index.x, index.y, index.z);
+                Eigen::Vector4d location = GridIndexToLocation(index.x, index.y, index.z);
                 geometry_msgs::Point new_point;
                 new_point.x = location[0];
                 new_point.y = location[1];
