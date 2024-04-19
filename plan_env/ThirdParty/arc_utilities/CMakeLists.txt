@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(arc_utilities)
 
+#set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Wconversion -Werror")
+set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Wconversion -Werror")
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -8,7 +11,6 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs geomet
 find_package(cmake_modules REQUIRED)
 find_package(Eigen3 REQUIRED)
 set(Eigen3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
-
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS filesystem)
 
@@ -46,9 +48,9 @@ catkin_package(INCLUDE_DIRS include LIBRARIES ${PROJECT_NAME} CATKIN_DEPENDS ros
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(include SYSTEM ${catkin_INCLUDE_DIRS} ${Eigen3_INCLUDE_DIRS})
-
-set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Wconversion -Werror")
+include_directories(include SYSTEM ${catkin_INCLUDE_DIRS} ${Eigen3_INCLUDE_DIRS}
+    ${Boost_INCLUDE_DIRS}
+)
 
 # Utility library
 add_library(${PROJECT_NAME}
@@ -89,17 +91,23 @@ add_library(${PROJECT_NAME}
     src/timing.cpp
     src/${PROJECT_NAME}/first_order_deformation.cpp)
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS}) # ${PROJECT_NAME}_gencpp)
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} z)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES}
+        ${Boost_LIBRARIES}
+)
 
 # Simple test node for simple_hierarchical_clustering
 add_executable(test_hierarchical_clustering src/test_hierarchical_clustering.cpp)
 add_dependencies(test_hierarchical_clustering ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS}) # ${PROJECT_NAME}_gencpp)
-target_link_libraries(test_hierarchical_clustering ${PROJECT_NAME} ${catkin_LIBRARIES})
+target_link_libraries(test_hierarchical_clustering ${PROJECT_NAME} ${catkin_LIBRARIES}
+        ${Boost_LIBRARIES}
+)
 
 # Simple test node for utility functions
 add_executable(test_arc_utilities src/test_arc_utilities.cpp)
 add_dependencies(test_arc_utilities ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS}) # ${PROJECT_NAME}_gencpp)
-target_link_libraries(test_arc_utilities ${PROJECT_NAME} ${catkin_LIBRARIES})
+target_link_libraries(test_arc_utilities ${PROJECT_NAME} ${catkin_LIBRARIES}
+    ${Boost_LIBRARIES}
+)
 
 # # Simple test node for Eigen3 math
 # add_executable(test_eigen_math src/test_eigen_math.cpp)

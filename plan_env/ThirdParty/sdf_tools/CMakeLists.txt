@@ -19,10 +19,8 @@ find_package(moveit_msgs)
 find_package(moveit_core)
 find_package(moveit_ros_planning)
 #find_package(arc_utilities)
-
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
-
+find_package(Boost REQUIRED COMPONENTS system)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed

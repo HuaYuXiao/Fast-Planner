@@ -49,57 +49,34 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>tf</build_depend>
   <build_depend>octomap_msgs</build_depend>
-  <build_depend>arc_utilities</build_depend>
-  <build_depend>sdf_tools</build_depend>
-  <build_depend>sensor_msgs</build_depend>
-  <build_depend>geometry_msgs</build_depend>
-  <build_depend>nav_msgs</build_depend>
-  <build_depend>prometheus_msgs</build_depend>
-  <build_depend>pcl_ros</build_depend>
-  <build_depend>octomap</build_depend>
-  <build_depend>sdf_tools</build_depend>
-  <build_depend>arc_utilities</build_depend>
+<!--  <build_depend>arc_utilities</build_depend>-->
+<!--  <build_depend>sdf_tools</build_depend>-->
 
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
   <build_export_depend>tf</build_export_depend>
   <build_export_depend>octomap_msgs</build_export_depend>
-  <build_export_depend>arc_utilities</build_export_depend>
-  <build_export_depend>sdf_tools</build_export_depend>
-  <build_export_depend>sensor_msgs</build_export_depend>
-  <build_export_depend>geometry_msgs</build_export_depend>
-  <build_export_depend>nav_msgs</build_export_depend>
-  <build_export_depend>prometheus_msgs</build_export_depend>
-  <build_export_depend>pcl_ros</build_export_depend>
-  <build_export_depend>octomap</build_export_depend>
-    <build_export_depend>sdf_tools</build_export_depend>
-    <build_export_depend>arc_utilities</build_export_depend>
+<!--  <build_export_depend>arc_utilities</build_export_depend>-->
+<!--  <build_export_depend>sdf_tools</build_export_depend>-->
 
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>tf</exec_depend>
   <exec_depend>octomap_msgs</exec_depend>
-  <exec_depend>arc_utilities</exec_depend>
-  <exec_depend>sdf_tools</exec_depend>
-  <exec_depend>sensor_msgs</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>nav_msgs</exec_depend>
-  <exec_depend>octomap</exec_depend>
-  <exec_depend>prometheus_msgs</exec_depend>
-  <exec_depend>pcl_ros</exec_depend>
-    <exec_depend>sdf_tools</exec_depend>
-    <exec_depend>arc_utilities</exec_depend>
+<!--  <exec_depend>arc_utilities</exec_depend>-->
+<!--  <exec_depend>sdf_tools</exec_depend>-->
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
+
   </export>
 </package>

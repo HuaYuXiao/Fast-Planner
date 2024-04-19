@@ -5,14 +5,11 @@
 #include <iostream>
 #include <ros/ros.h>
 #include <geometry_msgs/PoseStamped.h>
-
-#include <plan_env/sdf_map.h>
 // sdf_tools
 #include "sdf_tools/collision_map.hpp"
 #include "sdf_tools/sdf.hpp"
-#include <plan_env/global_point_sdf.h>
-
-
+#include "plan_env/global_point_sdf.h"
+#include "plan_env/sdf_map.h"
 
 using std::cout;
 using std::endl;
