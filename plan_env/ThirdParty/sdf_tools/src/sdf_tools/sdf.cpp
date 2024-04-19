@@ -9,10 +9,11 @@
 #include <unordered_map>
 #include <zlib.h>
 #include <ros/ros.h>
-#include <arc_utilities/eigen_helpers_conversions.hpp>
-#include <arc_utilities/zlib_helpers.hpp>
-#include <sdf_tools/sdf.hpp>
-#include <sdf_tools/SDF.h>
+#include "arc_utilities/eigen_helpers_conversions.hpp"
+#include "arc_utilities/zlib_helpers.hpp"
+#include "arc_utilities/voxel_grid.hpp"
+#include "sdf_tools/sdf.hpp"
+#include "sdf_tools/SDF.h"
 
 namespace sdf_tools
 {
@@ -121,7 +122,7 @@ namespace sdf_tools
             Eigen::Vector3d current_gradient(raw_gradient[0], raw_gradient[1], raw_gradient[2]);
             if (GradientIsEffectiveFlat(current_gradient))
             {
-                Eigen::Vector4d location = GridIndexToLocation(x_index, y_index, z_index);
+                std::vector<double> location = GridIndexToLocation(x_index, y_index, z_index);
                 Eigen::Vector3d local_maxima(location[0], location[1], location[2]);
                 watershed_map.SetValue(x_index, y_index, z_index, local_maxima);
             }
@@ -143,7 +144,7 @@ namespace sdf_tools
                     {
                         //std::cerr << "LMAX found by cycle detect" << std::endl;
                         // If we've already been here, then we are done
-                        Eigen::Vector4d location = GridIndexToLocation(current_index);
+                        std::vector<double> location = GridIndexToLocation(current_index);
                         local_maxima = Eigen::Vector3d(location[0], location[1], location[2]);
                         break;
                     }
@@ -171,7 +172,7 @@ namespace sdf_tools
                         {
                             //std::cerr << "LMAX found by flat detect" << std::endl;
                             // We have the local maxima
-                            Eigen::Vector4d location = GridIndexToLocation(current_index);
+                            std::vector<double> location = GridIndexToLocation(current_index);
                             local_maxima = Eigen::Vector3d(location[0], location[1], location[2]);
                             break;
                         }
@@ -543,7 +544,7 @@ namespace sdf_tools
 
     double SignedDistanceField::EstimateDistanceInternal(const double x, const double y, const double z, const int64_t x_idx, const int64_t y_idx, const int64_t z_idx) const
     {
-        const Eigen::Vector4d cell_center = GridIndexToLocation(x_idx, y_idx, z_idx);
+        const std::vector<double> cell_center = GridIndexToLocation(x_idx, y_idx, z_idx);
         const Eigen::Vector3d cell_center_to_location_vector(x - cell_center[0], y - cell_center[1], z - cell_center[2]);
         const double nominal_sdf_distance = (double)distance_field_.GetImmutable(x_idx, y_idx, z_idx).first;
 
@@ -897,27 +898,27 @@ namespace sdf_tools
         return frame_;
     }
 
-    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex3d(const Eigen::Vector3d& location) const
+    std::vector<int64_t> SignedDistanceField::LocationToGridIndex3d(const Eigen::Vector3d& location) const
     {
         return distance_field_.LocationToGridIndex3d(location);
     }
 
-    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex4d(const Eigen::Vector4d& location) const
+    std::vector<int64_t> SignedDistanceField::LocationToGridIndex4d(const Eigen::Vector4d& location) const
     {
         return distance_field_.LocationToGridIndex4d(location);
     }
 
-    VoxelGrid::GRID_INDEX SignedDistanceField::LocationToGridIndex(const double x, const double y, const double z) const
+    std::vector<int64_t> SignedDistanceField::LocationToGridIndex(const double x, const double y, const double z) const
     {
         return distance_field_.LocationToGridIndex(x, y, z);
     }
 
-    Eigen::Vector4d SignedDistanceField::GridIndexToLocation(const VoxelGrid::GRID_INDEX& index) const
+    std::vector<double> SignedDistanceField::GridIndexToLocation(const VoxelGrid::GRID_INDEX& index) const
     {
         return distance_field_.GridIndexToLocation(index);
     }
 
-    Eigen::Vector4d SignedDistanceField::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
+    std::vector<double> SignedDistanceField::GridIndexToLocation(const int64_t x_index, const int64_t y_index, const int64_t z_index) const
     {
         return distance_field_.GridIndexToLocation(x_index, y_index, z_index);
     }
@@ -1064,7 +1065,7 @@ namespace sdf_tools
                         max_distance = distance;
                     }
                     // Convert SDF indices into a real-world location
-                    Eigen::Vector4d location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    std::vector<double> location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -1139,7 +1140,7 @@ namespace sdf_tools
                     if (distance <= 0.0)
                     {
                         // Convert SDF indices into a real-world location
-                        Eigen::Vector4d location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
+                        std::vector<double> location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
                         geometry_msgs::Point new_point;
                         new_point.x = location[0];
                         new_point.y = location[1];
@@ -1185,7 +1186,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < distance_field_.GetNumZCells(); z_index++)
                 {
                     // Convert SDF indices into a real-world location
-                    Eigen::Vector4d location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    std::vector<double> location = distance_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];

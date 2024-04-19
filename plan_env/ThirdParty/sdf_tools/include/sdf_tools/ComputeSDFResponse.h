@@ -9,13 +9,11 @@
 #include <string>
 #include <vector>
 #include <map>
-
 #include <ros/types.h>
 #include <ros/serialization.h>
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
-
-#include <sdf_tools/SDF.h>
+#include "sdf_tools/SDF.h"
 
 namespace sdf_tools
 {

@@ -3,14 +3,14 @@
 #include <Eigen/SVD>
 #include <stdio.h>
 #include <iostream>
-#include <arc_utilities/pretty_print.hpp>
 #include <functional>
 #include <ros/ros.h>
 #include <geometry_msgs/PointStamped.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Transform.h>
 #include <geometry_msgs/Wrench.h>
-#include <arc_utilities/eigen_helpers.hpp>
+#include "arc_utilities/eigen_helpers.hpp"
+#include "arc_utilities/pretty_print.hpp"
 
 #ifndef EIGEN_HELPERS_CONVERSIONS_HPP
 #define EIGEN_HELPERS_CONVERSIONS_HPP

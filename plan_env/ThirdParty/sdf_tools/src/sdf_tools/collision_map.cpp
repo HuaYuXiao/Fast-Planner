@@ -10,10 +10,11 @@
 #include <ros/ros.h>
 #include <list>
 #include <unordered_map>
-#include <arc_utilities/eigen_helpers_conversions.hpp>
-#include <arc_utilities/zlib_helpers.hpp>
-#include <sdf_tools/collision_map.hpp>
-#include <sdf_tools/CollisionMap.h>
+#include "arc_utilities/eigen_helpers_conversions.hpp"
+#include "arc_utilities/zlib_helpers.hpp"
+#include "arc_utilities/voxel_grid.hpp"
+#include "sdf_tools/collision_map.hpp"
+#include "sdf_tools/CollisionMap.h"
 
 namespace sdf_tools
 {
@@ -543,22 +544,22 @@ namespace sdf_tools
         return std::pair<uint32_t, bool>(number_of_components_, components_valid_);
     }
 
-    VoxelGrid::GRID_INDEX CollisionMapGrid::LocationToGridIndex3d(const Eigen::Vector3d& location) const
+    std::vector<int64_t> CollisionMapGrid::LocationToGridIndex3d(const Eigen::Vector3d& location) const
     {
         return collision_field_.LocationToGridIndex3d(location);
     }
 
-    VoxelGrid::GRID_INDEX CollisionMapGrid::LocationToGridIndex4d(const Eigen::Vector4d& location) const
+    std::vector<int64_t> CollisionMapGrid::LocationToGridIndex4d(const Eigen::Vector4d& location) const
     {
         return collision_field_.LocationToGridIndex4d(location);
     }
 
-    VoxelGrid::GRID_INDEX CollisionMapGrid::LocationToGridIndex(double x, double y, double z) const
+    std::vector<int64_t> CollisionMapGrid::LocationToGridIndex(double x, double y, double z) const
     {
         return collision_field_.LocationToGridIndex(x, y, z);
     }
 
-    Eigen::Vector4d CollisionMapGrid::GridIndexToLocation(int64_t x_index, int64_t y_index, int64_t z_index) const
+    std::vector<double> CollisionMapGrid::GridIndexToLocation(int64_t x_index, int64_t y_index, int64_t z_index) const
     {
         return collision_field_.GridIndexToLocation(x_index, y_index, z_index);
     }
@@ -1257,7 +1258,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < collision_field_.GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    Eigen::Vector4d location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    std::vector<double> location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];
@@ -1318,7 +1319,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < collision_field_.GetNumZCells(); z_index++)
                 {
                     // Convert grid indices into a real-world location
-                    Eigen::Vector4d location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
+                    std::vector<double> location = collision_field_.GridIndexToLocation(x_index, y_index, z_index);
                     geometry_msgs::Point new_point;
                     new_point.x = location[0];
                     new_point.y = location[1];

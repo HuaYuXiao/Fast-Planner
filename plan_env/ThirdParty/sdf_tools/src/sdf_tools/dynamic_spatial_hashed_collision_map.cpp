@@ -9,11 +9,11 @@
 #include <stdexcept>
 #include <Eigen/Geometry>
 #include <visualization_msgs/Marker.h>
-#include <arc_utilities/eigen_helpers_conversions.hpp>
-#include <arc_utilities/voxel_grid.hpp>
-#include <arc_utilities/dynamic_spatial_hashed_voxel_grid.hpp>
-#include <sdf_tools/collision_map.hpp>
-#include <sdf_tools/dynamic_spatial_hashed_collision_map.hpp>
+#include "arc_utilities/eigen_helpers_conversions.hpp"
+#include "arc_utilities/voxel_grid.hpp"
+#include "arc_utilities/dynamic_spatial_hashed_voxel_grid.hpp"
+#include "sdf_tools/collision_map.hpp"
+#include "sdf_tools/dynamic_spatial_hashed_collision_map.hpp"
 
 namespace sdf_tools
 {

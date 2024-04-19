@@ -10,8 +10,8 @@
 #include <map>
 #include <unordered_map>
 #include <queue>
-#include <arc_utilities/eigen_helpers.hpp>
 #include <omp.h>
+#include "arc_utilities/eigen_helpers.hpp"
 
 #ifndef ARC_HELPERS_HPP
 #define ARC_HELPERS_HPP

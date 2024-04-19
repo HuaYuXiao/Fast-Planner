@@ -3,10 +3,10 @@
 #include <string>
 #include <Eigen/Geometry>
 #include <visualization_msgs/Marker.h>
-#include <arc_utilities/arc_helpers.hpp>
-#include <arc_utilities/voxel_grid.hpp>
-#include <sdf_tools/sdf.hpp>
-#include <sdf_tools/CollisionMap.h>
+#include "arc_utilities/arc_helpers.hpp"
+#include "arc_utilities/voxel_grid.hpp"
+#include "sdf_tools/sdf.hpp"
+#include "sdf_tools/CollisionMap.h"
 
 #ifndef COLLISION_MAP_HPP
 #define COLLISION_MAP_HPP
@@ -127,13 +127,13 @@ namespace sdf_tools
 
         std::pair<uint32_t, bool> GetNumConnectedComponents() const;
 
-        VoxelGrid::GRID_INDEX LocationToGridIndex3d(const Eigen::Vector3d& location) const;
+        std::vector<int64_t> LocationToGridIndex3d(const Eigen::Vector3d& location) const;
 
-        VoxelGrid::GRID_INDEX LocationToGridIndex4d(const Eigen::Vector4d& location) const;
+        std::vector<int64_t> LocationToGridIndex4d(const Eigen::Vector4d& location) const;
 
-        VoxelGrid::GRID_INDEX LocationToGridIndex(double x, double y, double z) const;
+        std::vector<int64_t> LocationToGridIndex(double x, double y, double z) const;
 
-        Eigen::Vector4d GridIndexToLocation(int64_t x_index, int64_t y_index, int64_t z_index) const;
+        std::vector<double> GridIndexToLocation(int64_t x_index, int64_t y_index, int64_t z_index) const;
 
         bool SaveToFile(const std::string& filepath);
 

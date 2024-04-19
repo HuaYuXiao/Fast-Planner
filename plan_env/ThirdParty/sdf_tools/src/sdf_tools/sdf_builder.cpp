@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <zlib.h>
 #include <octomap_msgs/conversions.h>
+#include "arc_utilities/voxel_grid.hpp"
 #include "sdf_tools/sdf.hpp"
 #include "sdf_tools/sdf_builder.hpp"
 #include "sdf_tools/SDF.h"
@@ -313,7 +314,7 @@ namespace sdf_tools
                 for (int64_t z_index = 0; z_index < collision_field.GetNumZCells(); z_index++)
                 {
                     // Convert SDF indices into a real-world location
-                    Eigen::Vector4d location = collision_field.GridIndexToLocation(x_index, y_index, z_index);
+                    std::vector<double> location = collision_field.GridIndexToLocation(x_index, y_index, z_index);
                     double x = location[0];
                     double y = location[1];
                     double z = location[2];
@@ -366,7 +367,7 @@ namespace sdf_tools
                 for (uint32_t z_index = 0; z_index < new_sdf.GetNumZCells(); z_index++)
                 {
                     // Convert SDF indices into a real-world location
-                    Eigen::Vector4d location = new_sdf.GridIndexToLocation(x_index, y_index, z_index);
+                    std::vector<double> location = new_sdf.GridIndexToLocation(x_index, y_index, z_index);
                     double x = location[0];
                     double y = location[1];
                     double z = location[2];

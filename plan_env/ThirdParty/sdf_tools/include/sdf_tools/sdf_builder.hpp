@@ -7,6 +7,7 @@
 #include <urdf_model/model.h>
 #include <moveit/robot_model_loader/robot_model_loader.h>
 #include <moveit/planning_scene/planning_scene.h>
+#include "arc_utilities/voxel_grid.hpp"
 #include "sdf_tools/sdf.hpp"
 #include "sdf_tools/SDF.h"
 
