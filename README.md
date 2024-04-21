@@ -21,9 +21,10 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
 
 ### libboost
 
-version: 1.65.1
+suggested version: [1.65.1](https://www.boost.org/users/history/version_1_65_1.html)
 
-https://www.boost.org/users/history/version_1_65_1.html
+If you are using 1.71, and come across compilation errors, check [here](https://github.com/HuaYuXiao/Fast-Planner/pull/22) for help.
+
 
 ### NLopt: 非线性优化工具箱
 
@@ -32,11 +33,16 @@ git clone https://github.com/stevengj/nlopt.git
 cd nlopt && mkdir build && cd build && cmake .. && make && sudo make install
 ```
 
+**NEVER** install with `sudo apt install ros-noetic-nlopt`!
+
 ### arc_utilities
 
 ```bash
 catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/arc_utilities --build build/arc_utilities
 ```
+
+check [here](https://github.com/HuaYuXiao/Fast-Planner/plan_env/ThirdParty/arc_utilities/README.md) for details about compilation and installation
+
 
 ### sdf_tools
 
@@ -44,8 +50,16 @@ catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/arc_utilities 
 catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/sdf_tools --build build/sdf_tools
 ```
 
+check [here](https://github.com/HuaYuXiao/Fast-Planner/plan_env/ThirdParty/sdf_tools/README.md) for details about compilation and installation
+
+
 ## 2. 编译
 
+```bash
+catkin_make install --source src/Fast-Planner --build build/Fast-Planner
+```
+
+```
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- ~~  traversing 5 packages in topological order:
 -- ~~  - plan_env
@@ -54,11 +68,8 @@ catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/sdf_tools --bu
 -- ~~  - traj_utils
 -- ~~  - prometheus_plan_manage
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-```bash
-catkin_make install --source src/Fast-Planner --build build/Fast-Planner
 ```
+
 
 ## 3. 运行
 
@@ -80,11 +91,13 @@ roslaunch prometheus_plan_manage rviz_static.launch
 
 
 ## 4. 致谢
+
 * 使用 **nlopt**作为非线性优化工具 （位于/ThirdParty）(https://nlopt.readthedocs.io/en/latest/NLopt_Installation)
 * 使用 **sdf_tool**为地图转化工具
 * 参考 **fast-planner** 优化框架
 
 ## 5. 说明
+
 * 与控制接口  plan_manage/src/traj_server.cpp  （未完，待补充）
 > msgs/msg/PositionReference.msg
 
