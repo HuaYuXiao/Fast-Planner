@@ -19,6 +19,8 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
 
 ## 1. 安装
 
+Before use, make sure you have installed following packages:
+
 ### libboost
 
 suggested version: [1.65.1](https://www.boost.org/users/history/version_1_65_1.html)
@@ -52,6 +54,18 @@ catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/sdf_tools --bu
 
 check [here](https://github.com/HuaYuXiao/Fast-Planner/plan_env/ThirdParty/sdf_tools/README.md) for details about compilation and installation
 
+### prometheus_mission
+
+```bash
+catkin_make install --source Modules/mission --build build/mission
+```
+
+### prometheus_slam
+
+```bash
+catkin_make install --source Modules/slam --build build/slam
+```
+
 
 ## 2. 编译
 
@@ -74,6 +88,10 @@ catkin_make install --source src/Fast-Planner --build build/Fast-Planner
 ## 3. 运行
 
 * 运行轨迹优化，加载离线地图，等待目标点输入.  
+
+```bash
+roslaunch prometheus_plan_manage sitl_fast_planning_3dlidar.launch 
+```
 
 ```bash
 roslaunch prometheus_plan_manage prometheus_planning_test_static.launch
