@@ -11,47 +11,33 @@
     <env name="PX4_ESTIMATOR" value="ekf2" />
 	<!-- 仿真速度因子 1.0代表与真实时间同步，大于1加快仿真速度，小于1则减慢 （电脑性能较差，可选择减小该参数）-->
 	<env name="PX4_SIM_SPEED_FACTOR" value="1.0" />
-	
+
+	<!-- 无人机ID号 -->
+	<arg name="uav_id" default="1"/>
+	<!-- 无人机仿真模型及对应SDF文件路径 -->
+	<arg name="model" default="p450_3Dlidar"/>
+	<arg name="sdf" default="$(find prometheus_gazebo)/gazebo_models/uav_models/$(arg model)/$(arg model).sdf"/>
+	<!-- 无人机初始位置及偏航角 -->
+	<arg name="uav_init_x" default="0.0"/>
+	<arg name="uav_init_y" default="0.0"/>
+	<arg name="uav_init_z" default="0.15"/>
+	<arg name="uav_init_yaw" default="0.0"/>
+	<arg name="uav_init_pitch" default="0.0"/>
+	<arg name="uav_init_roll" default="0.0"/>
 	<!-- PX4 configs -->
     <arg name="interactive" default="true"/>
     <!-- PX4 SITL -->
 	<arg unless="$(arg interactive)" name="px4_command_arg1" value="-d"/>
     <arg     if="$(arg interactive)" name="px4_command_arg1" value=""/>
+
 	<!-- 节点源文件路径: ~/prometheus_px4/platforms/posix/src/px4/common/main.cpp -->
-	<node name="sitl" pkg="px4" type="px4" output="screen" 
-		args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS $(arg px4_command_arg1)"/>
+	<node pkg="px4" name="sitl" type="px4" output="screen"
+		args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS $(arg px4_command_arg1)">
+	</node>
 
-	<!-- 启动Gazebo -->
-	<!-- Gazebo configs -->
-    <arg name="gui" default="true"/>
-    <arg name="debug" default="false"/>
-    <arg name="verbose" default="false"/>
-    <arg name="paused" default="false"/>
-    <arg name="respawn_gazebo" default="false"/>
-	<arg name="world" default="$(find prometheus_gazebo)/worlds/prometheus_logo.world"/>
-    <!-- Gazebo sim -->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="gui" value="$(arg gui)"/>
-        <arg name="debug" value="$(arg debug)"/>
-        <arg name="verbose" value="$(arg verbose)"/>
-        <arg name="paused" value="$(arg paused)"/>
-        <arg name="respawn_gazebo" value="$(arg respawn_gazebo)"/>
-        <arg name="world_name" value="$(arg world)"/>
-    </include>
-
-	<!-- Spawn vehicle model -->
-	<!-- https://github.com/ros-simulation/gazebo_ros_pkgs/blob/melodic-devel/gazebo_ros/scripts/spawn_model -->
-    <!-- 初始位置 -->
-	<arg name="x" default="0.0"/>
-    <arg name="y" default="0.0"/>
-    <arg name="z" default="0.2"/>
-	<arg name="R" default="0.0"/>
-    <arg name="P" default="0.0"/>
-    <arg name="Y" default="0.0"/>
-	<arg name="sdf" default="$(find prometheus_gazebo)/amov_models/p450/p450.sdf"/>
-	<arg name="model" default="p450"/>
-	<node name="$(anon vehicle_spawn)" pkg="gazebo_ros" type="spawn_model" output="screen" 
-		args="-sdf -file $(arg sdf) -model $(arg model) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)">
+	<!-- 启动Gazebo模型 -->
+	<node pkg="gazebo_ros" name="$(arg model)_spawn" type="spawn_model" output="screen"
+		  args="-sdf -file $(arg sdf) -model $(arg model) -x $(arg uav_init_x) -y $(arg uav_init_y) -z $(arg uav_init_z) -Y $(arg uav_init_yaw)">
 	</node>
 
 	<!-- 启动MAVROS -->
@@ -63,36 +49,15 @@
 		<rosparam command="load" file="$(find prometheus_gazebo)/config/mavros_config/px4_pluginlists.yaml" />
 		<rosparam command="load" file="$(find prometheus_gazebo)/config/mavros_config/px4_config.yaml" />
 	</node>
-	
+
+	<arg name="x" default="0.0"/>
+	<arg name="y" default="-10.0"/>
+	<arg name="z" default="0"/>
+
 	<!-- TF transform -->
 	<include file="$(find prometheus_plan_manage)/launch/tf_transform.launch">
 		<arg name="x" value="$(arg x)"/>
     	<arg name="y" value="$(arg y)"/>
     	<arg name="z" value="$(arg z)"/>
     </include>
-
-	<!-- 启动Prometheus代码 -->
-	<!-- run the px4_pos_estimator.cpp -->
-	<arg name="input_source" default="2"/>
-	<arg name="rate_hz" default="30"/>
-	<node pkg="prometheus_control" type="px4_pos_estimator" name="px4_pos_estimator" output="screen">
-		<!-- 定位数据输入源 0 for vicon， 1 for 激光SLAM, 2 for gazebo ground truth, 3 for T265 -->
-		<param name="input_source" value="$(arg input_source)" />
-		<param name="rate_hz" value="$(arg rate_hz)" />
-		<param name="offset_x" value="$(arg x)" />
-		<param name="offset_y" value="$(arg y)" />
-		<param name="offset_z" value="$(arg z)" />
-	</node>
-	
-	<node pkg="prometheus_control" type="px4_sender" name="px4_sender" output="screen">
-		<rosparam command="load" file="$(find prometheus_gazebo)/config/prometheus_control_config/px4_sender.yaml"/>
-	</node>
-
-	<!-- run the ground_station.cpp -->
-	<node pkg="prometheus_station" type="ground_station" name="ground_station" output="screen" launch-prefix="gnome-terminal --tab --">	
-	</node>
-
-	<!-- run the ground_station_msg.cpp -->
-	<node pkg="prometheus_station" type="ground_station_msg" name="ground_station_msg" output="screen" launch-prefix="gnome-terminal --tab --">	
-	</node>
 </launch>
