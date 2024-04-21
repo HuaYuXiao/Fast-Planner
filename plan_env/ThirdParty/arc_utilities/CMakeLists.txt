@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Wconversio
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs geometry_msgs)
-find_package(cmake_modules REQUIRED)
+#find_package(cmake_modules REQUIRED)
 find_package(Eigen3 REQUIRED)
 set(Eigen3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
 ## System dependencies are found with CMake's conventions
@@ -141,11 +141,15 @@ target_link_libraries(test_arc_utilities ${PROJECT_NAME} ${catkin_LIBRARIES}
 ## Mark library for installation
 install(TARGETS ${PROJECT_NAME}
     ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        ARCHIVE DESTINATION ${PROJECT_SOURCE_DIR}/lib/
     LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        LIBRARY DESTINATION ${PROJECT_SOURCE_DIR}/lib/
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/lib/
 )
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+        DESTINATION ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
     PATTERN ".svn" EXCLUDE
 )
