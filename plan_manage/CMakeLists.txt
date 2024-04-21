@@ -49,9 +49,6 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
-include_directories(${PROJECT_SOURCE_DIR}/../plan_env/ThirdParty/sdf_tools/include)
-include_directories(${PROJECT_SOURCE_DIR}/../plan_env/ThirdParty/arc_utilities/include)
-
 include_directories(
   include
   SYSTEM
@@ -59,8 +56,9 @@ include_directories(
   ${EIGEN3_INCLUDE_DIR}
   ${PCL_INCLUDE_DIRS}
         $ENV{HOME}/Prometheus/Modules/common/include
+        ${PROJECT_SOURCE_DIR}/../plan_env/ThirdParty/arc_utilities/include
+        ${PROJECT_SOURCE_DIR}/../plan_env/ThirdParty/sdf_tools/include
 )
-
 
 add_executable(dyn_planner_node
   src/dyn_planner_node.cpp 
@@ -83,3 +81,7 @@ target_link_libraries(test_planning_static
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
   )
+
+install(DIRECTORY launch
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
