@@ -9,8 +9,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS rospy std_msgs sensor_msgs visualization_msgs image_transport cv_bridge message_generation)
-find_package(cmake_modules REQUIRED)
+find_package(catkin REQUIRED COMPONENTS rospy std_msgs sensor_msgs visualization_msgs image_transport cv_bridge message_generation arc_utilities)
+#find_package(cmake_modules REQUIRED)
 find_package(Eigen3 REQUIRED)
 set(Eigen3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
 find_package(OpenCV REQUIRED)
@@ -18,7 +18,6 @@ find_package(OpenCV REQUIRED)
 find_package(moveit_msgs)
 find_package(moveit_core)
 find_package(moveit_ros_planning)
-#find_package(arc_utilities)
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
 
@@ -49,9 +48,9 @@ generate_messages(DEPENDENCIES geometry_msgs std_msgs)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 if(moveit_core_FOUND)
-    catkin_package(INCLUDE_DIRS include LIBRARIES ${PROJECT_NAME} CATKIN_DEPENDS rospy std_msgs sensor_msgs moveit_core moveit_ros_planning visualization_msgs moveit_msgs image_transport cv_bridge message_runtime DEPENDS Eigen3 OpenCV)
+    catkin_package(INCLUDE_DIRS include LIBRARIES ${PROJECT_NAME} CATKIN_DEPENDS rospy std_msgs sensor_msgs visualization_msgs image_transport cv_bridge message_runtime DEPENDS Eigen3 OpenCV arc_utilities moveit_core moveit_ros_planning moveit_msgs)
 else()
-    catkin_package(INCLUDE_DIRS include LIBRARIES ${PROJECT_NAME} CATKIN_DEPENDS rospy std_msgs sensor_msgs visualization_msgs image_transport cv_bridge message_runtime DEPENDS Eigen3 OpenCV)
+    catkin_package(INCLUDE_DIRS include LIBRARIES ${PROJECT_NAME} CATKIN_DEPENDS rospy std_msgs sensor_msgs visualization_msgs image_transport cv_bridge message_runtime DEPENDS Eigen3 OpenCV arc_utilities)
 endif()
 
 ###########
@@ -65,7 +64,7 @@ include_directories(include
         ${catkin_INCLUDE_DIRS}
         ${Eigen3_INCLUDE_DIRS}
         ${OpenCV_INCLUDE_DIRS}
-#    ${arc_utilities_INCLUDE_DIRS}
+    ${arc_utilities_INCLUDE_DIRS}
         $ENV{HOME}/planner_ws/src/Fast-Planner/plan_env/ThirdParty/arc_utilities/include
 )
 if(moveit_core_FOUND)
@@ -132,13 +131,17 @@ endif()
 
 ## Mark library for installation
 install(TARGETS ${PROJECT_NAME}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   ARCHIVE DESTINATION ${PROJECT_SOURCE_DIR}/lib
+        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
   RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/lib
+        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${PROJECT_SOURCE_DIR}/lib
 )
+
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${PROJECT_SOURCE_DIR}/include/sdf_tools
+        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  DESTINATION ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
   PATTERN ".svn" EXCLUDE
 )
