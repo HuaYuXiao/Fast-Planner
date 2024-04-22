@@ -54,6 +54,13 @@ catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/sdf_tools --bu
 
 check [here](https://github.com/HuaYuXiao/Fast-Planner/plan_env/ThirdParty/sdf_tools/README.md) for details about compilation and installation
 
+### rviz_plugins
+
+```bash
+git clone https://github.com/HuaYuXiao/rviz_plugins.git
+catkin_make install --source src/Utils/rviz_plugins --build build/rviz_plugins
+```
+
 ### prometheus_mission
 
 ```bash
@@ -108,13 +115,7 @@ roslaunch prometheus_plan_manage rviz_static.launch
 * 从rviz输入需要的期望goal, 选择3d navigation, 同时按下鼠标左右键，然后上下移动标记z大小.
 
 
-## 4. 致谢
-
-* 使用 **nlopt**作为非线性优化工具 （位于/ThirdParty）(https://nlopt.readthedocs.io/en/latest/NLopt_Installation)
-* 使用 **sdf_tool**为地图转化工具
-* 参考 **fast-planner** 优化框架
-
-## 5. 说明
+## 4.  说明
 
 * 与控制接口  plan_manage/src/traj_server.cpp  （未完，待补充）
 > msgs/msg/PositionReference.msg

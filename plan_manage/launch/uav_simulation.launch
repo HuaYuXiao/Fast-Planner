@@ -13,9 +13,9 @@
     <!-- 启动octomap建图 -->
     <include file="$(find prometheus_plan_manage)/launch/uav_octomapping.launch"/>
 
-<!--    &lt;!&ndash; 启动导航 &ndash;&gt;-->
+    <!-- 启动导航 -->
     <include file="$(find prometheus_plan_manage)/launch/$(arg planner).launch"/>
 
     <!-- 启动rviz -->
-    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find prometheus_gazebo)/config/rviz_config/rviz_planning.rviz"/>
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find prometheus_plan_manage)/config/$(arg planner).rviz"/>
 </launch>
