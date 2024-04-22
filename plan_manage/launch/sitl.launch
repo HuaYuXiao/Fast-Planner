@@ -14,9 +14,12 @@
 
 	<!-- 无人机ID号 -->
 	<arg name="uav_id" default="1"/>
+	<!-- 使用group标签来对不同的无人机进行分组，因此，不同无人机的话题会带上前缀，如/uav0、/uav1等 -->
+	<arg name="ID" value="$(eval arg('uav_id') - 1)"/>
 	<!-- 无人机仿真模型及对应SDF文件路径 -->
-	<arg name="model" default="p450_3Dlidar"/>
+	<arg name="model" default="p450_D435i"/>
 	<arg name="sdf" default="$(find prometheus_gazebo)/gazebo_models/uav_models/$(arg model)/$(arg model).sdf"/>
+
 	<!-- 无人机初始位置及偏航角 -->
 	<arg name="uav_init_x" default="0.0"/>
 	<arg name="uav_init_y" default="0.0"/>
@@ -24,15 +27,14 @@
 	<arg name="uav_init_yaw" default="0.0"/>
 	<arg name="uav_init_pitch" default="0.0"/>
 	<arg name="uav_init_roll" default="0.0"/>
-	<!-- PX4 configs -->
-    <arg name="interactive" default="true"/>
-    <!-- PX4 SITL -->
-	<arg unless="$(arg interactive)" name="px4_command_arg1" value="-d"/>
-    <arg     if="$(arg interactive)" name="px4_command_arg1" value=""/>
 
-	<!-- 节点源文件路径: ~/prometheus_px4/platforms/posix/src/px4/common/main.cpp -->
+	<!-- 启动PX4 SITL，此处参数配置不可删除 -->
+	<arg name="interactive" default="true"/>
+	<arg unless="$(arg interactive)" name="px4_command_arg1" value=""/>
+	<arg     if="$(arg interactive)" name="px4_command_arg1" value="-d"/>
+
 	<node pkg="px4" name="sitl" type="px4" output="screen"
-		args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS $(arg px4_command_arg1)">
+		  args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS -i $(arg ID) -w sitl_amov_$(arg ID) $(arg px4_command_arg1)">
 	</node>
 
 	<!-- 启动Gazebo模型 -->
@@ -41,23 +43,15 @@
 	</node>
 
 	<!-- 启动MAVROS -->
+	<arg name="udp_offboard_port_remote" value="$(eval 14540 + arg('ID'))"/>
+	<arg name="udp_offboard_port_local" value="$(eval 14580 + arg('ID'))"/>
+
 	<node pkg="mavros" type="mavros_node" name="mavros" output="screen">
-		<param name="fcu_url" value="udp://:14540@localhost:14557" />
+		<param name="fcu_url" value="udp://:$(arg udp_offboard_port_remote)@localhost:$(arg udp_offboard_port_local)"/>
 		<param name="gcs_url" value="" />
-		<param name="target_system_id" value="1" />
+		<param name="target_system_id" value="$(eval 1 + arg('ID'))"/>
 		<param name="target_component_id" value="1" />
-		<rosparam command="load" file="$(find prometheus_gazebo)/config/mavros_config/px4_pluginlists.yaml" />
-		<rosparam command="load" file="$(find prometheus_gazebo)/config/mavros_config/px4_config.yaml" />
+		<rosparam command="load" file="$(find uav_simulation)/config/px4_config_indoor.yaml" />
+		<rosparam command="load" file="$(find uav_simulation)/config/px4_pluginlists_indoor.yaml" />
 	</node>
-
-	<arg name="x" default="0.0"/>
-	<arg name="y" default="-10.0"/>
-	<arg name="z" default="0"/>
-
-	<!-- TF transform -->
-	<include file="$(find prometheus_plan_manage)/launch/tf_transform.launch">
-		<arg name="x" value="$(arg x)"/>
-    	<arg name="y" value="$(arg y)"/>
-    	<arg name="z" value="$(arg z)"/>
-    </include>
 </launch>
