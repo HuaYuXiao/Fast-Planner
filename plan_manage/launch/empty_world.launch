@@ -1,14 +1,12 @@
 <launch>
     <!-- 启动Gazebo -->
     <!-- Gazebo configs -->
-    <arg name="gui" default="true"/>
     <arg name="debug" default="false"/>
     <arg name="verbose" default="false"/>
     <arg name="paused" default="false"/>
     <arg name="respawn_gazebo" default="false"/>
     <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
-    <arg name="world_name" default="$(find prometheus_plan_manage)/world/prometheus_logo.world"/>
-<!--    <arg name="world_name" default="$(find uav_simulation)/world/GFKD.world"/>-->
+    <arg name="world_name" default="$(find prometheus_plan_manage)/world/GFKD.world"/>
     <!-- these are the arguments you can pass this launch file, for example paused:=true -->
     <arg name="use_sim_time" default="true"/>
     <arg name="extra_gazebo_args" default=""/>
@@ -24,17 +22,6 @@
     <arg name="enable_ros_network" default="true" />
     <arg name="server_required" default="false"/>
     <arg name="gui_required" default="false"/>
-    <arg name="sdf" default="$(find prometheus_gazebo)/amov_models/p450/p450.sdf"/>
-    <arg name="model" default="p450"/>
-    <!-- Spawn vehicle model -->
-    <!-- https://github.com/ros-simulation/gazebo_ros_pkgs/blob/melodic-devel/gazebo_ros/scripts/spawn_model -->
-    <!-- 初始位置 -->
-    <arg name="x" default="0.0"/>
-    <arg name="y" default="0.0"/>
-    <arg name="z" default="0.2"/>
-    <arg name="R" default="0.0"/>
-    <arg name="P" default="0.0"/>
-    <arg name="Y" default="0.0"/>
 
     <!-- set use_sim_time flag -->
     <param name="use_sim_time" value="$(arg use_sim_time)"/>
@@ -58,18 +45,12 @@
         <param name="gazebo/enable_ros_network" value="$(arg enable_ros_network)" />
     </group>
 
-<!--    <node pkg="gazebo_ros" name="gazebo" type="$(arg script_type)" respawn="$(arg respawn_gazebo)" output="$(arg output)"-->
-<!--          args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name)"-->
-<!--          required="$(arg server_required)" />-->
-
     <node pkg="gazebo_ros" name="gazebo" type="$(arg script_type)" respawn="$(arg respawn_gazebo)" output="$(arg output)"
           args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name)"
           required="$(arg server_required)">
     </node>
 
     <!-- start gazebo client -->
-    <group if="$(arg gui)">
-        <node pkg="gazebo_ros" name="gazebo_gui" type="gzclient" respawn="false" output="$(arg output)" args="$(arg command_arg3)"
-              required="$(arg gui_required)"/>
-    </group>
+    <node pkg="gazebo_ros" name="gazebo_gui" type="gzclient" respawn="false" output="$(arg output)" args="$(arg command_arg3)"
+          required="$(arg gui_required)"/>
 </launch>

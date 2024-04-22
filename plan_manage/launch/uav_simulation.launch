@@ -11,7 +11,7 @@
     <include file="$(find prometheus_plan_manage)/launch/uav_control_main_indoor.launch"/>
 
     <!-- 启动octomap建图 -->
-    <include file="$(find prometheus_plan_manage)/launch/uav_octomapping.launch"/>
+    <include file="$(find prometheus_plan_manage)/launch/mapping.launch"/>
 
     <!-- 启动导航 -->
     <include file="$(find prometheus_plan_manage)/launch/$(arg planner).launch"/>
