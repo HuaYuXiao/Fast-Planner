@@ -1,0 +1,21 @@
+<launch>
+    <!-- parameter for planner -->
+    <arg name="planner" default="Fast-Planner"/>
+
+    <!-- world -->
+    <include file="$(find prometheus_plan_manage)/launch/empty_world.launch"/>
+
+    <!-- 1号无人机 -->
+    <include file="$(find prometheus_plan_manage)/launch/sitl.launch"/>
+
+    <include file="$(find prometheus_plan_manage)/launch/uav_control_main_indoor.launch"/>
+
+    <!-- 启动octomap建图 -->
+    <include file="$(find prometheus_plan_manage)/launch/uav_octomapping.launch"/>
+
+    <!-- 启动导航 -->
+    <include file="$(find prometheus_plan_manage)/launch/$(arg planner).launch"/>
+
+    <!-- 启动rviz -->
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find prometheus_plan_manage)/config/$(arg planner).rviz"/>
+</launch>

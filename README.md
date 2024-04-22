@@ -19,6 +19,8 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
 
 ## 1. 安装
 
+Before use, make sure you have installed following packages:
+
 ### libboost
 
 suggested version: [1.65.1](https://www.boost.org/users/history/version_1_65_1.html)
@@ -52,6 +54,25 @@ catkin_make install --source src/Fast-Planner/plan_env/ThirdParty/sdf_tools --bu
 
 check [here](https://github.com/HuaYuXiao/Fast-Planner/plan_env/ThirdParty/sdf_tools/README.md) for details about compilation and installation
 
+### rviz_plugins
+
+```bash
+git clone https://github.com/HuaYuXiao/rviz_plugins.git
+catkin_make install --source src/Utils/rviz_plugins --build build/rviz_plugins
+```
+
+### prometheus_mission
+
+```bash
+catkin_make install --source Modules/mission --build build/mission
+```
+
+### prometheus_slam
+
+```bash
+catkin_make install --source Modules/slam --build build/slam
+```
+
 
 ## 2. 编译
 
@@ -76,6 +97,10 @@ catkin_make install --source src/Fast-Planner --build build/Fast-Planner
 * 运行轨迹优化，加载离线地图，等待目标点输入.  
 
 ```bash
+roslaunch prometheus_plan_manage sitl_fast_planning_3dlidar.launch 
+```
+
+```bash
 roslaunch prometheus_plan_manage prometheus_planning_test_static.launch
 ```
 
@@ -90,13 +115,7 @@ roslaunch prometheus_plan_manage rviz_static.launch
 * 从rviz输入需要的期望goal, 选择3d navigation, 同时按下鼠标左右键，然后上下移动标记z大小.
 
 
-## 4. 致谢
-
-* 使用 **nlopt**作为非线性优化工具 （位于/ThirdParty）(https://nlopt.readthedocs.io/en/latest/NLopt_Installation)
-* 使用 **sdf_tool**为地图转化工具
-* 参考 **fast-planner** 优化框架
-
-## 5. 说明
+## 4.  说明
 
 * 与控制接口  plan_manage/src/traj_server.cpp  （未完，待补充）
 > msgs/msg/PositionReference.msg

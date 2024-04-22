@@ -52,7 +52,8 @@ catkin_package(
 include_directories(
   include
   SYSTEM
-  ${catkin_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/include
+  ${catkin_INCLUDE_DIRS}
+        ${PROJECT_SOURCE_DIR}/include
   ${EIGEN3_INCLUDE_DIR}
   ${PCL_INCLUDE_DIRS}
         $ENV{HOME}/Prometheus/Modules/common/include
@@ -71,7 +72,7 @@ target_link_libraries(dyn_planner_node
   )
 
 add_executable(traj_server 
-src/traj_server.cpp)
+  src/traj_server.cpp)
 target_link_libraries(traj_server ${catkin_LIBRARIES})
 add_dependencies(traj_server ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
@@ -81,6 +82,11 @@ target_link_libraries(test_planning_static
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
   )
+
+catkin_install_python(PROGRAMS
+        src/laser_to_pointcloud.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 install(DIRECTORY launch
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
