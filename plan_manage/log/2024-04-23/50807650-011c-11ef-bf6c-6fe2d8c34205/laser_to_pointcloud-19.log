@@ -1,0 +1,19 @@
+[rospy.client][INFO] 2024-04-23 10:51:03,349: init_node, name[/laser_to_pointcloud], pid[7400]
+[xmlrpc][INFO] 2024-04-23 10:51:03,349: XML-RPC server binding to 0.0.0.0:0
+[xmlrpc][INFO] 2024-04-23 10:51:03,350: Started XML-RPC server [http://hyx020222-ThinkBook-14:40573/]
+[rospy.impl.masterslave][INFO] 2024-04-23 10:51:03,350: _ready: http://hyx020222-ThinkBook-14:40573/
+[rospy.init][INFO] 2024-04-23 10:51:03,350: ROS Slave URI: [http://hyx020222-ThinkBook-14:40573/]
+[rospy.registration][INFO] 2024-04-23 10:51:03,350: Registering with master node http://localhost:11311
+[xmlrpc][INFO] 2024-04-23 10:51:03,351: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2024-04-23 10:51:03,451: registered with master
+[rospy.rosout][INFO] 2024-04-23 10:51:03,451: initializing /rosout core topic
+[rospy.rosout][INFO] 2024-04-23 10:51:03,456: connected to core topic /rosout
+[rospy.simtime][INFO] 2024-04-23 10:51:03,458: initializing /clock core topic
+[rospy.simtime][INFO] 2024-04-23 10:51:03,461: connected to core topic /clock
+[rospy.internal][INFO] 2024-04-23 10:51:03,660: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2024-04-23 10:51:08,298: topic[/clock] adding connection to [http://hyx020222-ThinkBook-14:42395/], count 0
+[rospy.core][INFO] 2024-04-23 10:51:54,718: signal_shutdown [signal-2]
+[rospy.internal][INFO] 2024-04-23 10:51:54,721: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2024-04-23 10:51:54,721: topic[/clock] removing connection to http://hyx020222-ThinkBook-14:42395/
+[rospy.impl.masterslave][INFO] 2024-04-23 10:51:54,722: signal-2
+[rospy.core][INFO] 2024-04-23 10:51:55,319: signal_shutdown [atexit]

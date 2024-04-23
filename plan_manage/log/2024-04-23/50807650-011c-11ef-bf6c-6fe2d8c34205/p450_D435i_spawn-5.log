@@ -1,0 +1,22 @@
+[rospy.client][INFO] 2024-04-23 10:51:02,758: init_node, name[/p450_D435i_spawn], pid[7250]
+[xmlrpc][INFO] 2024-04-23 10:51:02,759: XML-RPC server binding to 0.0.0.0:0
+[xmlrpc][INFO] 2024-04-23 10:51:02,759: Started XML-RPC server [http://hyx020222-ThinkBook-14:39783/]
+[rospy.impl.masterslave][INFO] 2024-04-23 10:51:02,759: _ready: http://hyx020222-ThinkBook-14:39783/
+[rospy.init][INFO] 2024-04-23 10:51:02,759: ROS Slave URI: [http://hyx020222-ThinkBook-14:39783/]
+[rospy.registration][INFO] 2024-04-23 10:51:02,760: Registering with master node http://localhost:11311
+[xmlrpc][INFO] 2024-04-23 10:51:02,760: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2024-04-23 10:51:02,860: registered with master
+[rospy.rosout][INFO] 2024-04-23 10:51:02,860: initializing /rosout core topic
+[rospy.rosout][INFO] 2024-04-23 10:51:02,866: connected to core topic /rosout
+[rospy.simtime][INFO] 2024-04-23 10:51:02,867: initializing /clock core topic
+[rospy.simtime][INFO] 2024-04-23 10:51:02,869: connected to core topic /clock
+[rosout][INFO] 2024-04-23 10:51:02,872: Loading model XML from file /home/hyx020222/Prometheus/Simulator/gazebo_simulator/gazebo_models/uav_models/p450_D435i/p450_D435i.sdf
+[rosout][INFO] 2024-04-23 10:51:02,875: Waiting for service /gazebo/spawn_sdf_model
+[rospy.internal][INFO] 2024-04-23 10:51:03,157: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2024-04-23 10:51:07,400: Calling service /gazebo/spawn_sdf_model
+[rospy.internal][INFO] 2024-04-23 10:51:08,315: topic[/clock] adding connection to [http://hyx020222-ThinkBook-14:42395/], count 0
+[rosout][INFO] 2024-04-23 10:51:08,980: Spawn status: SpawnModel: Successfully spawned entity
+[rospy.core][INFO] 2024-04-23 10:51:08,982: signal_shutdown [atexit]
+[rospy.internal][INFO] 2024-04-23 10:51:08,985: topic[/rosout] removing connection to /rosout
+[rospy.internal][INFO] 2024-04-23 10:51:08,986: topic[/clock] removing connection to http://hyx020222-ThinkBook-14:42395/
+[rospy.impl.masterslave][INFO] 2024-04-23 10:51:08,986: atexit
