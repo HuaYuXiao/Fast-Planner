@@ -11,7 +11,7 @@ void PlanningFSM::init(ros::NodeHandle& nh){
   nh.param("bspline/limit_ratio", NonUniformBspline::limit_ratio_, -1.0);
 
   /* ---------- fsm param ---------- */
-  nh.param("fsm/flight_type", flight_type_, -1);
+  nh.param("fsm/flight_type", flight_type_, 1);
   nh.param("fsm/thresh_replan", thresh_replan_, -1.0);
   nh.param("fsm/thresh_no_replan", thresh_no_replan_, -1.0);
   nh.param("fsm/safety_distance", safety_distance, 0.01);
@@ -84,31 +84,31 @@ void PlanningFSM::init(ros::NodeHandle& nh){
 
   /* ---------- callback ---------- */
   // 0.02秒执行一次，50Hz
-  exec_timer_ = node_.createTimer(ros::Duration(0.02), &PlanningFSM::execFSMCallback, this);
+  exec_timer_ = nh.createTimer(ros::Duration(0.02), &PlanningFSM::execFSMCallback, this);
   // 安全检查，4Hz
-  safety_timer_ = node_.createTimer(ros::Duration(0.25), &PlanningFSM::safetyCallback, this);
+  safety_timer_ = nh.createTimer(ros::Duration(0.02), &PlanningFSM::safetyCallback, this);
 
     //【订阅】无人机当前状态
-  drone_state_sub = node_.subscribe<prometheus_msgs::DroneState>("/prometheus/drone_state", 10, &PlanningFSM::drone_state_cb, this);
+  drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>("/prometheus/drone_state", 10, &PlanningFSM::drone_state_cb, this);
   // 订阅目标点
-  waypoint_sub_ = node_.subscribe<geometry_msgs::PoseStamped>("/prometheus/planning/goal", 1, &PlanningFSM::waypointCallback, this);
+  waypoint_sub_ = nh.subscribe<geometry_msgs::PoseStamped>("/prometheus/planning/goal", 1, &PlanningFSM::waypointCallback, this);
   // 订阅开关
-  swith_sub = node_.subscribe<std_msgs::Bool>("/prometheus/switch/fast_planner", 10, &PlanningFSM::switchCallback, this);  
+  swith_sub = nh.subscribe<std_msgs::Bool>("/prometheus/switch/fast_planner", 10, &PlanningFSM::switchCallback, this);  
 
   // 发布重规划
-  replan_pub_ = node_.advertise<std_msgs::Empty>("/prometheus/fast_planning/replan", 10);
+  replan_pub_ = nh.advertise<std_msgs::Empty>("/prometheus/fast_planning/replan", 10);
   // 发布紧急停止指令
-  safety_pub_ = node_.advertise<std_msgs::Int8>("/prometheus/planning/stop_cmd", 10);
+  safety_pub_ = nh.advertise<std_msgs::Int8>("/prometheus/planning/stop_cmd", 10);
   // 发布B样条
-  bspline_pub_ = node_.advertise<prometheus_plan_manage::Bspline>("/prometheus/planning/bspline", 10);
+  bspline_pub_ = nh.advertise<prometheus_plan_manage::Bspline>("/prometheus/planning/bspline", 10);
   // 发布消息
-  message_pub = node_.advertise<prometheus_msgs::Message>("/prometheus/message/fast_planner", 10);
+//  message_pub = nh.advertise<prometheus_msgs::Message>("/prometheus/message/fast_planner", 10);
 
   // ROS_INFO("---planning_fsm: init finished!---");
   trigger_ = true;
 }
 
-    void PlanningFSM::drone_state_cb(const prometheus_msgs::DroneState::ConstPtr& msg){
+    void PlanningFSM::drone_state_cb(const prometheus_msgs::DroneStateConstPtr& msg){
             _DroneState = *msg;
     }
 
@@ -150,7 +150,7 @@ void PlanningFSM::waypointCallback(const geometry_msgs::PoseStampedConstPtr& msg
   cout << "[fsm] Get a new goal: (" << end_pt_(0) << ", " << end_pt_(1) << ", " << end_pt_(2) << ")" << endl;
 
   // 绘制目标点
-  visualization_->drawGoal(end_pt_, 0.3, Eigen::Vector4d(1, 0, 0, 1.0));
+  visualization_->drawGoal(end_pt_, 0.1, Eigen::Vector4d(0, 1, 0, 1.0));
   end_vel_.setZero();
   have_goal_ = true;
 
@@ -203,9 +203,11 @@ void PlanningFSM::execFSMCallback(const ros::TimerEvent& e)
         return;
       }
       if (!edt_env_->odomValid()){
+          cout << "[fsm] edt_env no odom." << endl;
         return;
       }
       if (!edt_env_->mapValid()){
+            cout << "[fsm] edt_env no map." << endl;
         return;
       }
       changeExecState(WAIT_GOAL, "FSM");
@@ -239,7 +241,8 @@ void PlanningFSM::execFSMCallback(const ros::TimerEvent& e)
       bool success = planSearchOpt();
 
       if (success){
-      ROS_INFO("[fsm] plan success");
+//      ROS_INFO("[fsm] plan success");
+        cout << "[fsm] plan success" << endl;
 
         // 若规划成功，则切换为执行轨迹
         changeExecState(EXEC_TRAJ, "FSM");
@@ -320,7 +323,8 @@ void PlanningFSM::execFSMCallback(const ros::TimerEvent& e)
 
 void PlanningFSM::safetyCallback(const ros::TimerEvent& e){
   if (!edt_env_->mapValid()){
-    pub_message(message_pub, prometheus_msgs::Message::NORMAL,  NODE_NAME, "[safety callback] no map.");
+      cout << "[safety callback] no map." << endl;
+//    pub_message(message_pub, prometheus_msgs::Message::NORMAL,  NODE_NAME, "[safety callback] no map.");
     return;
   }
   
