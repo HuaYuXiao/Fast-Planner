@@ -175,13 +175,9 @@ void PlanningFSM::printExecState(){
    cout << "[FSM] state: " + state_str[int(exec_state_)] << endl;
 }
 
-void PlanningFSM::execFSMCallback(const ros::TimerEvent& e)
-{
-  static int fsm_num = 0;
-  fsm_num++;
-  // 2秒打印一次状态
-  if (fsm_num == 100){
+void PlanningFSM::execFSMCallback(const ros::TimerEvent& e){
     printExecState();
+
     if (!trigger_) {
         cout << "[fsm] trigger rejected" << endl;
 //        pub_message(message_pub, prometheus_msgs::Message::NORMAL, NODE_NAME, "[fsm] trigger rejected");
@@ -194,8 +190,6 @@ void PlanningFSM::execFSMCallback(const ros::TimerEvent& e)
         cout << "[fsm] no map." << endl;
 //        pub_message(message_pub, prometheus_msgs::Message::NORMAL, NODE_NAME, "[fsm] no map.");
     }
-    fsm_num = 0;
-  }
 
   switch (exec_state_){
     case INIT:{
