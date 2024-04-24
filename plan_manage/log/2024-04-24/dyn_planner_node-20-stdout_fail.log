@@ -1,0 +1,4208 @@
+origin_: -8 -5  0
+map size: 16 10  3
+resolution: 0.05
+[0m[ INFO] [1713949335.164321147]: global_point_sdf: sub pub finished![0m
+[0m[ INFO] [1713949335.218453317]: global_point_sdf: init sdf_tools finished![0m
+[0m[ INFO] [1713949335.218480938]: --- EDTEnvironment: set global sdf_map finished! ---[0m
+margin:0.4
+origin_: -8 -5  0
+map size: 16 10  3
+lamda1: 10
+lamda2: 0.6
+lamda3: 1e-05
+lamda4: 0.001
+[FSM] state: INIT
+[fsm] no map.
+[FSM] state: INIT
+[fsm] no map.
+[FSM] state: INIT
+[fsm] no map.
+[FSM]: from INIT to WAIT_GOAL
+[fsm] Get a new goal: (-0.950023, -0.0330925, 2.04222)
+[TRIG]: from WAIT_GOAL to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0307513  0.0220846    2.04222,   0.0135158 -0.00752709  -0.0575134, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0307513  0.0220846    2.04222
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0307513  0.0220846    2.04222
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0198495  0.0102095    2.07299, 0.00728285  0.0049582 -0.0769127, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0198495  0.0102095    2.07299
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0198495  0.0102095    2.07299
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0204794  0.0102082     2.0734, 0.00810723  0.0057448  -0.078527, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0204794  0.0102082     2.0734
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0204794  0.0102082     2.0734
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0364272 -0.0104493    2.06956,  0.0209443  0.0158015 -0.0783279, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0364272 -0.0104493    2.06956
+time: 0
+dist: 0.25
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0364272 -0.0104493    2.06956
+time: 0
+dist: 0.25
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0508859  0.0377849    2.03762,  0.0410724 -0.0196296 -0.0406118, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0508859  0.0377849    2.03762
+time: 0
+dist: 0.320156
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0508859  0.0377849    2.03762
+time: 0
+dist: 0.320156
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)   -0.0147 0.0674174   2.02499,  0.0225685 -0.0591052 -0.0230764, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos:   -0.0147 0.0674174   2.02499
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos:   -0.0147 0.0674174   2.02499
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00978845   0.0715608     2.02499,   0.010983 -0.0496904 -0.0211884, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.00978845   0.0715608     2.02499
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.00978845   0.0715608     2.02499
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00132763   0.0891045     2.03026,  0.0221273 -0.0525096 -0.0321995, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.00132763   0.0891045     2.03026
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.00132763   0.0891045     2.03026
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0123307  0.0543575    2.01486,  0.0123647 -0.0505282 -0.0126007, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0123307  0.0543575    2.01486
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0123307  0.0543575    2.01486
+time: 0
+dist: 0.33541
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00720581   0.0138468     2.01132, -0.00485366  -0.0233712  -0.0111233, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.00720581   0.0138468     2.01132
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.00720581   0.0138468     2.01132
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00378159  0.00895057     2.01477, -0.0077196 -0.0168125 -0.0101534, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.00378159  0.00895057     2.01477
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.00378159  0.00895057     2.01477
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  0.0477553 -0.0369727    2.01786, -0.0301296  0.0193242 -0.0203402, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos:  0.0477553 -0.0369727    2.01786
+time: 0
+dist: 0.223607
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos:  0.0477553 -0.0369727    2.01786
+time: 0
+dist: 0.223607
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  0.0481358 -0.0381125    2.01748, -0.0308092  0.0124712 -0.0191302, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos:  0.0481358 -0.0381125    2.01748
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos:  0.0481358 -0.0381125    2.01748
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)   0.016143 -0.0271104    1.99628,  -0.012004   0.011633 0.00612687, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos:   0.016143 -0.0271104    1.99628
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos:   0.016143 -0.0271104    1.99628
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  -0.0064116 -0.00597073     1.98361, 0.000857452 -0.00191332   0.0115809, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos:  -0.0064116 -0.00597073     1.98361
+time: 0
+dist: 0.212132
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos:  -0.0064116 -0.00597073     1.98361
+time: 0
+dist: 0.212132
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0350644  0.0104169    1.98861,   0.0252367 -0.00339211   0.0114992, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0350644  0.0104169    1.98861
+time: 0
+dist: 0.25
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0350644  0.0104169    1.98861
+time: 0
+dist: 0.25
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0355659 0.00843361    1.99073,   0.0230401 -0.00322814   0.0109546, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0355659 0.00843361    1.99073
+time: 0
+dist: 0.25
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0355659 0.00843361    1.99073
+time: 0
+dist: 0.25
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0425371 -0.0129669    1.99985,   0.031776  0.0164582 0.00359357, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0425371 -0.0129669    1.99985
+time: 0
+dist: 0.212132
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0425371 -0.0129669    1.99985
+time: 0
+dist: 0.212132
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[FSM] state: GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0299908  -0.067251    2.00711,   0.0186976   0.0447602 -0.00324066, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0299908  -0.067251    2.00711
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0299908  -0.067251    2.00711
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0301015 -0.0667003    2.00673,   0.0163558   0.0436569 -0.00724653, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.0301015 -0.0667003    2.00673
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.0301015 -0.0667003    2.00673
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00396913  -0.0715583     2.00265, -0.00224641   0.0474389 -0.00613114, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.00396913  -0.0715583     2.00265
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.00396913  -0.0715583     2.00265
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00398302  -0.0729389     2.00332, 0.000377371   0.0431627 -0.00157663, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: -0.00398302  -0.0729389     2.00332
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: -0.00398302  -0.0729389     2.00332
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) 0.00619933 -0.0584029    2.01339, 0.000530147   0.0554907  -0.0100467, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos: 0.00619933 -0.0584029    2.01339
+time: 0
+dist: 0.141421
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos: 0.00619933 -0.0584029    2.01339
+time: 0
+dist: 0.141421
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  0.0212357 -0.0483967    2.02876, -0.00653048   0.0513825  -0.0308341, 0 0 0
+goal: -0.950023 -0.0330925    2.04222, 0 0 0
+cur pos:  0.0212357 -0.0483967    2.02876
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: init search fail!
+cur pos:  0.0212357 -0.0483967    2.02876
+time: 0
+dist: 0.180278
+[Kino Astar]: near end.
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[fsm] Get a new goal: (6.67178, 1.00381, 2.05159)
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00810777   0.0110569     2.05159, -0.0027356 0.00147183 -0.0493067, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos: -0.00810777   0.0110569     2.05159
+time: 0
+dist: 0.25
+A star pos: [-0.008162,  0.011086,  2.050606]
+collision
+A star pos: [-0.008217,  0.011116,  2.049620]
+collision
+A star pos: [-0.008272,  0.011145,  2.048634]
+collision
+A star pos: [-0.008327,  0.011175,  2.047648]
+collision
+A star pos: [-0.008381,  0.011204,  2.046662]
+collision
+A star pos: [-0.008436,  0.011234,  2.045676]
+collision
+A star pos: [-0.008491,  0.011263,  2.044689]
+collision
+A star pos: [-0.008545,  0.011292,  2.043703]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: -0.00810777   0.0110569     2.05159
+time: 0
+dist: 0.25
+A star pos: [-0.014945,  0.004892,  2.040503]
+collision
+A star pos: [-0.014945,  0.004892,  2.042103]
+collision
+A star pos: [-0.014945,  0.004892,  2.043703]
+collision
+A star pos: [-0.014945,  0.004892,  2.045303]
+collision
+A star pos: [-0.014945,  0.004892,  2.046903]
+collision
+A star pos: [-0.014945,  0.008092,  2.040503]
+collision
+A star pos: [-0.014945,  0.008092,  2.042103]
+collision
+A star pos: [-0.014945,  0.008092,  2.043703]
+collision
+A star pos: [-0.014945,  0.008092,  2.045303]
+collision
+A star pos: [-0.014945,  0.008092,  2.046903]
+collision
+A star pos: [-0.014945,  0.011292,  2.040503]
+collision
+A star pos: [-0.014945,  0.011292,  2.042103]
+collision
+A star pos: [-0.014945,  0.011292,  2.043703]
+collision
+A star pos: [-0.014945,  0.011292,  2.045303]
+collision
+A star pos: [-0.014945,  0.011292,  2.046903]
+collision
+A star pos: [-0.014945,  0.014492,  2.040503]
+collision
+A star pos: [-0.014945,  0.014492,  2.042103]
+collision
+A star pos: [-0.014945,  0.014492,  2.043703]
+collision
+A star pos: [-0.014945,  0.014492,  2.045303]
+collision
+A star pos: [-0.014945,  0.014492,  2.046903]
+collision
+A star pos: [-0.014945,  0.017692,  2.040503]
+collision
+A star pos: [-0.014945,  0.017692,  2.042103]
+collision
+A star pos: [-0.014945,  0.017692,  2.043703]
+collision
+A star pos: [-0.014945,  0.017692,  2.045303]
+collision
+A star pos: [-0.014945,  0.017692,  2.046903]
+collision
+A star pos: [-0.011745,  0.004892,  2.040503]
+collision
+A star pos: [-0.011745,  0.004892,  2.042103]
+collision
+A star pos: [-0.011745,  0.004892,  2.043703]
+collision
+A star pos: [-0.011745,  0.004892,  2.045303]
+collision
+A star pos: [-0.011745,  0.004892,  2.046903]
+collision
+A star pos: [-0.011745,  0.008092,  2.040503]
+collision
+A star pos: [-0.011745,  0.008092,  2.042103]
+collision
+A star pos: [-0.011745,  0.008092,  2.043703]
+collision
+A star pos: [-0.011745,  0.008092,  2.045303]
+collision
+A star pos: [-0.011745,  0.008092,  2.046903]
+collision
+A star pos: [-0.011745,  0.011292,  2.040503]
+collision
+A star pos: [-0.011745,  0.011292,  2.042103]
+collision
+A star pos: [-0.011745,  0.011292,  2.043703]
+collision
+A star pos: [-0.011745,  0.011292,  2.045303]
+collision
+A star pos: [-0.011745,  0.011292,  2.046903]
+collision
+A star pos: [-0.011745,  0.014492,  2.040503]
+collision
+A star pos: [-0.011745,  0.014492,  2.042103]
+collision
+A star pos: [-0.011745,  0.014492,  2.043703]
+collision
+A star pos: [-0.011745,  0.014492,  2.045303]
+collision
+A star pos: [-0.011745,  0.014492,  2.046903]
+collision
+A star pos: [-0.011745,  0.017692,  2.040503]
+collision
+A star pos: [-0.011745,  0.017692,  2.042103]
+collision
+A star pos: [-0.011745,  0.017692,  2.043703]
+collision
+A star pos: [-0.011745,  0.017692,  2.045303]
+collision
+A star pos: [-0.011745,  0.017692,  2.046903]
+collision
+A star pos: [-0.008545,  0.004892,  2.040503]
+collision
+A star pos: [-0.008545,  0.004892,  2.042103]
+collision
+A star pos: [-0.008545,  0.004892,  2.043703]
+collision
+A star pos: [-0.008545,  0.004892,  2.045303]
+collision
+A star pos: [-0.008545,  0.004892,  2.046903]
+collision
+A star pos: [-0.008545,  0.008092,  2.040503]
+collision
+A star pos: [-0.008545,  0.008092,  2.042103]
+collision
+A star pos: [-0.008545,  0.008092,  2.043703]
+collision
+A star pos: [-0.008545,  0.008092,  2.045303]
+collision
+A star pos: [-0.008545,  0.008092,  2.046903]
+collision
+A star pos: [-0.008545,  0.011292,  2.040503]
+collision
+A star pos: [-0.008545,  0.011292,  2.042103]
+collision
+A star pos: [-0.008545,  0.011292,  2.043703]
+collision
+A star pos: [-0.008545,  0.014492,  2.040503]
+collision
+A star pos: [-0.008545,  0.014492,  2.042103]
+collision
+A star pos: [-0.008545,  0.014492,  2.043703]
+collision
+A star pos: [-0.008545,  0.014492,  2.045303]
+collision
+A star pos: [-0.008545,  0.014492,  2.046903]
+collision
+A star pos: [-0.008545,  0.017692,  2.040503]
+collision
+A star pos: [-0.008545,  0.017692,  2.042103]
+collision
+A star pos: [-0.008545,  0.017692,  2.043703]
+collision
+A star pos: [-0.008545,  0.017692,  2.045303]
+collision
+A star pos: [-0.008545,  0.017692,  2.046903]
+collision
+A star pos: [-0.005345,  0.004892,  2.040503]
+collision
+A star pos: [-0.005345,  0.004892,  2.042103]
+collision
+A star pos: [-0.005345,  0.004892,  2.043703]
+collision
+A star pos: [-0.005345,  0.004892,  2.045303]
+collision
+A star pos: [-0.005345,  0.004892,  2.046903]
+collision
+A star pos: [-0.005345,  0.008092,  2.040503]
+collision
+A star pos: [-0.005345,  0.008092,  2.042103]
+collision
+A star pos: [-0.005345,  0.008092,  2.043703]
+collision
+A star pos: [-0.005345,  0.008092,  2.045303]
+collision
+A star pos: [-0.005345,  0.008092,  2.046903]
+collision
+A star pos: [-0.005345,  0.011292,  2.040503]
+collision
+A star pos: [-0.005345,  0.011292,  2.042103]
+collision
+A star pos: [-0.005345,  0.011292,  2.043703]
+collision
+A star pos: [-0.005345,  0.011292,  2.045303]
+collision
+A star pos: [-0.005345,  0.011292,  2.046903]
+collision
+A star pos: [-0.005345,  0.014492,  2.040503]
+collision
+A star pos: [-0.005345,  0.014492,  2.042103]
+collision
+A star pos: [-0.005345,  0.014492,  2.043703]
+collision
+A star pos: [-0.005345,  0.014492,  2.045303]
+collision
+A star pos: [-0.005345,  0.014492,  2.046903]
+collision
+A star pos: [-0.005345,  0.017692,  2.040503]
+collision
+A star pos: [-0.005345,  0.017692,  2.042103]
+collision
+A star pos: [-0.005345,  0.017692,  2.043703]
+collision
+A star pos: [-0.005345,  0.017692,  2.045303]
+collision
+A star pos: [-0.005345,  0.017692,  2.046903]
+collision
+A star pos: [-0.002145,  0.004892,  2.040503]
+collision
+A star pos: [-0.002145,  0.004892,  2.042103]
+collision
+A star pos: [-0.002145,  0.004892,  2.043703]
+collision
+A star pos: [-0.002145,  0.004892,  2.045303]
+collision
+A star pos: [-0.002145,  0.004892,  2.046903]
+collision
+A star pos: [-0.002145,  0.008092,  2.040503]
+collision
+A star pos: [-0.002145,  0.008092,  2.042103]
+collision
+A star pos: [-0.002145,  0.008092,  2.043703]
+collision
+A star pos: [-0.002145,  0.008092,  2.045303]
+collision
+A star pos: [-0.002145,  0.008092,  2.046903]
+collision
+A star pos: [-0.002145,  0.011292,  2.040503]
+collision
+A star pos: [-0.002145,  0.011292,  2.042103]
+collision
+A star pos: [-0.002145,  0.011292,  2.043703]
+collision
+A star pos: [-0.002145,  0.011292,  2.045303]
+collision
+A star pos: [-0.002145,  0.011292,  2.046903]
+collision
+A star pos: [-0.002145,  0.014492,  2.040503]
+collision
+A star pos: [-0.002145,  0.014492,  2.042103]
+collision
+A star pos: [-0.002145,  0.014492,  2.043703]
+collision
+A star pos: [-0.002145,  0.014492,  2.045303]
+collision
+A star pos: [-0.002145,  0.014492,  2.046903]
+collision
+A star pos: [-0.002145,  0.017692,  2.040503]
+collision
+A star pos: [-0.002145,  0.017692,  2.042103]
+collision
+A star pos: [-0.002145,  0.017692,  2.043703]
+collision
+A star pos: [-0.002145,  0.017692,  2.045303]
+collision
+A star pos: [-0.002145,  0.017692,  2.046903]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0193606  0.0363602     2.0358, 0.00825403 -0.0247944 -0.0326773, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos: -0.0193606  0.0363602     2.0358
+time: 0
+dist: 0.25
+open set empty, no path!
+[planner]: init search fail!
+cur pos: -0.0193606  0.0363602     2.0358
+time: 0
+dist: 0.25
+A star pos: [-0.024440,  0.025993,  2.027372]
+collision
+A star pos: [-0.024440,  0.025993,  2.028972]
+collision
+A star pos: [-0.024440,  0.025993,  2.030572]
+collision
+A star pos: [-0.024440,  0.025993,  2.032172]
+collision
+A star pos: [-0.024440,  0.025993,  2.033772]
+collision
+A star pos: [-0.024440,  0.029193,  2.027372]
+collision
+A star pos: [-0.024440,  0.029193,  2.028972]
+collision
+A star pos: [-0.024440,  0.029193,  2.030572]
+collision
+A star pos: [-0.024440,  0.029193,  2.032172]
+collision
+A star pos: [-0.024440,  0.029193,  2.033772]
+collision
+A star pos: [-0.024440,  0.032393,  2.027372]
+collision
+A star pos: [-0.024440,  0.032393,  2.028972]
+collision
+A star pos: [-0.024440,  0.032393,  2.030572]
+collision
+A star pos: [-0.024440,  0.032393,  2.032172]
+collision
+A star pos: [-0.024440,  0.032393,  2.033772]
+collision
+A star pos: [-0.024440,  0.035593,  2.027372]
+collision
+A star pos: [-0.024440,  0.035593,  2.028972]
+collision
+A star pos: [-0.024440,  0.035593,  2.030572]
+collision
+A star pos: [-0.024440,  0.035593,  2.032172]
+collision
+A star pos: [-0.024440,  0.035593,  2.033772]
+collision
+A star pos: [-0.024440,  0.038793,  2.027372]
+collision
+A star pos: [-0.024440,  0.038793,  2.028972]
+collision
+A star pos: [-0.024440,  0.038793,  2.030572]
+collision
+A star pos: [-0.024440,  0.038793,  2.032172]
+collision
+A star pos: [-0.024440,  0.038793,  2.033772]
+collision
+A star pos: [-0.021240,  0.025993,  2.027372]
+collision
+A star pos: [-0.021240,  0.025993,  2.028972]
+collision
+A star pos: [-0.021240,  0.025993,  2.030572]
+collision
+A star pos: [-0.021240,  0.025993,  2.032172]
+collision
+A star pos: [-0.021240,  0.025993,  2.033772]
+collision
+A star pos: [-0.021240,  0.029193,  2.027372]
+collision
+A star pos: [-0.021240,  0.029193,  2.028972]
+collision
+A star pos: [-0.021240,  0.029193,  2.030572]
+collision
+A star pos: [-0.021240,  0.029193,  2.032172]
+collision
+A star pos: [-0.021240,  0.029193,  2.033772]
+collision
+A star pos: [-0.021240,  0.032393,  2.027372]
+collision
+A star pos: [-0.021240,  0.032393,  2.028972]
+collision
+A star pos: [-0.021240,  0.032393,  2.030572]
+collision
+A star pos: [-0.021240,  0.032393,  2.032172]
+collision
+A star pos: [-0.021240,  0.032393,  2.033772]
+collision
+A star pos: [-0.021240,  0.035593,  2.027372]
+collision
+A star pos: [-0.021240,  0.035593,  2.028972]
+collision
+A star pos: [-0.021240,  0.035593,  2.030572]
+collision
+A star pos: [-0.021240,  0.035593,  2.032172]
+collision
+A star pos: [-0.021240,  0.035593,  2.033772]
+collision
+A star pos: [-0.021240,  0.038793,  2.027372]
+collision
+A star pos: [-0.021240,  0.038793,  2.028972]
+collision
+A star pos: [-0.021240,  0.038793,  2.030572]
+collision
+A star pos: [-0.021240,  0.038793,  2.032172]
+collision
+A star pos: [-0.021240,  0.038793,  2.033772]
+collision
+A star pos: [-0.018040,  0.025993,  2.027372]
+collision
+A star pos: [-0.018040,  0.025993,  2.028972]
+collision
+A star pos: [-0.018040,  0.025993,  2.030572]
+collision
+A star pos: [-0.018040,  0.025993,  2.032172]
+collision
+A star pos: [-0.018040,  0.025993,  2.033772]
+collision
+A star pos: [-0.018040,  0.029193,  2.027372]
+collision
+A star pos: [-0.018040,  0.029193,  2.028972]
+collision
+A star pos: [-0.018040,  0.029193,  2.030572]
+collision
+A star pos: [-0.018040,  0.029193,  2.032172]
+collision
+A star pos: [-0.018040,  0.029193,  2.033772]
+collision
+A star pos: [-0.018040,  0.032393,  2.027372]
+collision
+A star pos: [-0.018040,  0.032393,  2.028972]
+collision
+A star pos: [-0.018040,  0.032393,  2.033772]
+collision
+A star pos: [-0.018040,  0.035593,  2.027372]
+collision
+A star pos: [-0.018040,  0.035593,  2.028972]
+collision
+A star pos: [-0.018040,  0.035593,  2.030572]
+collision
+A star pos: [-0.018040,  0.035593,  2.032172]
+collision
+A star pos: [-0.018040,  0.035593,  2.033772]
+collision
+A star pos: [-0.018040,  0.038793,  2.027372]
+collision
+A star pos: [-0.018040,  0.038793,  2.028972]
+collision
+A star pos: [-0.018040,  0.038793,  2.030572]
+collision
+A star pos: [-0.018040,  0.038793,  2.032172]
+collision
+A star pos: [-0.018040,  0.038793,  2.033772]
+collision
+A star pos: [-0.014840,  0.025993,  2.027372]
+collision
+A star pos: [-0.014840,  0.025993,  2.028972]
+collision
+A star pos: [-0.014840,  0.025993,  2.030572]
+collision
+A star pos: [-0.014840,  0.025993,  2.032172]
+collision
+A star pos: [-0.014840,  0.025993,  2.033772]
+collision
+A star pos: [-0.014840,  0.029193,  2.027372]
+collision
+A star pos: [-0.014840,  0.029193,  2.028972]
+collision
+A star pos: [-0.014840,  0.029193,  2.030572]
+collision
+A star pos: [-0.014840,  0.029193,  2.032172]
+collision
+A star pos: [-0.014840,  0.029193,  2.033772]
+collision
+A star pos: [-0.014840,  0.032393,  2.027372]
+collision
+A star pos: [-0.014840,  0.032393,  2.028972]
+collision
+A star pos: [-0.014840,  0.032393,  2.030572]
+collision
+A star pos: [-0.014840,  0.032393,  2.032172]
+collision
+A star pos: [-0.014840,  0.032393,  2.033772]
+collision
+A star pos: [-0.014840,  0.035593,  2.027372]
+collision
+A star pos: [-0.014840,  0.035593,  2.028972]
+collision
+A star pos: [-0.014840,  0.035593,  2.030572]
+collision
+A star pos: [-0.014840,  0.035593,  2.032172]
+collision
+A star pos: [-0.014840,  0.035593,  2.033772]
+collision
+A star pos: [-0.014840,  0.038793,  2.027372]
+collision
+A star pos: [-0.014840,  0.038793,  2.028972]
+collision
+A star pos: [-0.014840,  0.038793,  2.030572]
+collision
+A star pos: [-0.014840,  0.038793,  2.032172]
+collision
+A star pos: [-0.014840,  0.038793,  2.033772]
+collision
+A star pos: [-0.011640,  0.025993,  2.027372]
+collision
+A star pos: [-0.011640,  0.025993,  2.028972]
+collision
+A star pos: [-0.011640,  0.025993,  2.030572]
+collision
+A star pos: [-0.011640,  0.025993,  2.032172]
+collision
+A star pos: [-0.011640,  0.025993,  2.033772]
+collision
+A star pos: [-0.011640,  0.029193,  2.027372]
+collision
+A star pos: [-0.011640,  0.029193,  2.028972]
+collision
+A star pos: [-0.011640,  0.029193,  2.030572]
+collision
+A star pos: [-0.011640,  0.029193,  2.032172]
+collision
+A star pos: [-0.011640,  0.029193,  2.033772]
+collision
+A star pos: [-0.011640,  0.032393,  2.027372]
+collision
+A star pos: [-0.011640,  0.032393,  2.028972]
+collision
+A star pos: [-0.011640,  0.032393,  2.030572]
+collision
+A star pos: [-0.011640,  0.032393,  2.032172]
+collision
+A star pos: [-0.011640,  0.032393,  2.033772]
+collision
+A star pos: [-0.011640,  0.035593,  2.027372]
+collision
+A star pos: [-0.011640,  0.035593,  2.028972]
+collision
+A star pos: [-0.011640,  0.035593,  2.030572]
+collision
+A star pos: [-0.011640,  0.035593,  2.032172]
+collision
+A star pos: [-0.011640,  0.035593,  2.033772]
+collision
+A star pos: [-0.011640,  0.038793,  2.027372]
+collision
+A star pos: [-0.011640,  0.038793,  2.028972]
+collision
+A star pos: [-0.011640,  0.038793,  2.030572]
+collision
+A star pos: [-0.011640,  0.038793,  2.032172]
+collision
+A star pos: [-0.011640,  0.038793,  2.033772]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0151502  0.0544536    2.01481, 0.00316124 -0.0342485  -0.020463, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos: -0.0151502  0.0544536    2.01481
+time: 0
+dist: 0.291548
+A star pos: [-0.015024,  0.053084,  2.013994]
+collision
+A star pos: [-0.014961,  0.052399,  2.013585]
+collision
+A star pos: [-0.014897,  0.051714,  2.013176]
+collision
+A star pos: [-0.014834,  0.051029,  2.012767]
+collision
+A star pos: [-0.014771,  0.050344,  2.012357]
+collision
+A star pos: [-0.014708,  0.049659,  2.011948]
+collision
+A star pos: [-0.014644,  0.048974,  2.011539]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: -0.0151502  0.0544536    2.01481
+time: 0
+dist: 0.291548
+A star pos: [-0.021044,  0.042574,  2.008339]
+collision
+A star pos: [-0.021044,  0.042574,  2.009939]
+collision
+A star pos: [-0.021044,  0.042574,  2.011539]
+collision
+A star pos: [-0.021044,  0.042574,  2.013139]
+collision
+A star pos: [-0.021044,  0.042574,  2.014739]
+collision
+A star pos: [-0.021044,  0.045774,  2.008339]
+collision
+A star pos: [-0.021044,  0.045774,  2.009939]
+collision
+A star pos: [-0.021044,  0.045774,  2.011539]
+collision
+A star pos: [-0.021044,  0.045774,  2.013139]
+collision
+A star pos: [-0.021044,  0.045774,  2.014739]
+collision
+A star pos: [-0.021044,  0.048974,  2.008339]
+collision
+A star pos: [-0.021044,  0.048974,  2.009939]
+collision
+A star pos: [-0.021044,  0.048974,  2.011539]
+collision
+A star pos: [-0.021044,  0.048974,  2.013139]
+collision
+A star pos: [-0.021044,  0.048974,  2.014739]
+collision
+A star pos: [-0.021044,  0.052174,  2.008339]
+collision
+A star pos: [-0.021044,  0.052174,  2.009939]
+collision
+A star pos: [-0.021044,  0.052174,  2.011539]
+collision
+A star pos: [-0.021044,  0.052174,  2.013139]
+collision
+A star pos: [-0.021044,  0.052174,  2.014739]
+collision
+A star pos: [-0.021044,  0.055374,  2.008339]
+collision
+A star pos: [-0.021044,  0.055374,  2.009939]
+collision
+A star pos: [-0.021044,  0.055374,  2.011539]
+collision
+A star pos: [-0.021044,  0.055374,  2.013139]
+collision
+A star pos: [-0.021044,  0.055374,  2.014739]
+collision
+A star pos: [-0.017844,  0.042574,  2.008339]
+collision
+A star pos: [-0.017844,  0.042574,  2.009939]
+collision
+A star pos: [-0.017844,  0.042574,  2.011539]
+collision
+A star pos: [-0.017844,  0.042574,  2.013139]
+collision
+A star pos: [-0.017844,  0.042574,  2.014739]
+collision
+A star pos: [-0.017844,  0.045774,  2.008339]
+collision
+A star pos: [-0.017844,  0.045774,  2.009939]
+collision
+A star pos: [-0.017844,  0.045774,  2.011539]
+collision
+A star pos: [-0.017844,  0.045774,  2.013139]
+collision
+A star pos: [-0.017844,  0.045774,  2.014739]
+collision
+A star pos: [-0.017844,  0.048974,  2.008339]
+collision
+A star pos: [-0.017844,  0.048974,  2.009939]
+collision
+A star pos: [-0.017844,  0.048974,  2.011539]
+collision
+A star pos: [-0.017844,  0.048974,  2.013139]
+collision
+A star pos: [-0.017844,  0.048974,  2.014739]
+collision
+A star pos: [-0.017844,  0.052174,  2.008339]
+collision
+A star pos: [-0.017844,  0.052174,  2.009939]
+collision
+A star pos: [-0.017844,  0.052174,  2.011539]
+collision
+A star pos: [-0.017844,  0.052174,  2.013139]
+collision
+A star pos: [-0.017844,  0.052174,  2.014739]
+collision
+A star pos: [-0.017844,  0.055374,  2.008339]
+collision
+A star pos: [-0.017844,  0.055374,  2.009939]
+collision
+A star pos: [-0.017844,  0.055374,  2.011539]
+collision
+A star pos: [-0.017844,  0.055374,  2.013139]
+collision
+A star pos: [-0.017844,  0.055374,  2.014739]
+collision
+A star pos: [-0.014644,  0.042574,  2.008339]
+collision
+A star pos: [-0.014644,  0.042574,  2.009939]
+collision
+A star pos: [-0.014644,  0.042574,  2.011539]
+collision
+A star pos: [-0.014644,  0.042574,  2.013139]
+collision
+A star pos: [-0.014644,  0.042574,  2.014739]
+collision
+A star pos: [-0.014644,  0.045774,  2.008339]
+collision
+A star pos: [-0.014644,  0.045774,  2.009939]
+collision
+A star pos: [-0.014644,  0.045774,  2.011539]
+collision
+A star pos: [-0.014644,  0.045774,  2.013139]
+collision
+A star pos: [-0.014644,  0.045774,  2.014739]
+collision
+A star pos: [-0.014644,  0.048974,  2.008339]
+collision
+A star pos: [-0.014644,  0.048974,  2.009939]
+collision
+A star pos: [-0.014644,  0.048974,  2.011539]
+collision
+A star pos: [-0.014644,  0.048974,  2.013139]
+collision
+A star pos: [-0.014644,  0.048974,  2.014739]
+collision
+A star pos: [-0.014644,  0.052174,  2.008339]
+collision
+A star pos: [-0.014644,  0.052174,  2.009939]
+collision
+A star pos: [-0.014644,  0.052174,  2.011539]
+collision
+A star pos: [-0.014644,  0.052174,  2.013139]
+collision
+A star pos: [-0.014644,  0.052174,  2.014739]
+collision
+A star pos: [-0.014644,  0.055374,  2.008339]
+collision
+A star pos: [-0.014644,  0.055374,  2.009939]
+collision
+A star pos: [-0.014644,  0.055374,  2.011539]
+collision
+A star pos: [-0.014644,  0.055374,  2.013139]
+collision
+A star pos: [-0.014644,  0.055374,  2.014739]
+collision
+A star pos: [-0.011444,  0.042574,  2.008339]
+collision
+A star pos: [-0.011444,  0.042574,  2.009939]
+collision
+A star pos: [-0.011444,  0.042574,  2.011539]
+collision
+A star pos: [-0.011444,  0.042574,  2.013139]
+collision
+A star pos: [-0.011444,  0.042574,  2.014739]
+collision
+A star pos: [-0.011444,  0.045774,  2.008339]
+collision
+A star pos: [-0.011444,  0.045774,  2.009939]
+collision
+A star pos: [-0.011444,  0.045774,  2.011539]
+collision
+A star pos: [-0.011444,  0.045774,  2.013139]
+collision
+A star pos: [-0.011444,  0.045774,  2.014739]
+collision
+A star pos: [-0.011444,  0.048974,  2.008339]
+collision
+A star pos: [-0.011444,  0.048974,  2.009939]
+collision
+A star pos: [-0.011444,  0.048974,  2.011539]
+collision
+A star pos: [-0.011444,  0.048974,  2.013139]
+collision
+A star pos: [-0.011444,  0.048974,  2.014739]
+collision
+A star pos: [-0.011444,  0.052174,  2.008339]
+collision
+A star pos: [-0.011444,  0.052174,  2.009939]
+collision
+A star pos: [-0.011444,  0.052174,  2.011539]
+collision
+A star pos: [-0.011444,  0.052174,  2.013139]
+collision
+A star pos: [-0.011444,  0.052174,  2.014739]
+collision
+A star pos: [-0.011444,  0.055374,  2.008339]
+collision
+A star pos: [-0.011444,  0.055374,  2.009939]
+collision
+A star pos: [-0.011444,  0.055374,  2.011539]
+collision
+A star pos: [-0.011444,  0.055374,  2.013139]
+collision
+A star pos: [-0.011444,  0.055374,  2.014739]
+collision
+A star pos: [-0.008244,  0.042574,  2.008339]
+collision
+A star pos: [-0.008244,  0.042574,  2.009939]
+collision
+A star pos: [-0.008244,  0.042574,  2.011539]
+collision
+A star pos: [-0.008244,  0.042574,  2.013139]
+collision
+A star pos: [-0.008244,  0.042574,  2.014739]
+collision
+A star pos: [-0.008244,  0.045774,  2.008339]
+collision
+A star pos: [-0.008244,  0.045774,  2.009939]
+collision
+A star pos: [-0.008244,  0.045774,  2.011539]
+collision
+A star pos: [-0.008244,  0.045774,  2.013139]
+collision
+A star pos: [-0.008244,  0.045774,  2.014739]
+collision
+A star pos: [-0.008244,  0.048974,  2.008339]
+collision
+A star pos: [-0.008244,  0.048974,  2.009939]
+collision
+A star pos: [-0.008244,  0.048974,  2.011539]
+collision
+A star pos: [-0.008244,  0.048974,  2.013139]
+collision
+A star pos: [-0.008244,  0.048974,  2.014739]
+collision
+A star pos: [-0.008244,  0.052174,  2.008339]
+collision
+A star pos: [-0.008244,  0.052174,  2.009939]
+collision
+A star pos: [-0.008244,  0.052174,  2.011539]
+collision
+A star pos: [-0.008244,  0.052174,  2.013139]
+collision
+A star pos: [-0.008244,  0.052174,  2.014739]
+collision
+A star pos: [-0.008244,  0.055374,  2.008339]
+collision
+A star pos: [-0.008244,  0.055374,  2.009939]
+collision
+A star pos: [-0.008244,  0.055374,  2.011539]
+collision
+A star pos: [-0.008244,  0.055374,  2.013139]
+collision
+A star pos: [-0.008244,  0.055374,  2.014739]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.00741758   0.0606709     2.01061, 0.00356418 -0.0329631 -0.0104485, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos: -0.00741758   0.0606709     2.01061
+time: 0
+dist: 0.291548
+A star pos: [-0.007132,  0.058034,  2.009778]
+collision
+A star pos: [-0.007061,  0.057375,  2.009569]
+collision
+A star pos: [-0.006990,  0.056715,  2.009360]
+collision
+A star pos: [-0.006919,  0.056056,  2.009151]
+collision
+A star pos: [-0.006847,  0.055397,  2.008942]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: -0.00741758   0.0606709     2.01061
+time: 0
+dist: 0.291548
+A star pos: [-0.013247,  0.048997,  2.005742]
+collision
+A star pos: [-0.013247,  0.048997,  2.007342]
+collision
+A star pos: [-0.013247,  0.048997,  2.008942]
+collision
+A star pos: [-0.013247,  0.048997,  2.010542]
+collision
+A star pos: [-0.013247,  0.048997,  2.012142]
+collision
+A star pos: [-0.013247,  0.052197,  2.005742]
+collision
+A star pos: [-0.013247,  0.052197,  2.007342]
+collision
+A star pos: [-0.013247,  0.052197,  2.008942]
+collision
+A star pos: [-0.013247,  0.052197,  2.010542]
+collision
+A star pos: [-0.013247,  0.052197,  2.012142]
+collision
+A star pos: [-0.013247,  0.055397,  2.005742]
+collision
+A star pos: [-0.013247,  0.055397,  2.007342]
+collision
+A star pos: [-0.013247,  0.055397,  2.008942]
+collision
+A star pos: [-0.013247,  0.055397,  2.010542]
+collision
+A star pos: [-0.013247,  0.055397,  2.012142]
+collision
+A star pos: [-0.013247,  0.058597,  2.005742]
+collision
+A star pos: [-0.013247,  0.058597,  2.007342]
+collision
+A star pos: [-0.013247,  0.058597,  2.008942]
+collision
+A star pos: [-0.013247,  0.058597,  2.010542]
+collision
+A star pos: [-0.013247,  0.058597,  2.012142]
+collision
+A star pos: [-0.013247,  0.061797,  2.005742]
+collision
+A star pos: [-0.013247,  0.061797,  2.007342]
+collision
+A star pos: [-0.013247,  0.061797,  2.008942]
+collision
+A star pos: [-0.013247,  0.061797,  2.010542]
+collision
+A star pos: [-0.013247,  0.061797,  2.012142]
+collision
+A star pos: [-0.010047,  0.048997,  2.005742]
+collision
+A star pos: [-0.010047,  0.048997,  2.007342]
+collision
+A star pos: [-0.010047,  0.048997,  2.008942]
+collision
+A star pos: [-0.010047,  0.048997,  2.010542]
+collision
+A star pos: [-0.010047,  0.048997,  2.012142]
+collision
+A star pos: [-0.010047,  0.052197,  2.005742]
+collision
+A star pos: [-0.010047,  0.052197,  2.007342]
+collision
+A star pos: [-0.010047,  0.052197,  2.008942]
+collision
+A star pos: [-0.010047,  0.052197,  2.010542]
+collision
+A star pos: [-0.010047,  0.052197,  2.012142]
+collision
+A star pos: [-0.010047,  0.055397,  2.005742]
+collision
+A star pos: [-0.010047,  0.055397,  2.007342]
+collision
+A star pos: [-0.010047,  0.055397,  2.008942]
+collision
+A star pos: [-0.010047,  0.055397,  2.010542]
+collision
+A star pos: [-0.010047,  0.055397,  2.012142]
+collision
+A star pos: [-0.010047,  0.058597,  2.005742]
+collision
+A star pos: [-0.010047,  0.058597,  2.007342]
+collision
+A star pos: [-0.010047,  0.058597,  2.008942]
+collision
+A star pos: [-0.010047,  0.058597,  2.010542]
+collision
+A star pos: [-0.010047,  0.058597,  2.012142]
+collision
+A star pos: [-0.010047,  0.061797,  2.005742]
+collision
+A star pos: [-0.010047,  0.061797,  2.007342]
+collision
+A star pos: [-0.010047,  0.061797,  2.008942]
+collision
+A star pos: [-0.010047,  0.061797,  2.010542]
+collision
+A star pos: [-0.010047,  0.061797,  2.012142]
+collision
+A star pos: [-0.006847,  0.048997,  2.005742]
+collision
+A star pos: [-0.006847,  0.048997,  2.007342]
+collision
+A star pos: [-0.006847,  0.048997,  2.008942]
+collision
+A star pos: [-0.006847,  0.048997,  2.010542]
+collision
+A star pos: [-0.006847,  0.048997,  2.012142]
+collision
+A star pos: [-0.006847,  0.052197,  2.005742]
+collision
+A star pos: [-0.006847,  0.052197,  2.007342]
+collision
+A star pos: [-0.006847,  0.052197,  2.008942]
+collision
+A star pos: [-0.006847,  0.052197,  2.010542]
+collision
+A star pos: [-0.006847,  0.052197,  2.012142]
+collision
+A star pos: [-0.006847,  0.055397,  2.005742]
+collision
+A star pos: [-0.006847,  0.055397,  2.007342]
+collision
+A star pos: [-0.006847,  0.055397,  2.008942]
+collision
+A star pos: [-0.006847,  0.055397,  2.010542]
+collision
+A star pos: [-0.006847,  0.055397,  2.012142]
+collision
+A star pos: [-0.006847,  0.058597,  2.005742]
+collision
+A star pos: [-0.006847,  0.058597,  2.007342]
+collision
+A star pos: [-0.006847,  0.058597,  2.008942]
+collision
+A star pos: [-0.006847,  0.058597,  2.010542]
+collision
+A star pos: [-0.006847,  0.058597,  2.012142]
+collision
+A star pos: [-0.006847,  0.061797,  2.005742]
+collision
+A star pos: [-0.006847,  0.061797,  2.007342]
+collision
+A star pos: [-0.006847,  0.061797,  2.008942]
+collision
+A star pos: [-0.006847,  0.061797,  2.010542]
+collision
+A star pos: [-0.006847,  0.061797,  2.012142]
+collision
+A star pos: [-0.003647,  0.048997,  2.005742]
+collision
+A star pos: [-0.003647,  0.048997,  2.007342]
+collision
+A star pos: [-0.003647,  0.048997,  2.008942]
+collision
+A star pos: [-0.003647,  0.048997,  2.010542]
+collision
+A star pos: [-0.003647,  0.048997,  2.012142]
+collision
+A star pos: [-0.003647,  0.052197,  2.005742]
+collision
+A star pos: [-0.003647,  0.052197,  2.007342]
+collision
+A star pos: [-0.003647,  0.052197,  2.008942]
+collision
+A star pos: [-0.003647,  0.052197,  2.010542]
+collision
+A star pos: [-0.003647,  0.052197,  2.012142]
+collision
+A star pos: [-0.003647,  0.055397,  2.005742]
+collision
+A star pos: [-0.003647,  0.055397,  2.007342]
+collision
+A star pos: [-0.003647,  0.055397,  2.008942]
+collision
+A star pos: [-0.003647,  0.055397,  2.010542]
+collision
+A star pos: [-0.003647,  0.055397,  2.012142]
+collision
+A star pos: [-0.003647,  0.058597,  2.005742]
+collision
+A star pos: [-0.003647,  0.058597,  2.007342]
+collision
+A star pos: [-0.003647,  0.058597,  2.008942]
+collision
+A star pos: [-0.003647,  0.058597,  2.010542]
+collision
+A star pos: [-0.003647,  0.058597,  2.012142]
+collision
+A star pos: [-0.003647,  0.061797,  2.005742]
+collision
+A star pos: [-0.003647,  0.061797,  2.007342]
+collision
+A star pos: [-0.003647,  0.061797,  2.008942]
+collision
+A star pos: [-0.003647,  0.061797,  2.010542]
+collision
+A star pos: [-0.003647,  0.061797,  2.012142]
+collision
+A star pos: [-0.000447,  0.048997,  2.005742]
+collision
+A star pos: [-0.000447,  0.048997,  2.007342]
+collision
+A star pos: [-0.000447,  0.048997,  2.008942]
+collision
+A star pos: [-0.000447,  0.048997,  2.010542]
+collision
+A star pos: [-0.000447,  0.048997,  2.012142]
+collision
+A star pos: [-0.000447,  0.052197,  2.005742]
+collision
+A star pos: [-0.000447,  0.052197,  2.007342]
+collision
+A star pos: [-0.000447,  0.052197,  2.008942]
+collision
+A star pos: [-0.000447,  0.052197,  2.010542]
+collision
+A star pos: [-0.000447,  0.052197,  2.012142]
+collision
+A star pos: [-0.000447,  0.055397,  2.005742]
+collision
+A star pos: [-0.000447,  0.055397,  2.007342]
+collision
+A star pos: [-0.000447,  0.055397,  2.008942]
+collision
+A star pos: [-0.000447,  0.055397,  2.010542]
+collision
+A star pos: [-0.000447,  0.055397,  2.012142]
+collision
+A star pos: [-0.000447,  0.058597,  2.005742]
+collision
+A star pos: [-0.000447,  0.058597,  2.007342]
+collision
+A star pos: [-0.000447,  0.058597,  2.008942]
+collision
+A star pos: [-0.000447,  0.058597,  2.010542]
+collision
+A star pos: [-0.000447,  0.058597,  2.012142]
+collision
+A star pos: [-0.000447,  0.061797,  2.005742]
+collision
+A star pos: [-0.000447,  0.061797,  2.007342]
+collision
+A star pos: [-0.000447,  0.061797,  2.008942]
+collision
+A star pos: [-0.000447,  0.061797,  2.010542]
+collision
+A star pos: [-0.000447,  0.061797,  2.012142]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  0.014019 0.0715487   1.99927,  -0.00816036   -0.0497188 -0.000418882, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos:  0.014019 0.0715487   1.99927
+time: 0
+dist: 0.269258
+A star pos: [0.013203,  0.066577,  1.999225]
+collision
+A star pos: [0.013040,  0.065582,  1.999217]
+collision
+A star pos: [0.012877,  0.064588,  1.999208]
+collision
+A star pos: [0.012713,  0.063594,  1.999200]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos:  0.014019 0.0715487   1.99927
+time: 0
+dist: 0.269258
+A star pos: [0.006313,  0.057194,  1.996000]
+collision
+A star pos: [0.006313,  0.057194,  1.997600]
+collision
+A star pos: [0.006313,  0.057194,  1.999200]
+collision
+A star pos: [0.006313,  0.057194,  2.000800]
+collision
+A star pos: [0.006313,  0.057194,  2.002400]
+collision
+A star pos: [0.006313,  0.060394,  1.996000]
+collision
+A star pos: [0.006313,  0.060394,  1.997600]
+collision
+A star pos: [0.006313,  0.060394,  1.999200]
+collision
+A star pos: [0.006313,  0.060394,  2.000800]
+collision
+A star pos: [0.006313,  0.060394,  2.002400]
+collision
+A star pos: [0.006313,  0.063594,  1.996000]
+collision
+A star pos: [0.006313,  0.063594,  1.997600]
+collision
+A star pos: [0.006313,  0.063594,  1.999200]
+collision
+A star pos: [0.006313,  0.063594,  2.000800]
+collision
+A star pos: [0.006313,  0.063594,  2.002400]
+collision
+A star pos: [0.006313,  0.066794,  1.996000]
+collision
+A star pos: [0.006313,  0.066794,  1.997600]
+collision
+A star pos: [0.006313,  0.066794,  1.999200]
+collision
+A star pos: [0.006313,  0.066794,  2.000800]
+collision
+A star pos: [0.006313,  0.066794,  2.002400]
+collision
+A star pos: [0.006313,  0.069994,  1.996000]
+collision
+A star pos: [0.006313,  0.069994,  1.997600]
+collision
+A star pos: [0.006313,  0.069994,  1.999200]
+collision
+A star pos: [0.006313,  0.069994,  2.000800]
+collision
+A star pos: [0.006313,  0.069994,  2.002400]
+collision
+A star pos: [0.009513,  0.057194,  1.996000]
+collision
+A star pos: [0.009513,  0.057194,  1.997600]
+collision
+A star pos: [0.009513,  0.057194,  1.999200]
+collision
+A star pos: [0.009513,  0.057194,  2.000800]
+collision
+A star pos: [0.009513,  0.057194,  2.002400]
+collision
+A star pos: [0.009513,  0.060394,  1.996000]
+collision
+A star pos: [0.009513,  0.060394,  1.997600]
+collision
+A star pos: [0.009513,  0.060394,  1.999200]
+collision
+A star pos: [0.009513,  0.060394,  2.000800]
+collision
+A star pos: [0.009513,  0.060394,  2.002400]
+collision
+A star pos: [0.009513,  0.063594,  1.996000]
+collision
+A star pos: [0.009513,  0.063594,  1.997600]
+collision
+A star pos: [0.009513,  0.063594,  1.999200]
+collision
+A star pos: [0.009513,  0.063594,  2.000800]
+collision
+A star pos: [0.009513,  0.063594,  2.002400]
+collision
+A star pos: [0.009513,  0.066794,  1.996000]
+collision
+A star pos: [0.009513,  0.066794,  1.997600]
+collision
+A star pos: [0.009513,  0.066794,  1.999200]
+collision
+A star pos: [0.009513,  0.066794,  2.000800]
+collision
+A star pos: [0.009513,  0.066794,  2.002400]
+collision
+A star pos: [0.009513,  0.069994,  1.996000]
+collision
+A star pos: [0.009513,  0.069994,  1.997600]
+collision
+A star pos: [0.009513,  0.069994,  1.999200]
+collision
+A star pos: [0.009513,  0.069994,  2.000800]
+collision
+A star pos: [0.009513,  0.069994,  2.002400]
+collision
+A star pos: [0.012713,  0.057194,  1.996000]
+collision
+A star pos: [0.012713,  0.057194,  1.997600]
+collision
+A star pos: [0.012713,  0.057194,  1.999200]
+collision
+A star pos: [0.012713,  0.057194,  2.000800]
+collision
+A star pos: [0.012713,  0.057194,  2.002400]
+collision
+A star pos: [0.012713,  0.060394,  1.996000]
+collision
+A star pos: [0.012713,  0.060394,  1.997600]
+collision
+A star pos: [0.012713,  0.060394,  1.999200]
+collision
+A star pos: [0.012713,  0.060394,  2.000800]
+collision
+A star pos: [0.012713,  0.060394,  2.002400]
+collision
+A star pos: [0.012713,  0.063594,  1.996000]
+collision
+A star pos: [0.012713,  0.063594,  1.997600]
+collision
+A star pos: [0.012713,  0.063594,  1.999200]
+collision
+A star pos: [0.012713,  0.063594,  2.000800]
+collision
+A star pos: [0.012713,  0.063594,  2.002400]
+collision
+A star pos: [0.012713,  0.066794,  1.996000]
+collision
+A star pos: [0.012713,  0.066794,  1.997600]
+collision
+A star pos: [0.012713,  0.066794,  1.999200]
+collision
+A star pos: [0.012713,  0.066794,  2.000800]
+collision
+A star pos: [0.012713,  0.066794,  2.002400]
+collision
+A star pos: [0.012713,  0.069994,  1.996000]
+collision
+A star pos: [0.012713,  0.069994,  1.997600]
+collision
+A star pos: [0.012713,  0.069994,  1.999200]
+collision
+A star pos: [0.012713,  0.069994,  2.000800]
+collision
+A star pos: [0.012713,  0.069994,  2.002400]
+collision
+A star pos: [0.015913,  0.057194,  1.996000]
+collision
+A star pos: [0.015913,  0.057194,  1.997600]
+collision
+A star pos: [0.015913,  0.057194,  1.999200]
+collision
+A star pos: [0.015913,  0.057194,  2.000800]
+collision
+A star pos: [0.015913,  0.057194,  2.002400]
+collision
+A star pos: [0.015913,  0.060394,  1.996000]
+collision
+A star pos: [0.015913,  0.060394,  1.997600]
+collision
+A star pos: [0.015913,  0.060394,  1.999200]
+collision
+A star pos: [0.015913,  0.060394,  2.000800]
+collision
+A star pos: [0.015913,  0.060394,  2.002400]
+collision
+A star pos: [0.015913,  0.063594,  1.996000]
+collision
+A star pos: [0.015913,  0.063594,  1.997600]
+collision
+A star pos: [0.015913,  0.063594,  1.999200]
+collision
+A star pos: [0.015913,  0.063594,  2.000800]
+collision
+A star pos: [0.015913,  0.063594,  2.002400]
+collision
+A star pos: [0.015913,  0.066794,  1.996000]
+collision
+A star pos: [0.015913,  0.066794,  1.997600]
+collision
+A star pos: [0.015913,  0.066794,  1.999200]
+collision
+A star pos: [0.015913,  0.066794,  2.000800]
+collision
+A star pos: [0.015913,  0.066794,  2.002400]
+collision
+A star pos: [0.015913,  0.069994,  1.996000]
+collision
+A star pos: [0.015913,  0.069994,  1.997600]
+collision
+A star pos: [0.015913,  0.069994,  1.999200]
+collision
+A star pos: [0.015913,  0.069994,  2.000800]
+collision
+A star pos: [0.015913,  0.069994,  2.002400]
+collision
+A star pos: [0.019113,  0.057194,  1.996000]
+collision
+A star pos: [0.019113,  0.057194,  1.997600]
+collision
+A star pos: [0.019113,  0.057194,  1.999200]
+collision
+A star pos: [0.019113,  0.057194,  2.000800]
+collision
+A star pos: [0.019113,  0.057194,  2.002400]
+collision
+A star pos: [0.019113,  0.060394,  1.996000]
+collision
+A star pos: [0.019113,  0.060394,  1.997600]
+collision
+A star pos: [0.019113,  0.060394,  1.999200]
+collision
+A star pos: [0.019113,  0.060394,  2.000800]
+collision
+A star pos: [0.019113,  0.060394,  2.002400]
+collision
+A star pos: [0.019113,  0.063594,  1.996000]
+collision
+A star pos: [0.019113,  0.063594,  1.997600]
+collision
+A star pos: [0.019113,  0.063594,  1.999200]
+collision
+A star pos: [0.019113,  0.063594,  2.000800]
+collision
+A star pos: [0.019113,  0.063594,  2.002400]
+collision
+A star pos: [0.019113,  0.066794,  1.996000]
+collision
+A star pos: [0.019113,  0.066794,  1.997600]
+collision
+A star pos: [0.019113,  0.066794,  1.999200]
+collision
+A star pos: [0.019113,  0.066794,  2.000800]
+collision
+A star pos: [0.019113,  0.066794,  2.002400]
+collision
+A star pos: [0.019113,  0.069994,  1.996000]
+collision
+A star pos: [0.019113,  0.069994,  1.997600]
+collision
+A star pos: [0.019113,  0.069994,  1.999200]
+collision
+A star pos: [0.019113,  0.069994,  2.000800]
+collision
+A star pos: [0.019113,  0.069994,  2.002400]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) 0.0227926 0.0862634   1.99089, -0.0204774 -0.0403723 0.00923612, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos: 0.0227926 0.0862634   1.99089
+time: 0
+dist: 0.269258
+open set empty, no path!
+[planner]: init search fail!
+cur pos: 0.0227926 0.0862634   1.99089
+time: 0
+dist: 0.269258
+A star pos: [0.013116,  0.073404,  1.989164]
+collision
+A star pos: [0.013116,  0.073404,  1.990764]
+collision
+A star pos: [0.013116,  0.073404,  1.992364]
+collision
+A star pos: [0.013116,  0.073404,  1.993964]
+collision
+A star pos: [0.013116,  0.073404,  1.995564]
+collision
+A star pos: [0.013116,  0.076604,  1.989164]
+collision
+A star pos: [0.013116,  0.076604,  1.990764]
+collision
+A star pos: [0.013116,  0.076604,  1.992364]
+collision
+A star pos: [0.013116,  0.076604,  1.993964]
+collision
+A star pos: [0.013116,  0.076604,  1.995564]
+collision
+A star pos: [0.013116,  0.079804,  1.989164]
+collision
+A star pos: [0.013116,  0.079804,  1.990764]
+collision
+A star pos: [0.013116,  0.079804,  1.992364]
+collision
+A star pos: [0.013116,  0.079804,  1.993964]
+collision
+A star pos: [0.013116,  0.079804,  1.995564]
+collision
+A star pos: [0.013116,  0.083004,  1.989164]
+collision
+A star pos: [0.013116,  0.083004,  1.990764]
+collision
+A star pos: [0.013116,  0.083004,  1.992364]
+collision
+A star pos: [0.013116,  0.083004,  1.993964]
+collision
+A star pos: [0.013116,  0.083004,  1.995564]
+collision
+A star pos: [0.013116,  0.086204,  1.989164]
+collision
+A star pos: [0.013116,  0.086204,  1.990764]
+collision
+A star pos: [0.013116,  0.086204,  1.992364]
+collision
+A star pos: [0.013116,  0.086204,  1.993964]
+collision
+A star pos: [0.013116,  0.086204,  1.995564]
+collision
+A star pos: [0.016316,  0.073404,  1.989164]
+collision
+A star pos: [0.016316,  0.073404,  1.990764]
+collision
+A star pos: [0.016316,  0.073404,  1.992364]
+collision
+A star pos: [0.016316,  0.073404,  1.993964]
+collision
+A star pos: [0.016316,  0.073404,  1.995564]
+collision
+A star pos: [0.016316,  0.076604,  1.989164]
+collision
+A star pos: [0.016316,  0.076604,  1.990764]
+collision
+A star pos: [0.016316,  0.076604,  1.992364]
+collision
+A star pos: [0.016316,  0.076604,  1.993964]
+collision
+A star pos: [0.016316,  0.076604,  1.995564]
+collision
+A star pos: [0.016316,  0.079804,  1.989164]
+collision
+A star pos: [0.016316,  0.079804,  1.990764]
+collision
+A star pos: [0.016316,  0.079804,  1.992364]
+collision
+A star pos: [0.016316,  0.079804,  1.993964]
+collision
+A star pos: [0.016316,  0.079804,  1.995564]
+collision
+A star pos: [0.016316,  0.083004,  1.989164]
+collision
+A star pos: [0.016316,  0.083004,  1.990764]
+collision
+A star pos: [0.016316,  0.083004,  1.992364]
+collision
+A star pos: [0.016316,  0.083004,  1.993964]
+collision
+A star pos: [0.016316,  0.083004,  1.995564]
+collision
+A star pos: [0.016316,  0.086204,  1.989164]
+collision
+A star pos: [0.016316,  0.086204,  1.990764]
+collision
+A star pos: [0.016316,  0.086204,  1.992364]
+collision
+A star pos: [0.016316,  0.086204,  1.993964]
+collision
+A star pos: [0.016316,  0.086204,  1.995564]
+collision
+A star pos: [0.019516,  0.073404,  1.989164]
+collision
+A star pos: [0.019516,  0.073404,  1.990764]
+collision
+A star pos: [0.019516,  0.073404,  1.992364]
+collision
+A star pos: [0.019516,  0.073404,  1.993964]
+collision
+A star pos: [0.019516,  0.073404,  1.995564]
+collision
+A star pos: [0.019516,  0.076604,  1.989164]
+collision
+A star pos: [0.019516,  0.076604,  1.990764]
+collision
+A star pos: [0.019516,  0.076604,  1.992364]
+collision
+A star pos: [0.019516,  0.076604,  1.993964]
+collision
+A star pos: [0.019516,  0.076604,  1.995564]
+collision
+A star pos: [0.019516,  0.079804,  1.989164]
+collision
+A star pos: [0.019516,  0.079804,  1.993964]
+collision
+A star pos: [0.019516,  0.079804,  1.995564]
+collision
+A star pos: [0.019516,  0.083004,  1.989164]
+collision
+A star pos: [0.019516,  0.083004,  1.990764]
+collision
+A star pos: [0.019516,  0.083004,  1.992364]
+collision
+A star pos: [0.019516,  0.083004,  1.993964]
+collision
+A star pos: [0.019516,  0.083004,  1.995564]
+collision
+A star pos: [0.019516,  0.086204,  1.989164]
+collision
+A star pos: [0.019516,  0.086204,  1.990764]
+collision
+A star pos: [0.019516,  0.086204,  1.992364]
+collision
+A star pos: [0.019516,  0.086204,  1.993964]
+collision
+A star pos: [0.019516,  0.086204,  1.995564]
+collision
+A star pos: [0.022716,  0.073404,  1.989164]
+collision
+A star pos: [0.022716,  0.073404,  1.990764]
+collision
+A star pos: [0.022716,  0.073404,  1.992364]
+collision
+A star pos: [0.022716,  0.073404,  1.993964]
+collision
+A star pos: [0.022716,  0.073404,  1.995564]
+collision
+A star pos: [0.022716,  0.076604,  1.989164]
+collision
+A star pos: [0.022716,  0.076604,  1.990764]
+collision
+A star pos: [0.022716,  0.076604,  1.992364]
+collision
+A star pos: [0.022716,  0.076604,  1.993964]
+collision
+A star pos: [0.022716,  0.076604,  1.995564]
+collision
+A star pos: [0.022716,  0.079804,  1.989164]
+collision
+A star pos: [0.022716,  0.079804,  1.990764]
+collision
+A star pos: [0.022716,  0.079804,  1.992364]
+collision
+A star pos: [0.022716,  0.079804,  1.993964]
+collision
+A star pos: [0.022716,  0.079804,  1.995564]
+collision
+A star pos: [0.022716,  0.083004,  1.989164]
+collision
+A star pos: [0.022716,  0.083004,  1.990764]
+collision
+A star pos: [0.022716,  0.083004,  1.992364]
+collision
+A star pos: [0.022716,  0.083004,  1.993964]
+collision
+A star pos: [0.022716,  0.083004,  1.995564]
+collision
+A star pos: [0.022716,  0.086204,  1.989164]
+collision
+A star pos: [0.022716,  0.086204,  1.990764]
+collision
+A star pos: [0.022716,  0.086204,  1.992364]
+collision
+A star pos: [0.022716,  0.086204,  1.993964]
+collision
+A star pos: [0.022716,  0.086204,  1.995564]
+collision
+A star pos: [0.025916,  0.073404,  1.989164]
+collision
+A star pos: [0.025916,  0.073404,  1.990764]
+collision
+A star pos: [0.025916,  0.073404,  1.992364]
+collision
+A star pos: [0.025916,  0.073404,  1.993964]
+collision
+A star pos: [0.025916,  0.073404,  1.995564]
+collision
+A star pos: [0.025916,  0.076604,  1.989164]
+collision
+A star pos: [0.025916,  0.076604,  1.990764]
+collision
+A star pos: [0.025916,  0.076604,  1.992364]
+collision
+A star pos: [0.025916,  0.076604,  1.993964]
+collision
+A star pos: [0.025916,  0.076604,  1.995564]
+collision
+A star pos: [0.025916,  0.079804,  1.989164]
+collision
+A star pos: [0.025916,  0.079804,  1.990764]
+collision
+A star pos: [0.025916,  0.079804,  1.992364]
+collision
+A star pos: [0.025916,  0.079804,  1.993964]
+collision
+A star pos: [0.025916,  0.079804,  1.995564]
+collision
+A star pos: [0.025916,  0.083004,  1.989164]
+collision
+A star pos: [0.025916,  0.083004,  1.990764]
+collision
+A star pos: [0.025916,  0.083004,  1.992364]
+collision
+A star pos: [0.025916,  0.083004,  1.993964]
+collision
+A star pos: [0.025916,  0.083004,  1.995564]
+collision
+A star pos: [0.025916,  0.086204,  1.989164]
+collision
+A star pos: [0.025916,  0.086204,  1.990764]
+collision
+A star pos: [0.025916,  0.086204,  1.992364]
+collision
+A star pos: [0.025916,  0.086204,  1.993964]
+collision
+A star pos: [0.025916,  0.086204,  1.995564]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) 0.0239483 0.0608248   1.95826, -0.0222569 -0.0358642  0.0433631, 0 0 0
+goal:6.67178 1.00381 2.05159, 0 0 0
+cur pos: 0.0239483 0.0608248   1.95826
+time: 0
+dist: 0.269258
+A star pos: [0.022168,  0.057956,  1.961728]
+collision
+A star pos: [0.021723,  0.057238,  1.962595]
+collision
+A star pos: [0.021277,  0.056521,  1.963462]
+collision
+A star pos: [0.020832,  0.055804,  1.964329]
+collision
+A star pos: [0.020387,  0.055087,  1.965197]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: 0.0239483 0.0608248   1.95826
+time: 0
+dist: 0.269258
+A star pos: [0.013987,  0.048687,  1.961997]
+collision
+A star pos: [0.013987,  0.048687,  1.963597]
+collision
+A star pos: [0.013987,  0.048687,  1.965197]
+collision
+A star pos: [0.013987,  0.048687,  1.966797]
+collision
+A star pos: [0.013987,  0.048687,  1.968397]
+collision
+A star pos: [0.013987,  0.051887,  1.961997]
+collision
+A star pos: [0.013987,  0.051887,  1.963597]
+collision
+A star pos: [0.013987,  0.051887,  1.965197]
+collision
+A star pos: [0.013987,  0.051887,  1.966797]
+collision
+A star pos: [0.013987,  0.051887,  1.968397]
+collision
+A star pos: [0.013987,  0.055087,  1.961997]
+collision
+A star pos: [0.013987,  0.055087,  1.963597]
+collision
+A star pos: [0.013987,  0.055087,  1.965197]
+collision
+A star pos: [0.013987,  0.055087,  1.966797]
+collision
+A star pos: [0.013987,  0.055087,  1.968397]
+collision
+A star pos: [0.013987,  0.058287,  1.961997]
+collision
+A star pos: [0.013987,  0.058287,  1.963597]
+collision
+A star pos: [0.013987,  0.058287,  1.965197]
+collision
+A star pos: [0.013987,  0.058287,  1.966797]
+collision
+A star pos: [0.013987,  0.058287,  1.968397]
+collision
+A star pos: [0.013987,  0.061487,  1.961997]
+collision
+A star pos: [0.013987,  0.061487,  1.963597]
+collision
+A star pos: [0.013987,  0.061487,  1.965197]
+collision
+A star pos: [0.013987,  0.061487,  1.966797]
+collision
+A star pos: [0.013987,  0.061487,  1.968397]
+collision
+A star pos: [0.017187,  0.048687,  1.961997]
+collision
+A star pos: [0.017187,  0.048687,  1.963597]
+collision
+A star pos: [0.017187,  0.048687,  1.965197]
+collision
+A star pos: [0.017187,  0.048687,  1.966797]
+collision
+A star pos: [0.017187,  0.048687,  1.968397]
+collision
+A star pos: [0.017187,  0.051887,  1.961997]
+collision
+A star pos: [0.017187,  0.051887,  1.963597]
+collision
+A star pos: [0.017187,  0.051887,  1.965197]
+collision
+A star pos: [0.017187,  0.051887,  1.966797]
+collision
+A star pos: [0.017187,  0.051887,  1.968397]
+collision
+A star pos: [0.017187,  0.055087,  1.961997]
+collision
+A star pos: [0.017187,  0.055087,  1.963597]
+collision
+A star pos: [0.017187,  0.055087,  1.965197]
+collision
+A star pos: [0.017187,  0.055087,  1.966797]
+collision
+A star pos: [0.017187,  0.055087,  1.968397]
+collision
+A star pos: [0.017187,  0.058287,  1.961997]
+collision
+A star pos: [0.017187,  0.058287,  1.963597]
+collision
+A star pos: [0.017187,  0.058287,  1.965197]
+collision
+A star pos: [0.017187,  0.058287,  1.966797]
+collision
+A star pos: [0.017187,  0.058287,  1.968397]
+collision
+A star pos: [0.017187,  0.061487,  1.961997]
+collision
+A star pos: [0.017187,  0.061487,  1.963597]
+collision
+A star pos: [0.017187,  0.061487,  1.965197]
+collision
+A star pos: [0.017187,  0.061487,  1.966797]
+collision
+A star pos: [0.017187,  0.061487,  1.968397]
+collision
+A star pos: [0.020387,  0.048687,  1.961997]
+collision
+A star pos: [0.020387,  0.048687,  1.963597]
+collision
+A star pos: [0.020387,  0.048687,  1.965197]
+collision
+A star pos: [0.020387,  0.048687,  1.966797]
+collision
+A star pos: [0.020387,  0.048687,  1.968397]
+collision
+A star pos: [0.020387,  0.051887,  1.961997]
+collision
+A star pos: [0.020387,  0.051887,  1.963597]
+collision
+A star pos: [0.020387,  0.051887,  1.965197]
+collision
+A star pos: [0.020387,  0.051887,  1.966797]
+collision
+A star pos: [0.020387,  0.051887,  1.968397]
+collision
+A star pos: [0.020387,  0.055087,  1.961997]
+collision
+A star pos: [0.020387,  0.055087,  1.963597]
+collision
+A star pos: [0.020387,  0.055087,  1.965197]
+collision
+A star pos: [0.020387,  0.055087,  1.966797]
+collision
+A star pos: [0.020387,  0.055087,  1.968397]
+collision
+A star pos: [0.020387,  0.058287,  1.961997]
+collision
+A star pos: [0.020387,  0.058287,  1.963597]
+collision
+A star pos: [0.020387,  0.058287,  1.965197]
+collision
+A star pos: [0.020387,  0.058287,  1.966797]
+collision
+A star pos: [0.020387,  0.058287,  1.968397]
+collision
+A star pos: [0.020387,  0.061487,  1.961997]
+collision
+A star pos: [0.020387,  0.061487,  1.963597]
+collision
+A star pos: [0.020387,  0.061487,  1.965197]
+collision
+A star pos: [0.020387,  0.061487,  1.966797]
+collision
+A star pos: [0.020387,  0.061487,  1.968397]
+collision
+A star pos: [0.023587,  0.048687,  1.961997]
+collision
+A star pos: [0.023587,  0.048687,  1.963597]
+collision
+A star pos: [0.023587,  0.048687,  1.965197]
+collision
+A star pos: [0.023587,  0.048687,  1.966797]
+collision
+A star pos: [0.023587,  0.048687,  1.968397]
+collision
+A star pos: [0.023587,  0.051887,  1.961997]
+collision
+A star pos: [0.023587,  0.051887,  1.963597]
+collision
+A star pos: [0.023587,  0.051887,  1.965197]
+collision
+A star pos: [0.023587,  0.051887,  1.966797]
+collision
+A star pos: [0.023587,  0.051887,  1.968397]
+collision
+A star pos: [0.023587,  0.055087,  1.961997]
+collision
+A star pos: [0.023587,  0.055087,  1.963597]
+collision
+A star pos: [0.023587,  0.055087,  1.965197]
+collision
+A star pos: [0.023587,  0.055087,  1.966797]
+collision
+A star pos: [0.023587,  0.055087,  1.968397]
+collision
+A star pos: [0.023587,  0.058287,  1.961997]
+collision
+A star pos: [0.023587,  0.058287,  1.963597]
+collision
+A star pos: [0.023587,  0.058287,  1.965197]
+collision
+A star pos: [0.023587,  0.058287,  1.966797]
+collision
+A star pos: [0.023587,  0.058287,  1.968397]
+collision
+A star pos: [0.023587,  0.061487,  1.961997]
+collision
+A star pos: [0.023587,  0.061487,  1.963597]
+collision
+A star pos: [0.023587,  0.061487,  1.965197]
+collision
+A star pos: [0.023587,  0.061487,  1.966797]
+collision
+A star pos: [0.023587,  0.061487,  1.968397]
+collision
+A star pos: [0.026787,  0.048687,  1.961997]
+collision
+A star pos: [0.026787,  0.048687,  1.963597]
+collision
+A star pos: [0.026787,  0.048687,  1.965197]
+collision
+A star pos: [0.026787,  0.048687,  1.966797]
+collision
+A star pos: [0.026787,  0.048687,  1.968397]
+collision
+A star pos: [0.026787,  0.051887,  1.961997]
+collision
+A star pos: [0.026787,  0.051887,  1.963597]
+collision
+A star pos: [0.026787,  0.051887,  1.965197]
+collision
+A star pos: [0.026787,  0.051887,  1.966797]
+collision
+A star pos: [0.026787,  0.051887,  1.968397]
+collision
+A star pos: [0.026787,  0.055087,  1.961997]
+collision
+A star pos: [0.026787,  0.055087,  1.963597]
+collision
+A star pos: [0.026787,  0.055087,  1.965197]
+collision
+A star pos: [0.026787,  0.055087,  1.966797]
+collision
+A star pos: [0.026787,  0.055087,  1.968397]
+collision
+A star pos: [0.026787,  0.058287,  1.961997]
+collision
+A star pos: [0.026787,  0.058287,  1.963597]
+collision
+A star pos: [0.026787,  0.058287,  1.965197]
+collision
+A star pos: [0.026787,  0.058287,  1.966797]
+collision
+A star pos: [0.026787,  0.058287,  1.968397]
+collision
+A star pos: [0.026787,  0.061487,  1.961997]
+collision
+A star pos: [0.026787,  0.061487,  1.963597]
+collision
+A star pos: [0.026787,  0.061487,  1.965197]
+collision
+A star pos: [0.026787,  0.061487,  1.966797]
+collision
+A star pos: [0.026787,  0.061487,  1.968397]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[fsm] Get a new goal: (0.967757, -2.16679, 1.95804)
+[planner]: -----------------------
+start: (pt; vel; acc) 0.0230374 0.0594219   1.95804, -0.0237894 -0.0313786  0.0453211, 0 0 0
+goal:0.967757 -2.16679  1.95804, 0 0 0
+cur pos: 0.0230374 0.0594219   1.95804
+time: 0
+dist: 0.269258
+A star pos: [0.021134,  0.056912,  1.961665]
+collision
+A star pos: [0.020658,  0.056284,  1.962572]
+collision
+A star pos: [0.020183,  0.055656,  1.963478]
+collision
+A star pos: [0.019707,  0.055029,  1.964384]
+collision
+A star pos: [0.019231,  0.054401,  1.965291]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: 0.0230374 0.0594219   1.95804
+time: 0
+dist: 0.269258
+A star pos: [0.012831,  0.048001,  1.962091]
+collision
+A star pos: [0.012831,  0.048001,  1.963691]
+collision
+A star pos: [0.012831,  0.048001,  1.965291]
+collision
+A star pos: [0.012831,  0.048001,  1.966891]
+collision
+A star pos: [0.012831,  0.048001,  1.968491]
+collision
+A star pos: [0.012831,  0.051201,  1.962091]
+collision
+A star pos: [0.012831,  0.051201,  1.963691]
+collision
+A star pos: [0.012831,  0.051201,  1.965291]
+collision
+A star pos: [0.012831,  0.051201,  1.966891]
+collision
+A star pos: [0.012831,  0.051201,  1.968491]
+collision
+A star pos: [0.012831,  0.054401,  1.962091]
+collision
+A star pos: [0.012831,  0.054401,  1.963691]
+collision
+A star pos: [0.012831,  0.054401,  1.965291]
+collision
+A star pos: [0.012831,  0.054401,  1.966891]
+collision
+A star pos: [0.012831,  0.054401,  1.968491]
+collision
+A star pos: [0.012831,  0.057601,  1.962091]
+collision
+A star pos: [0.012831,  0.057601,  1.963691]
+collision
+A star pos: [0.012831,  0.057601,  1.965291]
+collision
+A star pos: [0.012831,  0.057601,  1.966891]
+collision
+A star pos: [0.012831,  0.057601,  1.968491]
+collision
+A star pos: [0.012831,  0.060801,  1.962091]
+collision
+A star pos: [0.012831,  0.060801,  1.963691]
+collision
+A star pos: [0.012831,  0.060801,  1.965291]
+collision
+A star pos: [0.012831,  0.060801,  1.966891]
+collision
+A star pos: [0.012831,  0.060801,  1.968491]
+collision
+A star pos: [0.016031,  0.048001,  1.962091]
+collision
+A star pos: [0.016031,  0.048001,  1.963691]
+collision
+A star pos: [0.016031,  0.048001,  1.965291]
+collision
+A star pos: [0.016031,  0.048001,  1.966891]
+collision
+A star pos: [0.016031,  0.048001,  1.968491]
+collision
+A star pos: [0.016031,  0.051201,  1.962091]
+collision
+A star pos: [0.016031,  0.051201,  1.963691]
+collision
+A star pos: [0.016031,  0.051201,  1.965291]
+collision
+A star pos: [0.016031,  0.051201,  1.966891]
+collision
+A star pos: [0.016031,  0.051201,  1.968491]
+collision
+A star pos: [0.016031,  0.054401,  1.962091]
+collision
+A star pos: [0.016031,  0.054401,  1.963691]
+collision
+A star pos: [0.016031,  0.054401,  1.965291]
+collision
+A star pos: [0.016031,  0.054401,  1.966891]
+collision
+A star pos: [0.016031,  0.054401,  1.968491]
+collision
+A star pos: [0.016031,  0.057601,  1.962091]
+collision
+A star pos: [0.016031,  0.057601,  1.963691]
+collision
+A star pos: [0.016031,  0.057601,  1.965291]
+collision
+A star pos: [0.016031,  0.057601,  1.966891]
+collision
+A star pos: [0.016031,  0.057601,  1.968491]
+collision
+A star pos: [0.016031,  0.060801,  1.962091]
+collision
+A star pos: [0.016031,  0.060801,  1.963691]
+collision
+A star pos: [0.016031,  0.060801,  1.965291]
+collision
+A star pos: [0.016031,  0.060801,  1.966891]
+collision
+A star pos: [0.016031,  0.060801,  1.968491]
+collision
+A star pos: [0.019231,  0.048001,  1.962091]
+collision
+A star pos: [0.019231,  0.048001,  1.963691]
+collision
+A star pos: [0.019231,  0.048001,  1.965291]
+collision
+A star pos: [0.019231,  0.048001,  1.966891]
+collision
+A star pos: [0.019231,  0.048001,  1.968491]
+collision
+A star pos: [0.019231,  0.051201,  1.962091]
+collision
+A star pos: [0.019231,  0.051201,  1.963691]
+collision
+A star pos: [0.019231,  0.051201,  1.965291]
+collision
+A star pos: [0.019231,  0.051201,  1.966891]
+collision
+A star pos: [0.019231,  0.051201,  1.968491]
+collision
+A star pos: [0.019231,  0.054401,  1.962091]
+collision
+A star pos: [0.019231,  0.054401,  1.963691]
+collision
+A star pos: [0.019231,  0.054401,  1.965291]
+collision
+A star pos: [0.019231,  0.054401,  1.966891]
+collision
+A star pos: [0.019231,  0.054401,  1.968491]
+collision
+A star pos: [0.019231,  0.057601,  1.962091]
+collision
+A star pos: [0.019231,  0.057601,  1.963691]
+collision
+A star pos: [0.019231,  0.057601,  1.965291]
+collision
+A star pos: [0.019231,  0.057601,  1.966891]
+collision
+A star pos: [0.019231,  0.057601,  1.968491]
+collision
+A star pos: [0.019231,  0.060801,  1.962091]
+collision
+A star pos: [0.019231,  0.060801,  1.963691]
+collision
+A star pos: [0.019231,  0.060801,  1.965291]
+collision
+A star pos: [0.019231,  0.060801,  1.966891]
+collision
+A star pos: [0.019231,  0.060801,  1.968491]
+collision
+A star pos: [0.022431,  0.048001,  1.962091]
+collision
+A star pos: [0.022431,  0.048001,  1.963691]
+collision
+A star pos: [0.022431,  0.048001,  1.965291]
+collision
+A star pos: [0.022431,  0.048001,  1.966891]
+collision
+A star pos: [0.022431,  0.048001,  1.968491]
+collision
+A star pos: [0.022431,  0.051201,  1.962091]
+collision
+A star pos: [0.022431,  0.051201,  1.963691]
+collision
+A star pos: [0.022431,  0.051201,  1.965291]
+collision
+A star pos: [0.022431,  0.051201,  1.966891]
+collision
+A star pos: [0.022431,  0.051201,  1.968491]
+collision
+A star pos: [0.022431,  0.054401,  1.962091]
+collision
+A star pos: [0.022431,  0.054401,  1.963691]
+collision
+A star pos: [0.022431,  0.054401,  1.965291]
+collision
+A star pos: [0.022431,  0.054401,  1.966891]
+collision
+A star pos: [0.022431,  0.054401,  1.968491]
+collision
+A star pos: [0.022431,  0.057601,  1.962091]
+collision
+A star pos: [0.022431,  0.057601,  1.963691]
+collision
+A star pos: [0.022431,  0.057601,  1.965291]
+collision
+A star pos: [0.022431,  0.057601,  1.966891]
+collision
+A star pos: [0.022431,  0.057601,  1.968491]
+collision
+A star pos: [0.022431,  0.060801,  1.962091]
+collision
+A star pos: [0.022431,  0.060801,  1.963691]
+collision
+A star pos: [0.022431,  0.060801,  1.965291]
+collision
+A star pos: [0.022431,  0.060801,  1.966891]
+collision
+A star pos: [0.022431,  0.060801,  1.968491]
+collision
+A star pos: [0.025631,  0.048001,  1.962091]
+collision
+A star pos: [0.025631,  0.048001,  1.963691]
+collision
+A star pos: [0.025631,  0.048001,  1.965291]
+collision
+A star pos: [0.025631,  0.048001,  1.966891]
+collision
+A star pos: [0.025631,  0.048001,  1.968491]
+collision
+A star pos: [0.025631,  0.051201,  1.962091]
+collision
+A star pos: [0.025631,  0.051201,  1.963691]
+collision
+A star pos: [0.025631,  0.051201,  1.965291]
+collision
+A star pos: [0.025631,  0.051201,  1.966891]
+collision
+A star pos: [0.025631,  0.051201,  1.968491]
+collision
+A star pos: [0.025631,  0.054401,  1.962091]
+collision
+A star pos: [0.025631,  0.054401,  1.963691]
+collision
+A star pos: [0.025631,  0.054401,  1.965291]
+collision
+A star pos: [0.025631,  0.054401,  1.966891]
+collision
+A star pos: [0.025631,  0.054401,  1.968491]
+collision
+A star pos: [0.025631,  0.057601,  1.962091]
+collision
+A star pos: [0.025631,  0.057601,  1.963691]
+collision
+A star pos: [0.025631,  0.057601,  1.965291]
+collision
+A star pos: [0.025631,  0.057601,  1.966891]
+collision
+A star pos: [0.025631,  0.057601,  1.968491]
+collision
+A star pos: [0.025631,  0.060801,  1.962091]
+collision
+A star pos: [0.025631,  0.060801,  1.963691]
+collision
+A star pos: [0.025631,  0.060801,  1.965291]
+collision
+A star pos: [0.025631,  0.060801,  1.966891]
+collision
+A star pos: [0.025631,  0.060801,  1.968491]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  0.0196247 0.00258421    1.88076, -0.0216458 0.00430155   0.112524, 0 0 0
+goal:0.967757 -2.16679  1.95804, 0 0 0
+cur pos:  0.0196247 0.00258421    1.88076
+time: 0
+dist: 0.223607
+A star pos: [0.018759,  0.002756,  1.885264]
+collision
+A star pos: [0.018326,  0.002842,  1.887515]
+collision
+A star pos: [0.017893,  0.002928,  1.889765]
+collision
+A star pos: [0.017460,  0.003014,  1.892016]
+collision
+A star pos: [0.017027,  0.003100,  1.894266]
+collision
+A star pos: [0.016594,  0.003186,  1.896517]
+collision
+A star pos: [0.016161,  0.003272,  1.898767]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos:  0.0196247 0.00258421    1.88076
+time: 0
+dist: 0.223607
+A star pos: [0.009761,  -0.003128,  1.895567]
+collision
+A star pos: [0.009761,  -0.003128,  1.897167]
+collision
+A star pos: [0.009761,  -0.003128,  1.898767]
+collision
+A star pos: [0.009761,  -0.003128,  1.900367]
+collision
+A star pos: [0.009761,  -0.003128,  1.901967]
+collision
+A star pos: [0.009761,  0.000072,  1.895567]
+collision
+A star pos: [0.009761,  0.000072,  1.897167]
+collision
+A star pos: [0.009761,  0.000072,  1.898767]
+collision
+A star pos: [0.009761,  0.000072,  1.900367]
+collision
+A star pos: [0.009761,  0.000072,  1.901967]
+collision
+A star pos: [0.009761,  0.003272,  1.895567]
+collision
+A star pos: [0.009761,  0.003272,  1.897167]
+collision
+A star pos: [0.009761,  0.003272,  1.898767]
+collision
+A star pos: [0.009761,  0.003272,  1.900367]
+collision
+A star pos: [0.009761,  0.003272,  1.901967]
+collision
+A star pos: [0.009761,  0.006472,  1.895567]
+collision
+A star pos: [0.009761,  0.006472,  1.897167]
+collision
+A star pos: [0.009761,  0.006472,  1.898767]
+collision
+A star pos: [0.009761,  0.006472,  1.900367]
+collision
+A star pos: [0.009761,  0.006472,  1.901967]
+collision
+A star pos: [0.009761,  0.009672,  1.895567]
+collision
+A star pos: [0.009761,  0.009672,  1.897167]
+collision
+A star pos: [0.009761,  0.009672,  1.898767]
+collision
+A star pos: [0.009761,  0.009672,  1.900367]
+collision
+A star pos: [0.009761,  0.009672,  1.901967]
+collision
+A star pos: [0.012961,  -0.003128,  1.895567]
+collision
+A star pos: [0.012961,  -0.003128,  1.897167]
+collision
+A star pos: [0.012961,  -0.003128,  1.898767]
+collision
+A star pos: [0.012961,  -0.003128,  1.900367]
+collision
+A star pos: [0.012961,  -0.003128,  1.901967]
+collision
+A star pos: [0.012961,  0.000072,  1.895567]
+collision
+A star pos: [0.012961,  0.000072,  1.897167]
+collision
+A star pos: [0.012961,  0.000072,  1.898767]
+collision
+A star pos: [0.012961,  0.000072,  1.900367]
+collision
+A star pos: [0.012961,  0.000072,  1.901967]
+collision
+A star pos: [0.012961,  0.003272,  1.895567]
+collision
+A star pos: [0.012961,  0.003272,  1.897167]
+collision
+A star pos: [0.012961,  0.003272,  1.898767]
+collision
+A star pos: [0.012961,  0.003272,  1.900367]
+collision
+A star pos: [0.012961,  0.003272,  1.901967]
+collision
+A star pos: [0.012961,  0.006472,  1.895567]
+collision
+A star pos: [0.012961,  0.006472,  1.897167]
+collision
+A star pos: [0.012961,  0.006472,  1.898767]
+collision
+A star pos: [0.012961,  0.006472,  1.900367]
+collision
+A star pos: [0.012961,  0.006472,  1.901967]
+collision
+A star pos: [0.012961,  0.009672,  1.895567]
+collision
+A star pos: [0.012961,  0.009672,  1.897167]
+collision
+A star pos: [0.012961,  0.009672,  1.898767]
+collision
+A star pos: [0.012961,  0.009672,  1.900367]
+collision
+A star pos: [0.012961,  0.009672,  1.901967]
+collision
+A star pos: [0.016161,  -0.003128,  1.895567]
+collision
+A star pos: [0.016161,  -0.003128,  1.897167]
+collision
+A star pos: [0.016161,  -0.003128,  1.898767]
+collision
+A star pos: [0.016161,  -0.003128,  1.900367]
+collision
+A star pos: [0.016161,  -0.003128,  1.901967]
+collision
+A star pos: [0.016161,  0.000072,  1.895567]
+collision
+A star pos: [0.016161,  0.000072,  1.897167]
+collision
+A star pos: [0.016161,  0.000072,  1.898767]
+collision
+A star pos: [0.016161,  0.000072,  1.900367]
+collision
+A star pos: [0.016161,  0.000072,  1.901967]
+collision
+A star pos: [0.016161,  0.003272,  1.897167]
+collision
+A star pos: [0.016161,  0.003272,  1.898767]
+collision
+A star pos: [0.016161,  0.003272,  1.900367]
+collision
+A star pos: [0.016161,  0.003272,  1.901967]
+collision
+A star pos: [0.016161,  0.006472,  1.895567]
+collision
+A star pos: [0.016161,  0.006472,  1.897167]
+collision
+A star pos: [0.016161,  0.006472,  1.898767]
+collision
+A star pos: [0.016161,  0.006472,  1.900367]
+collision
+A star pos: [0.016161,  0.006472,  1.901967]
+collision
+A star pos: [0.016161,  0.009672,  1.895567]
+collision
+A star pos: [0.016161,  0.009672,  1.897167]
+collision
+A star pos: [0.016161,  0.009672,  1.898767]
+collision
+A star pos: [0.016161,  0.009672,  1.900367]
+collision
+A star pos: [0.016161,  0.009672,  1.901967]
+collision
+A star pos: [0.019361,  -0.003128,  1.895567]
+collision
+A star pos: [0.019361,  -0.003128,  1.897167]
+collision
+A star pos: [0.019361,  -0.003128,  1.898767]
+collision
+A star pos: [0.019361,  -0.003128,  1.900367]
+collision
+A star pos: [0.019361,  -0.003128,  1.901967]
+collision
+A star pos: [0.019361,  0.000072,  1.895567]
+collision
+A star pos: [0.019361,  0.000072,  1.897167]
+collision
+A star pos: [0.019361,  0.000072,  1.898767]
+collision
+A star pos: [0.019361,  0.000072,  1.900367]
+collision
+A star pos: [0.019361,  0.000072,  1.901967]
+collision
+A star pos: [0.019361,  0.003272,  1.895567]
+collision
+A star pos: [0.019361,  0.003272,  1.897167]
+collision
+A star pos: [0.019361,  0.003272,  1.898767]
+collision
+A star pos: [0.019361,  0.003272,  1.900367]
+collision
+A star pos: [0.019361,  0.003272,  1.901967]
+collision
+A star pos: [0.019361,  0.006472,  1.895567]
+collision
+A star pos: [0.019361,  0.006472,  1.897167]
+collision
+A star pos: [0.019361,  0.006472,  1.898767]
+collision
+A star pos: [0.019361,  0.006472,  1.900367]
+collision
+A star pos: [0.019361,  0.006472,  1.901967]
+collision
+A star pos: [0.019361,  0.009672,  1.895567]
+collision
+A star pos: [0.019361,  0.009672,  1.897167]
+collision
+A star pos: [0.019361,  0.009672,  1.898767]
+collision
+A star pos: [0.019361,  0.009672,  1.900367]
+collision
+A star pos: [0.019361,  0.009672,  1.901967]
+collision
+A star pos: [0.022561,  -0.003128,  1.895567]
+collision
+A star pos: [0.022561,  -0.003128,  1.897167]
+collision
+A star pos: [0.022561,  -0.003128,  1.898767]
+collision
+A star pos: [0.022561,  -0.003128,  1.900367]
+collision
+A star pos: [0.022561,  -0.003128,  1.901967]
+collision
+A star pos: [0.022561,  0.000072,  1.895567]
+collision
+A star pos: [0.022561,  0.000072,  1.897167]
+collision
+A star pos: [0.022561,  0.000072,  1.898767]
+collision
+A star pos: [0.022561,  0.000072,  1.900367]
+collision
+A star pos: [0.022561,  0.000072,  1.901967]
+collision
+A star pos: [0.022561,  0.003272,  1.895567]
+collision
+A star pos: [0.022561,  0.003272,  1.897167]
+collision
+A star pos: [0.022561,  0.003272,  1.898767]
+collision
+A star pos: [0.022561,  0.003272,  1.900367]
+collision
+A star pos: [0.022561,  0.003272,  1.901967]
+collision
+A star pos: [0.022561,  0.006472,  1.895567]
+collision
+A star pos: [0.022561,  0.006472,  1.897167]
+collision
+A star pos: [0.022561,  0.006472,  1.898767]
+collision
+A star pos: [0.022561,  0.006472,  1.900367]
+collision
+A star pos: [0.022561,  0.006472,  1.901967]
+collision
+A star pos: [0.022561,  0.009672,  1.895567]
+collision
+A star pos: [0.022561,  0.009672,  1.897167]
+collision
+A star pos: [0.022561,  0.009672,  1.898767]
+collision
+A star pos: [0.022561,  0.009672,  1.900367]
+collision
+A star pos: [0.022561,  0.009672,  1.901967]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)    0.01951 0.00244433    1.88069, -0.0213443 0.00461083   0.116015, 0 0 0
+goal:0.967757 -2.16679  1.95804, 0 0 0
+cur pos:    0.01951 0.00244433    1.88069
+time: 0
+dist: 0.223607
+A star pos: [0.018656,  0.002629,  1.885327]
+collision
+A star pos: [0.018229,  0.002721,  1.887647]
+collision
+A star pos: [0.017802,  0.002813,  1.889967]
+collision
+A star pos: [0.017376,  0.002905,  1.892288]
+collision
+A star pos: [0.016949,  0.002998,  1.894608]
+collision
+A star pos: [0.016522,  0.003090,  1.896928]
+collision
+A star pos: [0.016095,  0.003182,  1.899248]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos:    0.01951 0.00244433    1.88069
+time: 0
+dist: 0.223607
+A star pos: [0.009695,  -0.003218,  1.896048]
+collision
+A star pos: [0.009695,  -0.003218,  1.897648]
+collision
+A star pos: [0.009695,  -0.003218,  1.899248]
+collision
+A star pos: [0.009695,  -0.003218,  1.900848]
+collision
+A star pos: [0.009695,  -0.003218,  1.902448]
+collision
+A star pos: [0.009695,  -0.000018,  1.896048]
+collision
+A star pos: [0.009695,  -0.000018,  1.897648]
+collision
+A star pos: [0.009695,  -0.000018,  1.899248]
+collision
+A star pos: [0.009695,  -0.000018,  1.900848]
+collision
+A star pos: [0.009695,  -0.000018,  1.902448]
+collision
+A star pos: [0.009695,  0.003182,  1.896048]
+collision
+A star pos: [0.009695,  0.003182,  1.897648]
+collision
+A star pos: [0.009695,  0.003182,  1.899248]
+collision
+A star pos: [0.009695,  0.003182,  1.900848]
+collision
+A star pos: [0.009695,  0.003182,  1.902448]
+collision
+A star pos: [0.009695,  0.006382,  1.896048]
+collision
+A star pos: [0.009695,  0.006382,  1.897648]
+collision
+A star pos: [0.009695,  0.006382,  1.899248]
+collision
+A star pos: [0.009695,  0.006382,  1.900848]
+collision
+A star pos: [0.009695,  0.006382,  1.902448]
+collision
+A star pos: [0.009695,  0.009582,  1.896048]
+collision
+A star pos: [0.009695,  0.009582,  1.897648]
+collision
+A star pos: [0.009695,  0.009582,  1.899248]
+collision
+A star pos: [0.009695,  0.009582,  1.900848]
+collision
+A star pos: [0.009695,  0.009582,  1.902448]
+collision
+A star pos: [0.012895,  -0.003218,  1.896048]
+collision
+A star pos: [0.012895,  -0.003218,  1.897648]
+collision
+A star pos: [0.012895,  -0.003218,  1.899248]
+collision
+A star pos: [0.012895,  -0.003218,  1.900848]
+collision
+A star pos: [0.012895,  -0.003218,  1.902448]
+collision
+A star pos: [0.012895,  -0.000018,  1.896048]
+collision
+A star pos: [0.012895,  -0.000018,  1.897648]
+collision
+A star pos: [0.012895,  -0.000018,  1.899248]
+collision
+A star pos: [0.012895,  -0.000018,  1.900848]
+collision
+A star pos: [0.012895,  -0.000018,  1.902448]
+collision
+A star pos: [0.012895,  0.003182,  1.896048]
+collision
+A star pos: [0.012895,  0.003182,  1.897648]
+collision
+A star pos: [0.012895,  0.003182,  1.899248]
+collision
+A star pos: [0.012895,  0.003182,  1.900848]
+collision
+A star pos: [0.012895,  0.003182,  1.902448]
+collision
+A star pos: [0.012895,  0.006382,  1.896048]
+collision
+A star pos: [0.012895,  0.006382,  1.897648]
+collision
+A star pos: [0.012895,  0.006382,  1.899248]
+collision
+A star pos: [0.012895,  0.006382,  1.900848]
+collision
+A star pos: [0.012895,  0.006382,  1.902448]
+collision
+A star pos: [0.012895,  0.009582,  1.896048]
+collision
+A star pos: [0.012895,  0.009582,  1.897648]
+collision
+A star pos: [0.012895,  0.009582,  1.899248]
+collision
+A star pos: [0.012895,  0.009582,  1.900848]
+collision
+A star pos: [0.012895,  0.009582,  1.902448]
+collision
+A star pos: [0.016095,  -0.003218,  1.896048]
+collision
+A star pos: [0.016095,  -0.003218,  1.897648]
+collision
+A star pos: [0.016095,  -0.003218,  1.899248]
+collision
+A star pos: [0.016095,  -0.003218,  1.900848]
+collision
+A star pos: [0.016095,  -0.003218,  1.902448]
+collision
+A star pos: [0.016095,  -0.000018,  1.896048]
+collision
+A star pos: [0.016095,  -0.000018,  1.897648]
+collision
+A star pos: [0.016095,  -0.000018,  1.899248]
+collision
+A star pos: [0.016095,  -0.000018,  1.900848]
+collision
+A star pos: [0.016095,  -0.000018,  1.902448]
+collision
+A star pos: [0.016095,  0.003182,  1.897648]
+collision
+A star pos: [0.016095,  0.003182,  1.899248]
+collision
+A star pos: [0.016095,  0.003182,  1.900848]
+collision
+A star pos: [0.016095,  0.003182,  1.902448]
+collision
+A star pos: [0.016095,  0.006382,  1.896048]
+collision
+A star pos: [0.016095,  0.006382,  1.897648]
+collision
+A star pos: [0.016095,  0.006382,  1.899248]
+collision
+A star pos: [0.016095,  0.006382,  1.900848]
+collision
+A star pos: [0.016095,  0.006382,  1.902448]
+collision
+A star pos: [0.016095,  0.009582,  1.896048]
+collision
+A star pos: [0.016095,  0.009582,  1.897648]
+collision
+A star pos: [0.016095,  0.009582,  1.899248]
+collision
+A star pos: [0.016095,  0.009582,  1.900848]
+collision
+A star pos: [0.016095,  0.009582,  1.902448]
+collision
+A star pos: [0.019295,  -0.003218,  1.896048]
+collision
+A star pos: [0.019295,  -0.003218,  1.897648]
+collision
+A star pos: [0.019295,  -0.003218,  1.899248]
+collision
+A star pos: [0.019295,  -0.003218,  1.900848]
+collision
+A star pos: [0.019295,  -0.003218,  1.902448]
+collision
+A star pos: [0.019295,  -0.000018,  1.896048]
+collision
+A star pos: [0.019295,  -0.000018,  1.897648]
+collision
+A star pos: [0.019295,  -0.000018,  1.899248]
+collision
+A star pos: [0.019295,  -0.000018,  1.900848]
+collision
+A star pos: [0.019295,  -0.000018,  1.902448]
+collision
+A star pos: [0.019295,  0.003182,  1.896048]
+collision
+A star pos: [0.019295,  0.003182,  1.897648]
+collision
+A star pos: [0.019295,  0.003182,  1.899248]
+collision
+A star pos: [0.019295,  0.003182,  1.900848]
+collision
+A star pos: [0.019295,  0.003182,  1.902448]
+collision
+A star pos: [0.019295,  0.006382,  1.896048]
+collision
+A star pos: [0.019295,  0.006382,  1.897648]
+collision
+A star pos: [0.019295,  0.006382,  1.899248]
+collision
+A star pos: [0.019295,  0.006382,  1.900848]
+collision
+A star pos: [0.019295,  0.006382,  1.902448]
+collision
+A star pos: [0.019295,  0.009582,  1.896048]
+collision
+A star pos: [0.019295,  0.009582,  1.897648]
+collision
+A star pos: [0.019295,  0.009582,  1.899248]
+collision
+A star pos: [0.019295,  0.009582,  1.900848]
+collision
+A star pos: [0.019295,  0.009582,  1.902448]
+collision
+A star pos: [0.022495,  -0.003218,  1.896048]
+collision
+A star pos: [0.022495,  -0.003218,  1.897648]
+collision
+A star pos: [0.022495,  -0.003218,  1.899248]
+collision
+A star pos: [0.022495,  -0.003218,  1.900848]
+collision
+A star pos: [0.022495,  -0.003218,  1.902448]
+collision
+A star pos: [0.022495,  -0.000018,  1.896048]
+collision
+A star pos: [0.022495,  -0.000018,  1.897648]
+collision
+A star pos: [0.022495,  -0.000018,  1.899248]
+collision
+A star pos: [0.022495,  -0.000018,  1.900848]
+collision
+A star pos: [0.022495,  -0.000018,  1.902448]
+collision
+A star pos: [0.022495,  0.003182,  1.896048]
+collision
+A star pos: [0.022495,  0.003182,  1.897648]
+collision
+A star pos: [0.022495,  0.003182,  1.899248]
+collision
+A star pos: [0.022495,  0.003182,  1.900848]
+collision
+A star pos: [0.022495,  0.003182,  1.902448]
+collision
+A star pos: [0.022495,  0.006382,  1.896048]
+collision
+A star pos: [0.022495,  0.006382,  1.897648]
+collision
+A star pos: [0.022495,  0.006382,  1.899248]
+collision
+A star pos: [0.022495,  0.006382,  1.900848]
+collision
+A star pos: [0.022495,  0.006382,  1.902448]
+collision
+A star pos: [0.022495,  0.009582,  1.896048]
+collision
+A star pos: [0.022495,  0.009582,  1.897648]
+collision
+A star pos: [0.022495,  0.009582,  1.899248]
+collision
+A star pos: [0.022495,  0.009582,  1.900848]
+collision
+A star pos: [0.022495,  0.009582,  1.902448]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[fsm] Get a new goal: (2.60937, -0.00117588, 1.84717)
+[planner]: -----------------------
+start: (pt; vel; acc) 0.0334682 -0.019161   1.84717, -0.0339756  0.0147146   0.151217, 0 0 0
+goal:    2.60937 -0.00117588     1.84717, 0 0 0
+cur pos: 0.0334682 -0.019161   1.84717
+time: 0
+dist: 0.180278
+A star pos: [0.032789,  -0.018867,  1.850197]
+collision
+A star pos: [0.032109,  -0.018572,  1.853222]
+collision
+A star pos: [0.031430,  -0.018278,  1.856246]
+collision
+A star pos: [0.030750,  -0.017984,  1.859270]
+collision
+A star pos: [0.030071,  -0.017690,  1.862295]
+collision
+A star pos: [0.029391,  -0.017395,  1.865319]
+collision
+A star pos: [0.028712,  -0.017101,  1.868343]
+collision
+A star pos: [0.028032,  -0.016807,  1.871368]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: 0.0334682 -0.019161   1.84717
+time: 0
+dist: 0.180278
+A star pos: [0.021632,  -0.023207,  1.868168]
+collision
+A star pos: [0.021632,  -0.023207,  1.869768]
+collision
+A star pos: [0.021632,  -0.023207,  1.871368]
+collision
+A star pos: [0.021632,  -0.023207,  1.872968]
+collision
+A star pos: [0.021632,  -0.023207,  1.874568]
+collision
+A star pos: [0.021632,  -0.020007,  1.868168]
+collision
+A star pos: [0.021632,  -0.020007,  1.869768]
+collision
+A star pos: [0.021632,  -0.020007,  1.871368]
+collision
+A star pos: [0.021632,  -0.020007,  1.872968]
+collision
+A star pos: [0.021632,  -0.020007,  1.874568]
+collision
+A star pos: [0.021632,  -0.016807,  1.868168]
+collision
+A star pos: [0.021632,  -0.016807,  1.869768]
+collision
+A star pos: [0.021632,  -0.016807,  1.871368]
+collision
+A star pos: [0.021632,  -0.016807,  1.872968]
+collision
+A star pos: [0.021632,  -0.016807,  1.874568]
+collision
+A star pos: [0.021632,  -0.013607,  1.868168]
+collision
+A star pos: [0.021632,  -0.013607,  1.869768]
+collision
+A star pos: [0.021632,  -0.013607,  1.871368]
+collision
+A star pos: [0.021632,  -0.013607,  1.872968]
+collision
+A star pos: [0.021632,  -0.013607,  1.874568]
+collision
+A star pos: [0.021632,  -0.010407,  1.868168]
+collision
+A star pos: [0.021632,  -0.010407,  1.869768]
+collision
+A star pos: [0.021632,  -0.010407,  1.871368]
+collision
+A star pos: [0.021632,  -0.010407,  1.872968]
+collision
+A star pos: [0.021632,  -0.010407,  1.874568]
+collision
+A star pos: [0.024832,  -0.023207,  1.868168]
+collision
+A star pos: [0.024832,  -0.023207,  1.869768]
+collision
+A star pos: [0.024832,  -0.023207,  1.871368]
+collision
+A star pos: [0.024832,  -0.023207,  1.872968]
+collision
+A star pos: [0.024832,  -0.023207,  1.874568]
+collision
+A star pos: [0.024832,  -0.020007,  1.868168]
+collision
+A star pos: [0.024832,  -0.020007,  1.869768]
+collision
+A star pos: [0.024832,  -0.020007,  1.871368]
+collision
+A star pos: [0.024832,  -0.020007,  1.872968]
+collision
+A star pos: [0.024832,  -0.020007,  1.874568]
+collision
+A star pos: [0.024832,  -0.016807,  1.868168]
+collision
+A star pos: [0.024832,  -0.016807,  1.869768]
+collision
+A star pos: [0.024832,  -0.016807,  1.871368]
+collision
+A star pos: [0.024832,  -0.016807,  1.872968]
+collision
+A star pos: [0.024832,  -0.016807,  1.874568]
+collision
+A star pos: [0.024832,  -0.013607,  1.868168]
+collision
+A star pos: [0.024832,  -0.013607,  1.869768]
+collision
+A star pos: [0.024832,  -0.013607,  1.871368]
+collision
+A star pos: [0.024832,  -0.013607,  1.872968]
+collision
+A star pos: [0.024832,  -0.013607,  1.874568]
+collision
+A star pos: [0.024832,  -0.010407,  1.868168]
+collision
+A star pos: [0.024832,  -0.010407,  1.869768]
+collision
+A star pos: [0.024832,  -0.010407,  1.871368]
+collision
+A star pos: [0.024832,  -0.010407,  1.872968]
+collision
+A star pos: [0.024832,  -0.010407,  1.874568]
+collision
+A star pos: [0.028032,  -0.023207,  1.868168]
+collision
+A star pos: [0.028032,  -0.023207,  1.869768]
+collision
+A star pos: [0.028032,  -0.023207,  1.871368]
+collision
+A star pos: [0.028032,  -0.023207,  1.872968]
+collision
+A star pos: [0.028032,  -0.023207,  1.874568]
+collision
+A star pos: [0.028032,  -0.020007,  1.868168]
+collision
+A star pos: [0.028032,  -0.020007,  1.869768]
+collision
+A star pos: [0.028032,  -0.020007,  1.871368]
+collision
+A star pos: [0.028032,  -0.020007,  1.872968]
+collision
+A star pos: [0.028032,  -0.020007,  1.874568]
+collision
+A star pos: [0.028032,  -0.016807,  1.868168]
+collision
+A star pos: [0.028032,  -0.016807,  1.869768]
+collision
+A star pos: [0.028032,  -0.016807,  1.871368]
+collision
+A star pos: [0.028032,  -0.016807,  1.872968]
+collision
+A star pos: [0.028032,  -0.016807,  1.874568]
+collision
+A star pos: [0.028032,  -0.013607,  1.868168]
+collision
+A star pos: [0.028032,  -0.013607,  1.869768]
+collision
+A star pos: [0.028032,  -0.013607,  1.871368]
+collision
+A star pos: [0.028032,  -0.013607,  1.872968]
+collision
+A star pos: [0.028032,  -0.013607,  1.874568]
+collision
+A star pos: [0.028032,  -0.010407,  1.868168]
+collision
+A star pos: [0.028032,  -0.010407,  1.869768]
+collision
+A star pos: [0.028032,  -0.010407,  1.871368]
+collision
+A star pos: [0.028032,  -0.010407,  1.872968]
+collision
+A star pos: [0.028032,  -0.010407,  1.874568]
+collision
+A star pos: [0.031232,  -0.023207,  1.868168]
+collision
+A star pos: [0.031232,  -0.023207,  1.869768]
+collision
+A star pos: [0.031232,  -0.023207,  1.871368]
+collision
+A star pos: [0.031232,  -0.023207,  1.872968]
+collision
+A star pos: [0.031232,  -0.023207,  1.874568]
+collision
+A star pos: [0.031232,  -0.020007,  1.868168]
+collision
+A star pos: [0.031232,  -0.020007,  1.869768]
+collision
+A star pos: [0.031232,  -0.020007,  1.871368]
+collision
+A star pos: [0.031232,  -0.020007,  1.872968]
+collision
+A star pos: [0.031232,  -0.020007,  1.874568]
+collision
+A star pos: [0.031232,  -0.016807,  1.868168]
+collision
+A star pos: [0.031232,  -0.016807,  1.869768]
+collision
+A star pos: [0.031232,  -0.016807,  1.871368]
+collision
+A star pos: [0.031232,  -0.016807,  1.872968]
+collision
+A star pos: [0.031232,  -0.016807,  1.874568]
+collision
+A star pos: [0.031232,  -0.013607,  1.868168]
+collision
+A star pos: [0.031232,  -0.013607,  1.869768]
+collision
+A star pos: [0.031232,  -0.013607,  1.871368]
+collision
+A star pos: [0.031232,  -0.013607,  1.872968]
+collision
+A star pos: [0.031232,  -0.013607,  1.874568]
+collision
+A star pos: [0.031232,  -0.010407,  1.868168]
+collision
+A star pos: [0.031232,  -0.010407,  1.869768]
+collision
+A star pos: [0.031232,  -0.010407,  1.871368]
+collision
+A star pos: [0.031232,  -0.010407,  1.872968]
+collision
+A star pos: [0.031232,  -0.010407,  1.874568]
+collision
+A star pos: [0.034432,  -0.023207,  1.868168]
+collision
+A star pos: [0.034432,  -0.023207,  1.869768]
+collision
+A star pos: [0.034432,  -0.023207,  1.871368]
+collision
+A star pos: [0.034432,  -0.023207,  1.872968]
+collision
+A star pos: [0.034432,  -0.023207,  1.874568]
+collision
+A star pos: [0.034432,  -0.020007,  1.868168]
+collision
+A star pos: [0.034432,  -0.020007,  1.869768]
+collision
+A star pos: [0.034432,  -0.020007,  1.871368]
+collision
+A star pos: [0.034432,  -0.020007,  1.872968]
+collision
+A star pos: [0.034432,  -0.020007,  1.874568]
+collision
+A star pos: [0.034432,  -0.016807,  1.868168]
+collision
+A star pos: [0.034432,  -0.016807,  1.869768]
+collision
+A star pos: [0.034432,  -0.016807,  1.871368]
+collision
+A star pos: [0.034432,  -0.016807,  1.872968]
+collision
+A star pos: [0.034432,  -0.016807,  1.874568]
+collision
+A star pos: [0.034432,  -0.013607,  1.868168]
+collision
+A star pos: [0.034432,  -0.013607,  1.869768]
+collision
+A star pos: [0.034432,  -0.013607,  1.871368]
+collision
+A star pos: [0.034432,  -0.013607,  1.872968]
+collision
+A star pos: [0.034432,  -0.013607,  1.874568]
+collision
+A star pos: [0.034432,  -0.010407,  1.868168]
+collision
+A star pos: [0.034432,  -0.010407,  1.869768]
+collision
+A star pos: [0.034432,  -0.010407,  1.871368]
+collision
+A star pos: [0.034432,  -0.010407,  1.872968]
+collision
+A star pos: [0.034432,  -0.010407,  1.874568]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) 0.0255901 0.0086273   1.89882,  -0.0191702 -0.00850718     0.10168, 0 0 0
+goal:    2.60937 -0.00117588     1.84717, 0 0 0
+cur pos: 0.0255901 0.0086273   1.89882
+time: 0
+dist: 0.223607
+A star pos: [0.025207,  0.008457,  1.900856]
+collision
+A star pos: [0.024823,  0.008287,  1.902890]
+collision
+A star pos: [0.024440,  0.008117,  1.904923]
+collision
+A star pos: [0.024057,  0.007947,  1.906957]
+collision
+A star pos: [0.023673,  0.007777,  1.908990]
+collision
+A star pos: [0.023290,  0.007606,  1.911024]
+collision
+A star pos: [0.022906,  0.007436,  1.913058]
+collision
+A star pos: [0.022523,  0.007266,  1.915091]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos: 0.0255901 0.0086273   1.89882
+time: 0
+dist: 0.223607
+A star pos: [0.016123,  0.000866,  1.911891]
+collision
+A star pos: [0.016123,  0.000866,  1.913491]
+collision
+A star pos: [0.016123,  0.000866,  1.915091]
+collision
+A star pos: [0.016123,  0.000866,  1.916691]
+collision
+A star pos: [0.016123,  0.000866,  1.918291]
+collision
+A star pos: [0.016123,  0.004066,  1.911891]
+collision
+A star pos: [0.016123,  0.004066,  1.913491]
+collision
+A star pos: [0.016123,  0.004066,  1.915091]
+collision
+A star pos: [0.016123,  0.004066,  1.916691]
+collision
+A star pos: [0.016123,  0.004066,  1.918291]
+collision
+A star pos: [0.016123,  0.007266,  1.911891]
+collision
+A star pos: [0.016123,  0.007266,  1.913491]
+collision
+A star pos: [0.016123,  0.007266,  1.915091]
+collision
+A star pos: [0.016123,  0.007266,  1.916691]
+collision
+A star pos: [0.016123,  0.007266,  1.918291]
+collision
+A star pos: [0.016123,  0.010466,  1.911891]
+collision
+A star pos: [0.016123,  0.010466,  1.913491]
+collision
+A star pos: [0.016123,  0.010466,  1.915091]
+collision
+A star pos: [0.016123,  0.010466,  1.916691]
+collision
+A star pos: [0.016123,  0.010466,  1.918291]
+collision
+A star pos: [0.016123,  0.013666,  1.911891]
+collision
+A star pos: [0.016123,  0.013666,  1.913491]
+collision
+A star pos: [0.016123,  0.013666,  1.915091]
+collision
+A star pos: [0.016123,  0.013666,  1.916691]
+collision
+A star pos: [0.016123,  0.013666,  1.918291]
+collision
+A star pos: [0.019323,  0.000866,  1.911891]
+collision
+A star pos: [0.019323,  0.000866,  1.913491]
+collision
+A star pos: [0.019323,  0.000866,  1.915091]
+collision
+A star pos: [0.019323,  0.000866,  1.916691]
+collision
+A star pos: [0.019323,  0.000866,  1.918291]
+collision
+A star pos: [0.019323,  0.004066,  1.911891]
+collision
+A star pos: [0.019323,  0.004066,  1.913491]
+collision
+A star pos: [0.019323,  0.004066,  1.915091]
+collision
+A star pos: [0.019323,  0.004066,  1.916691]
+collision
+A star pos: [0.019323,  0.004066,  1.918291]
+collision
+A star pos: [0.019323,  0.007266,  1.911891]
+collision
+A star pos: [0.019323,  0.007266,  1.913491]
+collision
+A star pos: [0.019323,  0.007266,  1.915091]
+collision
+A star pos: [0.019323,  0.007266,  1.916691]
+collision
+A star pos: [0.019323,  0.007266,  1.918291]
+collision
+A star pos: [0.019323,  0.010466,  1.911891]
+collision
+A star pos: [0.019323,  0.010466,  1.913491]
+collision
+A star pos: [0.019323,  0.010466,  1.915091]
+collision
+A star pos: [0.019323,  0.010466,  1.916691]
+collision
+A star pos: [0.019323,  0.010466,  1.918291]
+collision
+A star pos: [0.019323,  0.013666,  1.911891]
+collision
+A star pos: [0.019323,  0.013666,  1.913491]
+collision
+A star pos: [0.019323,  0.013666,  1.915091]
+collision
+A star pos: [0.019323,  0.013666,  1.916691]
+collision
+A star pos: [0.019323,  0.013666,  1.918291]
+collision
+A star pos: [0.022523,  0.000866,  1.911891]
+collision
+A star pos: [0.022523,  0.000866,  1.913491]
+collision
+A star pos: [0.022523,  0.000866,  1.915091]
+collision
+A star pos: [0.022523,  0.000866,  1.916691]
+collision
+A star pos: [0.022523,  0.000866,  1.918291]
+collision
+A star pos: [0.022523,  0.004066,  1.911891]
+collision
+A star pos: [0.022523,  0.004066,  1.913491]
+collision
+A star pos: [0.022523,  0.004066,  1.915091]
+collision
+A star pos: [0.022523,  0.004066,  1.916691]
+collision
+A star pos: [0.022523,  0.004066,  1.918291]
+collision
+A star pos: [0.022523,  0.007266,  1.911891]
+collision
+A star pos: [0.022523,  0.007266,  1.913491]
+collision
+A star pos: [0.022523,  0.007266,  1.915091]
+collision
+A star pos: [0.022523,  0.007266,  1.916691]
+collision
+A star pos: [0.022523,  0.007266,  1.918291]
+collision
+A star pos: [0.022523,  0.010466,  1.911891]
+collision
+A star pos: [0.022523,  0.010466,  1.913491]
+collision
+A star pos: [0.022523,  0.010466,  1.915091]
+collision
+A star pos: [0.022523,  0.010466,  1.916691]
+collision
+A star pos: [0.022523,  0.010466,  1.918291]
+collision
+A star pos: [0.022523,  0.013666,  1.911891]
+collision
+A star pos: [0.022523,  0.013666,  1.913491]
+collision
+A star pos: [0.022523,  0.013666,  1.915091]
+collision
+A star pos: [0.022523,  0.013666,  1.916691]
+collision
+A star pos: [0.022523,  0.013666,  1.918291]
+collision
+A star pos: [0.025723,  0.000866,  1.911891]
+collision
+A star pos: [0.025723,  0.000866,  1.913491]
+collision
+A star pos: [0.025723,  0.000866,  1.915091]
+collision
+A star pos: [0.025723,  0.000866,  1.916691]
+collision
+A star pos: [0.025723,  0.000866,  1.918291]
+collision
+A star pos: [0.025723,  0.004066,  1.911891]
+collision
+A star pos: [0.025723,  0.004066,  1.913491]
+collision
+A star pos: [0.025723,  0.004066,  1.915091]
+collision
+A star pos: [0.025723,  0.004066,  1.916691]
+collision
+A star pos: [0.025723,  0.004066,  1.918291]
+collision
+A star pos: [0.025723,  0.007266,  1.911891]
+collision
+A star pos: [0.025723,  0.007266,  1.913491]
+collision
+A star pos: [0.025723,  0.007266,  1.915091]
+collision
+A star pos: [0.025723,  0.007266,  1.916691]
+collision
+A star pos: [0.025723,  0.007266,  1.918291]
+collision
+A star pos: [0.025723,  0.010466,  1.911891]
+collision
+A star pos: [0.025723,  0.010466,  1.913491]
+collision
+A star pos: [0.025723,  0.010466,  1.915091]
+collision
+A star pos: [0.025723,  0.010466,  1.916691]
+collision
+A star pos: [0.025723,  0.010466,  1.918291]
+collision
+A star pos: [0.025723,  0.013666,  1.911891]
+collision
+A star pos: [0.025723,  0.013666,  1.913491]
+collision
+A star pos: [0.025723,  0.013666,  1.915091]
+collision
+A star pos: [0.025723,  0.013666,  1.916691]
+collision
+A star pos: [0.025723,  0.013666,  1.918291]
+collision
+A star pos: [0.028923,  0.000866,  1.911891]
+collision
+A star pos: [0.028923,  0.000866,  1.913491]
+collision
+A star pos: [0.028923,  0.000866,  1.915091]
+collision
+A star pos: [0.028923,  0.000866,  1.916691]
+collision
+A star pos: [0.028923,  0.000866,  1.918291]
+collision
+A star pos: [0.028923,  0.004066,  1.911891]
+collision
+A star pos: [0.028923,  0.004066,  1.913491]
+collision
+A star pos: [0.028923,  0.004066,  1.915091]
+collision
+A star pos: [0.028923,  0.004066,  1.916691]
+collision
+A star pos: [0.028923,  0.004066,  1.918291]
+collision
+A star pos: [0.028923,  0.007266,  1.911891]
+collision
+A star pos: [0.028923,  0.007266,  1.913491]
+collision
+A star pos: [0.028923,  0.007266,  1.915091]
+collision
+A star pos: [0.028923,  0.007266,  1.916691]
+collision
+A star pos: [0.028923,  0.007266,  1.918291]
+collision
+A star pos: [0.028923,  0.010466,  1.911891]
+collision
+A star pos: [0.028923,  0.010466,  1.913491]
+collision
+A star pos: [0.028923,  0.010466,  1.915091]
+collision
+A star pos: [0.028923,  0.010466,  1.916691]
+collision
+A star pos: [0.028923,  0.010466,  1.918291]
+collision
+A star pos: [0.028923,  0.013666,  1.911891]
+collision
+A star pos: [0.028923,  0.013666,  1.913491]
+collision
+A star pos: [0.028923,  0.013666,  1.915091]
+collision
+A star pos: [0.028923,  0.013666,  1.916691]
+collision
+A star pos: [0.028923,  0.013666,  1.918291]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc)  0.0224658 0.00979333    1.90153,  -0.0206868 -0.00724966    0.100742, 0 0 0
+goal:    2.60937 -0.00117588     1.84717, 0 0 0
+cur pos:  0.0224658 0.00979333    1.90153
+time: 0
+dist: 0.223607
+A star pos: [0.020397,  0.009068,  1.911607]
+collision
+A star pos: [0.019983,  0.008923,  1.913622]
+collision
+A star pos: [0.019570,  0.008778,  1.915637]
+collision
+A star pos: [0.019156,  0.008633,  1.917652]
+collision
+open set empty, no path!
+[planner]: init search fail!
+cur pos:  0.0224658 0.00979333    1.90153
+time: 0
+dist: 0.223607
+A star pos: [0.012756,  0.002233,  1.914452]
+collision
+A star pos: [0.012756,  0.002233,  1.916052]
+collision
+A star pos: [0.012756,  0.002233,  1.917652]
+collision
+A star pos: [0.012756,  0.002233,  1.919252]
+collision
+A star pos: [0.012756,  0.002233,  1.920852]
+collision
+A star pos: [0.012756,  0.005433,  1.914452]
+collision
+A star pos: [0.012756,  0.005433,  1.916052]
+collision
+A star pos: [0.012756,  0.005433,  1.917652]
+collision
+A star pos: [0.012756,  0.005433,  1.919252]
+collision
+A star pos: [0.012756,  0.005433,  1.920852]
+collision
+A star pos: [0.012756,  0.008633,  1.914452]
+collision
+A star pos: [0.012756,  0.008633,  1.916052]
+collision
+A star pos: [0.012756,  0.008633,  1.917652]
+collision
+A star pos: [0.012756,  0.008633,  1.919252]
+collision
+A star pos: [0.012756,  0.008633,  1.920852]
+collision
+A star pos: [0.012756,  0.011833,  1.914452]
+collision
+A star pos: [0.012756,  0.011833,  1.916052]
+collision
+A star pos: [0.012756,  0.011833,  1.917652]
+collision
+A star pos: [0.012756,  0.011833,  1.919252]
+collision
+A star pos: [0.012756,  0.011833,  1.920852]
+collision
+A star pos: [0.012756,  0.015033,  1.914452]
+collision
+A star pos: [0.012756,  0.015033,  1.916052]
+collision
+A star pos: [0.012756,  0.015033,  1.917652]
+collision
+A star pos: [0.012756,  0.015033,  1.919252]
+collision
+A star pos: [0.012756,  0.015033,  1.920852]
+collision
+A star pos: [0.015956,  0.002233,  1.914452]
+collision
+A star pos: [0.015956,  0.002233,  1.916052]
+collision
+A star pos: [0.015956,  0.002233,  1.917652]
+collision
+A star pos: [0.015956,  0.002233,  1.919252]
+collision
+A star pos: [0.015956,  0.002233,  1.920852]
+collision
+A star pos: [0.015956,  0.005433,  1.914452]
+collision
+A star pos: [0.015956,  0.005433,  1.916052]
+collision
+A star pos: [0.015956,  0.005433,  1.917652]
+collision
+A star pos: [0.015956,  0.005433,  1.919252]
+collision
+A star pos: [0.015956,  0.005433,  1.920852]
+collision
+A star pos: [0.015956,  0.008633,  1.914452]
+collision
+A star pos: [0.015956,  0.008633,  1.916052]
+collision
+A star pos: [0.015956,  0.008633,  1.917652]
+collision
+A star pos: [0.015956,  0.008633,  1.919252]
+collision
+A star pos: [0.015956,  0.008633,  1.920852]
+collision
+A star pos: [0.015956,  0.011833,  1.914452]
+collision
+A star pos: [0.015956,  0.011833,  1.916052]
+collision
+A star pos: [0.015956,  0.011833,  1.917652]
+collision
+A star pos: [0.015956,  0.011833,  1.919252]
+collision
+A star pos: [0.015956,  0.011833,  1.920852]
+collision
+A star pos: [0.015956,  0.015033,  1.914452]
+collision
+A star pos: [0.015956,  0.015033,  1.916052]
+collision
+A star pos: [0.015956,  0.015033,  1.917652]
+collision
+A star pos: [0.015956,  0.015033,  1.919252]
+collision
+A star pos: [0.015956,  0.015033,  1.920852]
+collision
+A star pos: [0.019156,  0.002233,  1.914452]
+collision
+A star pos: [0.019156,  0.002233,  1.916052]
+collision
+A star pos: [0.019156,  0.002233,  1.917652]
+collision
+A star pos: [0.019156,  0.002233,  1.919252]
+collision
+A star pos: [0.019156,  0.002233,  1.920852]
+collision
+A star pos: [0.019156,  0.005433,  1.914452]
+collision
+A star pos: [0.019156,  0.005433,  1.916052]
+collision
+A star pos: [0.019156,  0.005433,  1.917652]
+collision
+A star pos: [0.019156,  0.005433,  1.919252]
+collision
+A star pos: [0.019156,  0.005433,  1.920852]
+collision
+A star pos: [0.019156,  0.008633,  1.917652]
+collision
+A star pos: [0.019156,  0.008633,  1.919252]
+collision
+A star pos: [0.019156,  0.008633,  1.920852]
+collision
+A star pos: [0.019156,  0.011833,  1.914452]
+collision
+A star pos: [0.019156,  0.011833,  1.916052]
+collision
+A star pos: [0.019156,  0.011833,  1.917652]
+collision
+A star pos: [0.019156,  0.011833,  1.919252]
+collision
+A star pos: [0.019156,  0.011833,  1.920852]
+collision
+A star pos: [0.019156,  0.015033,  1.914452]
+collision
+A star pos: [0.019156,  0.015033,  1.916052]
+collision
+A star pos: [0.019156,  0.015033,  1.917652]
+collision
+A star pos: [0.019156,  0.015033,  1.919252]
+collision
+A star pos: [0.019156,  0.015033,  1.920852]
+collision
+A star pos: [0.022356,  0.002233,  1.914452]
+collision
+A star pos: [0.022356,  0.002233,  1.916052]
+collision
+A star pos: [0.022356,  0.002233,  1.917652]
+collision
+A star pos: [0.022356,  0.002233,  1.919252]
+collision
+A star pos: [0.022356,  0.002233,  1.920852]
+collision
+A star pos: [0.022356,  0.005433,  1.914452]
+collision
+A star pos: [0.022356,  0.005433,  1.916052]
+collision
+A star pos: [0.022356,  0.005433,  1.917652]
+collision
+A star pos: [0.022356,  0.005433,  1.919252]
+collision
+A star pos: [0.022356,  0.005433,  1.920852]
+collision
+A star pos: [0.022356,  0.008633,  1.914452]
+collision
+A star pos: [0.022356,  0.008633,  1.916052]
+collision
+A star pos: [0.022356,  0.008633,  1.917652]
+collision
+A star pos: [0.022356,  0.008633,  1.919252]
+collision
+A star pos: [0.022356,  0.008633,  1.920852]
+collision
+A star pos: [0.022356,  0.011833,  1.914452]
+collision
+A star pos: [0.022356,  0.011833,  1.916052]
+collision
+A star pos: [0.022356,  0.011833,  1.917652]
+collision
+A star pos: [0.022356,  0.011833,  1.919252]
+collision
+A star pos: [0.022356,  0.011833,  1.920852]
+collision
+A star pos: [0.022356,  0.015033,  1.914452]
+collision
+A star pos: [0.022356,  0.015033,  1.916052]
+collision
+A star pos: [0.022356,  0.015033,  1.917652]
+collision
+A star pos: [0.022356,  0.015033,  1.919252]
+collision
+A star pos: [0.022356,  0.015033,  1.920852]
+collision
+A star pos: [0.025556,  0.002233,  1.914452]
+collision
+A star pos: [0.025556,  0.002233,  1.916052]
+collision
+A star pos: [0.025556,  0.002233,  1.917652]
+collision
+A star pos: [0.025556,  0.002233,  1.919252]
+collision
+A star pos: [0.025556,  0.002233,  1.920852]
+collision
+A star pos: [0.025556,  0.005433,  1.914452]
+collision
+A star pos: [0.025556,  0.005433,  1.916052]
+collision
+A star pos: [0.025556,  0.005433,  1.917652]
+collision
+A star pos: [0.025556,  0.005433,  1.919252]
+collision
+A star pos: [0.025556,  0.005433,  1.920852]
+collision
+A star pos: [0.025556,  0.008633,  1.914452]
+collision
+A star pos: [0.025556,  0.008633,  1.916052]
+collision
+A star pos: [0.025556,  0.008633,  1.917652]
+collision
+A star pos: [0.025556,  0.008633,  1.919252]
+collision
+A star pos: [0.025556,  0.008633,  1.920852]
+collision
+A star pos: [0.025556,  0.011833,  1.914452]
+collision
+A star pos: [0.025556,  0.011833,  1.916052]
+collision
+A star pos: [0.025556,  0.011833,  1.917652]
+collision
+A star pos: [0.025556,  0.011833,  1.919252]
+collision
+A star pos: [0.025556,  0.011833,  1.920852]
+collision
+A star pos: [0.025556,  0.015033,  1.914452]
+collision
+A star pos: [0.025556,  0.015033,  1.916052]
+collision
+A star pos: [0.025556,  0.015033,  1.917652]
+collision
+A star pos: [0.025556,  0.015033,  1.919252]
+collision
+A star pos: [0.025556,  0.015033,  1.920852]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0448001  0.0462832    1.96454,  0.0197589 -0.0309365  0.0391921, 0 0 0
+goal:    2.60937 -0.00117588     1.84717, 0 0 0
+cur pos: -0.0448001  0.0462832    1.96454
+time: 0
+dist: 0.25
+open set empty, no path!
+[planner]: init search fail!
+cur pos: -0.0448001  0.0462832    1.96454
+time: 0
+dist: 0.25
+A star pos: [-0.048039,  0.034933,  1.967614]
+collision
+A star pos: [-0.048039,  0.034933,  1.969214]
+collision
+A star pos: [-0.048039,  0.034933,  1.970814]
+collision
+A star pos: [-0.048039,  0.034933,  1.972414]
+collision
+A star pos: [-0.048039,  0.034933,  1.974014]
+collision
+A star pos: [-0.048039,  0.038133,  1.967614]
+collision
+A star pos: [-0.048039,  0.038133,  1.969214]
+collision
+A star pos: [-0.048039,  0.038133,  1.970814]
+collision
+A star pos: [-0.048039,  0.038133,  1.972414]
+collision
+A star pos: [-0.048039,  0.038133,  1.974014]
+collision
+A star pos: [-0.048039,  0.041333,  1.967614]
+collision
+A star pos: [-0.048039,  0.041333,  1.969214]
+collision
+A star pos: [-0.048039,  0.041333,  1.970814]
+collision
+A star pos: [-0.048039,  0.041333,  1.972414]
+collision
+A star pos: [-0.048039,  0.041333,  1.974014]
+collision
+A star pos: [-0.048039,  0.044533,  1.967614]
+collision
+A star pos: [-0.048039,  0.044533,  1.969214]
+collision
+A star pos: [-0.048039,  0.044533,  1.970814]
+collision
+A star pos: [-0.048039,  0.044533,  1.972414]
+collision
+A star pos: [-0.048039,  0.044533,  1.974014]
+collision
+A star pos: [-0.048039,  0.047733,  1.967614]
+collision
+A star pos: [-0.048039,  0.047733,  1.969214]
+collision
+A star pos: [-0.048039,  0.047733,  1.970814]
+collision
+A star pos: [-0.048039,  0.047733,  1.972414]
+collision
+A star pos: [-0.048039,  0.047733,  1.974014]
+collision
+A star pos: [-0.044839,  0.034933,  1.967614]
+collision
+A star pos: [-0.044839,  0.034933,  1.969214]
+collision
+A star pos: [-0.044839,  0.034933,  1.970814]
+collision
+A star pos: [-0.044839,  0.034933,  1.972414]
+collision
+A star pos: [-0.044839,  0.034933,  1.974014]
+collision
+A star pos: [-0.044839,  0.038133,  1.967614]
+collision
+A star pos: [-0.044839,  0.038133,  1.969214]
+collision
+A star pos: [-0.044839,  0.038133,  1.970814]
+collision
+A star pos: [-0.044839,  0.038133,  1.972414]
+collision
+A star pos: [-0.044839,  0.038133,  1.974014]
+collision
+A star pos: [-0.044839,  0.041333,  1.967614]
+collision
+A star pos: [-0.044839,  0.041333,  1.969214]
+collision
+A star pos: [-0.044839,  0.041333,  1.970814]
+collision
+A star pos: [-0.044839,  0.041333,  1.972414]
+collision
+A star pos: [-0.044839,  0.041333,  1.974014]
+collision
+A star pos: [-0.044839,  0.044533,  1.967614]
+collision
+A star pos: [-0.044839,  0.044533,  1.969214]
+collision
+A star pos: [-0.044839,  0.044533,  1.970814]
+collision
+A star pos: [-0.044839,  0.044533,  1.972414]
+collision
+A star pos: [-0.044839,  0.044533,  1.974014]
+collision
+A star pos: [-0.044839,  0.047733,  1.967614]
+collision
+A star pos: [-0.044839,  0.047733,  1.969214]
+collision
+A star pos: [-0.044839,  0.047733,  1.970814]
+collision
+A star pos: [-0.044839,  0.047733,  1.972414]
+collision
+A star pos: [-0.044839,  0.047733,  1.974014]
+collision
+A star pos: [-0.041639,  0.034933,  1.967614]
+collision
+A star pos: [-0.041639,  0.034933,  1.969214]
+collision
+A star pos: [-0.041639,  0.034933,  1.970814]
+collision
+A star pos: [-0.041639,  0.034933,  1.972414]
+collision
+A star pos: [-0.041639,  0.034933,  1.974014]
+collision
+A star pos: [-0.041639,  0.038133,  1.967614]
+collision
+A star pos: [-0.041639,  0.038133,  1.969214]
+collision
+A star pos: [-0.041639,  0.038133,  1.970814]
+collision
+A star pos: [-0.041639,  0.038133,  1.972414]
+collision
+A star pos: [-0.041639,  0.038133,  1.974014]
+collision
+A star pos: [-0.041639,  0.041333,  1.967614]
+collision
+A star pos: [-0.041639,  0.041333,  1.972414]
+collision
+A star pos: [-0.041639,  0.041333,  1.974014]
+collision
+A star pos: [-0.041639,  0.044533,  1.967614]
+collision
+A star pos: [-0.041639,  0.044533,  1.969214]
+collision
+A star pos: [-0.041639,  0.044533,  1.970814]
+collision
+A star pos: [-0.041639,  0.044533,  1.972414]
+collision
+A star pos: [-0.041639,  0.044533,  1.974014]
+collision
+A star pos: [-0.041639,  0.047733,  1.967614]
+collision
+A star pos: [-0.041639,  0.047733,  1.969214]
+collision
+A star pos: [-0.041639,  0.047733,  1.970814]
+collision
+A star pos: [-0.041639,  0.047733,  1.972414]
+collision
+A star pos: [-0.041639,  0.047733,  1.974014]
+collision
+A star pos: [-0.038439,  0.034933,  1.967614]
+collision
+A star pos: [-0.038439,  0.034933,  1.969214]
+collision
+A star pos: [-0.038439,  0.034933,  1.970814]
+collision
+A star pos: [-0.038439,  0.034933,  1.972414]
+collision
+A star pos: [-0.038439,  0.034933,  1.974014]
+collision
+A star pos: [-0.038439,  0.038133,  1.967614]
+collision
+A star pos: [-0.038439,  0.038133,  1.969214]
+collision
+A star pos: [-0.038439,  0.038133,  1.970814]
+collision
+A star pos: [-0.038439,  0.038133,  1.972414]
+collision
+A star pos: [-0.038439,  0.038133,  1.974014]
+collision
+A star pos: [-0.038439,  0.041333,  1.967614]
+collision
+A star pos: [-0.038439,  0.041333,  1.969214]
+collision
+A star pos: [-0.038439,  0.041333,  1.970814]
+collision
+A star pos: [-0.038439,  0.041333,  1.972414]
+collision
+A star pos: [-0.038439,  0.041333,  1.974014]
+collision
+A star pos: [-0.038439,  0.044533,  1.967614]
+collision
+A star pos: [-0.038439,  0.044533,  1.969214]
+collision
+A star pos: [-0.038439,  0.044533,  1.970814]
+collision
+A star pos: [-0.038439,  0.044533,  1.972414]
+collision
+A star pos: [-0.038439,  0.044533,  1.974014]
+collision
+A star pos: [-0.038439,  0.047733,  1.967614]
+collision
+A star pos: [-0.038439,  0.047733,  1.969214]
+collision
+A star pos: [-0.038439,  0.047733,  1.970814]
+collision
+A star pos: [-0.038439,  0.047733,  1.972414]
+collision
+A star pos: [-0.038439,  0.047733,  1.974014]
+collision
+A star pos: [-0.035239,  0.034933,  1.967614]
+collision
+A star pos: [-0.035239,  0.034933,  1.969214]
+collision
+A star pos: [-0.035239,  0.034933,  1.970814]
+collision
+A star pos: [-0.035239,  0.034933,  1.972414]
+collision
+A star pos: [-0.035239,  0.034933,  1.974014]
+collision
+A star pos: [-0.035239,  0.038133,  1.967614]
+collision
+A star pos: [-0.035239,  0.038133,  1.969214]
+collision
+A star pos: [-0.035239,  0.038133,  1.970814]
+collision
+A star pos: [-0.035239,  0.038133,  1.972414]
+collision
+A star pos: [-0.035239,  0.038133,  1.974014]
+collision
+A star pos: [-0.035239,  0.041333,  1.967614]
+collision
+A star pos: [-0.035239,  0.041333,  1.969214]
+collision
+A star pos: [-0.035239,  0.041333,  1.970814]
+collision
+A star pos: [-0.035239,  0.041333,  1.972414]
+collision
+A star pos: [-0.035239,  0.041333,  1.974014]
+collision
+A star pos: [-0.035239,  0.044533,  1.967614]
+collision
+A star pos: [-0.035239,  0.044533,  1.969214]
+collision
+A star pos: [-0.035239,  0.044533,  1.970814]
+collision
+A star pos: [-0.035239,  0.044533,  1.972414]
+collision
+A star pos: [-0.035239,  0.044533,  1.974014]
+collision
+A star pos: [-0.035239,  0.047733,  1.967614]
+collision
+A star pos: [-0.035239,  0.047733,  1.969214]
+collision
+A star pos: [-0.035239,  0.047733,  1.970814]
+collision
+A star pos: [-0.035239,  0.047733,  1.972414]
+collision
+A star pos: [-0.035239,  0.047733,  1.974014]
+collision
+open set empty, no path!
+[planner]: Can't find path.
+[fsm] generate new traj fail.
+[FSM]: from GEN_NEW_TRAJ to GEN_NEW_TRAJ
