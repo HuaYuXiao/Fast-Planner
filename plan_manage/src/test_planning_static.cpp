@@ -100,18 +100,17 @@ void load_map(std::string file_name){
 // 【发布】 发布点云地图
 void pcdpubCallback(const ros::TimerEvent& e) {
     if (!is_load_map) {
-        printf("no point map!\n");
+        printf("no point map!");
         return;
     }
     map_pub.publish(cloud_map_msg);
-
 }
 
 // 【发布】处理里程计信息，根据模式选择是否发布
 void omdpubCallback(const ros::TimerEvent& e) {
 
     //we'll publish the odometry message over ROS
-    if (is_run_odom==false){
+    if (!is_run_odom){
         nav_msgs::Odometry odom;
         odom.header.stamp = ros::Time::now();;
         odom.header.frame_id = "map";
@@ -130,7 +129,7 @@ void omdpubCallback(const ros::TimerEvent& e) {
 
         // 发布odom
         odom_pub.publish(odom);
-    }else if (is_run_odom==true && odom_mode==2)    //如果模式为动态模式，就是odom会随生成轨迹运动
+    }else if (is_run_odom && odom_mode==2)    //如果模式为动态模式，就是odom会随生成轨迹运动
     {
         odom_pub.publish(odom_now);
     }
@@ -172,40 +171,40 @@ int main(int argc,char** argv)
 {   
     // 1. initialization node
     ros::init(argc,argv,"pub_map_odom");
-    ros::NodeHandle node_("~");
+    ros::NodeHandle nh("~");
 
     // 2. 发布odom和点云地图
-    odom_pub = node_.advertise<nav_msgs::Odometry>("/prometheus/drone_odom", 50);
-    map_pub =node_.advertise<sensor_msgs::PointCloud2>("/prometheus/planning/global_pcl",1);
-    // waypoint_pub = node_.advertise<geometry_msgs::PoseStamped>("/planning/waypoint", 50);
-    // ros::Subscriber waypoint_sub_ = node_.subscribe("/planning/goal", 1, &waypointCallback);
+    odom_pub = nh.advertise<nav_msgs::Odometry>("/prometheus/drone_odom", 50);
+    map_pub = nh.advertise<sensor_msgs::PointCloud2>("/prometheus/planning/global_pcl",1);
+    // waypoint_pub = nh.advertise<geometry_msgs::PoseStamped>("/planning/waypoint", 50);
+    // ros::Subscriber waypoint_sub_ = nh.subscribe("/planning/goal", 1, &waypointCallback);
 
     // 3. set the trigger frequece for different events. 
     
     ros::Timer pub_odom_timer_;
     ros::Subscriber traj_sub;
-    node_.param("test/odom_mode", odom_mode, 0);
+    nh.param("test/odom_mode", odom_mode, 0);
     
     if(odom_mode==0){
         // 认为无人机不动，进行静态规划
-        pub_odom_timer_ = node_.createTimer(ros::Duration(0.05), &omdpubCallback);
+        pub_odom_timer_ = nh.createTimer(ros::Duration(0.05), &omdpubCallback);
     }else if(odom_mode==1){
        // 由px4发布odom信息 
     }else if(odom_mode==2){
         // 无人机随轨迹运动，订阅轨迹，更新odom
-        traj_sub = node_.subscribe("/prometheus/fast_planner/position_cmd", 50, trajCallbck);
-        pub_odom_timer_ = node_.createTimer(ros::Duration(0.05), &omdpubCallback);
+        traj_sub = nh.subscribe("/prometheus/fast_planner/position_cmd", 50, trajCallbck);
+        pub_odom_timer_ = nh.createTimer(ros::Duration(0.05), &omdpubCallback);
     }
     // 时间触发发布点云
-    ros::Timer pub_pcd_timer = node_.createTimer(ros::Duration(5.0), &pcdpubCallback);
-    // ros::Timer pub_waypoint_timer = node_.createTimer(ros::Duration(2.0), &waypointpubCallback);
+    ros::Timer pub_pcd_timer = nh.createTimer(ros::Duration(5.0), &pcdpubCallback);
+    // ros::Timer pub_waypoint_timer = nh.createTimer(ros::Duration(2.0), &waypointpubCallback);
     
     // 4. get param from launch file
     std::string load_file_name{".pcd"};
-    node_.param("test/init_odom_x", init_odom.pose.pose.position.x, 0.0);
-    node_.param("test/init_odom_y", init_odom.pose.pose.position.y, 0.0);
-    node_.param("test/init_odom_z", init_odom.pose.pose.position.z, 1.0);
-    node_.param<std::string>("test/file_name", load_file_name, ".pcd");
+    nh.param("test/init_odom_x", init_odom.pose.pose.position.x, 0.0);
+    nh.param("test/init_odom_y", init_odom.pose.pose.position.y, 0.0);
+    nh.param("test/init_odom_z", init_odom.pose.pose.position.z, 1.0);
+    nh.param<std::string>("test/file_name", load_file_name, ".pcd");
     ROS_INFO("file name: %s", load_file_name.c_str());
 
     // 5. load map

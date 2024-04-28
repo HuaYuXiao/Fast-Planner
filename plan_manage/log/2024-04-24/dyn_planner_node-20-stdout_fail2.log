@@ -1,0 +1,46 @@
+origin_: -8 -5  0
+map size: 16 10  3
+resolution: 0.05
+[0m[ INFO] [1713950203.368146853]: global_point_sdf: sub pub finished![0m
+[0m[ INFO] [1713950203.392666840]: global_point_sdf: init sdf_tools finished![0m
+[0m[ INFO] [1713950203.392692069]: --- EDTEnvironment: set global sdf_map finished! ---[0m
+margin:0.1
+origin_: -8 -5  0
+map size: 16 10  3
+lamda1: 10
+lamda2: 0.6
+lamda3: 1e-05
+lamda4: 0.001
+[FSM] state: INIT
+[fsm] no map.
+[FSM] state: INIT
+[fsm] no map.
+[FSM] state: INIT
+[fsm] no map.
+[FSM]: from INIT to WAIT_GOAL
+[fsm] Get a new goal: (-3.01045, -2.06313, 2.07993)
+[TRIG]: from WAIT_GOAL to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0381068  0.0389165    2.07993,  0.0140528 -0.0175073 -0.0855222, 0 0 0
+goal:-3.01045 -2.06313  2.07993, 0 0 0
+cur pos: -0.0381068  0.0389165    2.07993
+time: 0
+dist: 0.291548
+cur pos: -0.0324857  0.0319136    2.04572
+time: 0
+dist: 0.291548
+cur pos: -0.181244 -0.142092   2.01731
+time: 0
+dist: 0.316228
+cur pos: -0.650001 -0.636098   2.02889
+time: 0
+dist: 0.8
+cur pos: -1.35876  -1.2901  2.04047
+time: 0
+dist: 1.3
+cur pos: -2.14752 -1.78411  2.05205
+time: 0
+dist: 1.03078
+[Kino Astar]: near end.
+[planner]: init search success.
+[Optimization]: begin-------------

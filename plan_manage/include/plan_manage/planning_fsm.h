@@ -11,24 +11,22 @@
 #include <std_msgs/Empty.h>
 #include <std_msgs/Int8.h>
 #include <std_msgs/Bool.h>
-
 #include <traj_utils/planning_visualization.h>
 #include <plan_env/sdf_map.h>
 #include <plan_env/edt_environment.h>
 #include <plan_env/global_point_sdf.h>
-
 #include <path_searching/kinodynamic_astar.h>
 #include <bspline_opt/bspline_optimizer.h>
 #include <plan_manage/dyn_planner_manager.h>
-#include "prometheus_plan_manage/Bspline.h"
-
 #include "plan_manage/tools.h"
+#include "prometheus_plan_manage/Bspline.h"
 #include "message_utils.h"
+#include <prometheus_msgs/DroneState.h>
+
 using std::vector;
 
 namespace dyn_planner
 {
-
 extern ros::Publisher message_pub;
 
 class PlanningFSM
@@ -98,11 +96,12 @@ private:
   ros::Timer vis_timer_, query_timer_;
 
   // 目标和切换开关订阅
-  ros::Subscriber waypoint_sub_, swith_sub;
+  ros::Subscriber drone_state_sub, waypoint_sub_, swith_sub;
 
   // 重规划、B样条、安全状态发布
   ros::Publisher replan_pub_, bspline_pub_, safety_pub_;
 
+  void drone_state_cb(const prometheus_msgs::DroneState::ConstPtr &msg);
   void execFSMCallback(const ros::TimerEvent& e);
   void safetyCallback(const ros::TimerEvent& e);
   void switchCallback(const std_msgs::Bool::ConstPtr &msg);
@@ -110,12 +109,10 @@ private:
   void waypointCallback(const geometry_msgs::PoseStampedConstPtr& msg);
 
 public:
-  PlanningFSM(/* args */)
-  {
-  }
-  ~PlanningFSM()
-  {
-  }
+  PlanningFSM(/* args */){}
+  ~PlanningFSM(){}
+
+    prometheus_msgs::DroneState _DroneState;                                   //无人机状态量
 
   void init(ros::NodeHandle& nh);
 };

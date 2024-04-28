@@ -1,0 +1,63 @@
+origin_: -8 -5  0
+map size: 16 10  3
+resolution: 0.05
+[0m[ INFO] [1713949996.726245737]: global_point_sdf: sub pub finished![0m
+[0m[ INFO] [1713949996.758271868]: global_point_sdf: init sdf_tools finished![0m
+[0m[ INFO] [1713949996.758305043]: --- EDTEnvironment: set global sdf_map finished! ---[0m
+margin:0.1
+origin_: -8 -5  0
+map size: 16 10  3
+lamda1: 10
+lamda2: 0.6
+lamda3: 1e-05
+lamda4: 0.001
+[FSM] state: INIT
+[fsm] no map.
+[FSM] state: INIT
+[fsm] no map.
+[FSM] state: INIT
+[fsm] no map.
+[FSM]: from INIT to WAIT_GOAL
+[fsm] Get a new goal: (-0.968181, 0.991752, 1.03424)
+[TRIG]: from WAIT_GOAL to GEN_NEW_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -0.0324605  0.0337335    1.03424,  0.0206139 -0.0116877 -0.0629395, 0 0 0
+goal:-0.968181  0.991752   1.03424, 0 0 0
+cur pos: -0.0324605  0.0337335    1.03424
+time: 0
+dist: 0.291548
+[Kino Astar]: near end.
+[planner]: init search success.
+[Optimization]: begin-------------
+[Optimization]: nlopt exception: NULL args to nlopt_optimize_
+[planner]: time: 0.0000000, search: 0.0000000, optimize: 0.0000000, adjust time:0.0000000
+[0m[ INFO] [1713950078.251250879, 62.101000000]: [fsm] plan success[0m
+[FSM]: from GEN_NEW_TRAJ to EXEC_TRAJ
+[fsm] near start.
+[fsm] near end.
+[fsm] Get a new goal: (-1.9716774, -1.9063473, 1.6844721)
+[TRIG]: from EXEC_TRAJ to REPLAN_TRAJ
+[planner]: -----------------------
+start: (pt; vel; acc) -1.0050071  0.9991786  1.6844721, -0.0144124  0.0242421 -0.0157180, 0.0000000 0.0000000 0.0000000
+goal:-1.9716774 -1.9063473  1.6844721, 0.0000000 0.0000000 0.0000000
+cur pos: -1.0050071  0.9991786  1.6844721
+time: 0.0000000
+dist: 0.8845903
+cur pos: -1.0064484  1.0016029  1.6829003
+time: 0.0000000
+dist: 0.8485281
+cur pos: -1.1779783  0.8609965  1.6703259
+time: 0.0000000
+dist: 0.9604686
+cur pos: -1.5095082  0.4003902  1.6577515
+time: 0.0000000
+dist: 1.3416408
+cur pos: -1.7610381 -0.3002162  1.6451771
+time: 0.0000000
+dist: 1.6000000
+cur pos: -1.9325680 -1.0808225  1.6726027
+time: 0.0000000
+dist: 1.5660460
+[Kino Astar]: near end.
+[planner]: init search success.
+[Optimization]: begin-------------
