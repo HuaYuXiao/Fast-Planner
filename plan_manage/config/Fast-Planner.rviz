@@ -8,6 +8,7 @@ Panels:
         - /无人机状态1/Reference_Pose1
         - /全局规划1/Reference_Path1
         - /Fast_Planner1/Reference_Tra1
+        - /mapping1/depth_map1/Autocompute Value Bounds1
       Splitter Ratio: 0.5616942644119263
     Tree Height: 510
   - Class: rviz/Selection
@@ -59,11 +60,13 @@ Visualization Manager:
         3Dlidar_link:
           Value: true
         All Enabled: false
+        D435i::camera_depth_frame:
+          Value: true
         base_link:
           Value: true
         base_link_frd:
           Value: false
-        lidar_link:
+        camera_link:
           Value: true
         map:
           Value: true
@@ -73,8 +76,6 @@ Visualization Manager:
           Value: true
         odom_ned:
           Value: false
-        realsense_camera_link:
-          Value: true
         world:
           Value: true
       Marker Alpha: 1
@@ -90,10 +91,9 @@ Visualization Manager:
               {}
             base_link_frd:
               {}
-            lidar_link:
-              {}
-            realsense_camera_link:
-              {}
+            camera_link:
+              D435i::camera_depth_frame:
+                {}
           map:
             map_ned:
               {}
@@ -162,7 +162,7 @@ Visualization Manager:
           Value: true
       Enabled: true
       Name: 无人机状态
-    - Alpha: 1
+    - Alpha: 0.5
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
         Max Value: 10
@@ -190,82 +190,6 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 255; 255
-          Color Transformer: FlatColor
-          Decay Time: 0
-          Enabled: true
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: global_pcl
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.05000000074505806
-          Style: Flat Squares
-          Topic: /rtabmap/cloud_map
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: true
-      Enabled: true
-      Name: RTAB建图
-    - Class: rviz/Group
-      Displays:
-        - Class: octomap_rviz_plugin/OccupancyGrid
-          Enabled: true
-          Max. Height Display: 3.4028234663852886e+38
-          Max. Octree Depth: 16
-          Min. Height Display: -3.4028234663852886e+38
-          Name: OccupancyGrid
-          Octomap Topic: /octomap_binary
-          Queue Size: 5
-          Value: true
-          Voxel Alpha: 1
-          Voxel Coloring: Z-Axis
-          Voxel Rendering: Occupied Voxels
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 255; 255
-          Color Transformer: FlatColor
-          Decay Time: 0
-          Enabled: true
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: PointCloud2
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.019999999552965164
-          Style: Flat Squares
-          Topic: /octomap_point_cloud_centers
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: true
-      Enabled: true
-      Name: Octomap建图
     - Class: rviz/Group
       Displays:
         - Alpha: 1
@@ -478,30 +402,138 @@ Visualization Manager:
           Value: true
       Enabled: false
       Name: Motion Planning
-    - Class: rviz/Image
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /camera/color/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Image_color
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /camera/depth/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Image_depth
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
       Enabled: true
-      Image Topic: /camera/color/image_raw
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image_color
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
-    - Class: rviz/Image
+      Name: Image
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: octomap_rviz_plugin/OccupancyGrid
+              Enabled: true
+              Max. Height Display: 3.4028234663852886e+38
+              Max. Octree Depth: 16
+              Min. Height Display: -3.4028234663852886e+38
+              Name: OccupancyGrid
+              Octomap Topic: /octomap_binary
+              Queue Size: 5
+              Value: true
+              Voxel Alpha: 1
+              Voxel Coloring: Z-Axis
+              Voxel Rendering: Occupied Voxels
+            - Alpha: 0.5
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 10
+                Min Value: -10
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 255; 255; 255
+              Color Transformer: FlatColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: PointCloud2
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.05000000074505806
+              Style: Flat Squares
+              Topic: /octomap_point_cloud_centers
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+          Enabled: true
+          Name: Octomap
+        - Alpha: 0.5
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 2.2832274436950684
+            Min Value: -0.2113877832889557
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: depth_map
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.05000000074505806
+          Style: Flat Squares
+          Topic: /camera/depth/color/points
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: RTAB-Map
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.05000000074505806
+          Style: Flat Squares
+          Topic: /rtabmap/cloud_map
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
       Enabled: true
-      Image Topic: /camera/depth/image_raw
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image_depth
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
+      Name: mapping
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -520,7 +552,7 @@ Visualization Manager:
     - Class: rviz_plugins/Goal3DTool
       Topic: /prometheus/planning/goal
     - Class: rviz/SetGoal
-      Topic: /goal
+      Topic: /move_base_simple/goal
   Value: true
   Views:
     Current:
