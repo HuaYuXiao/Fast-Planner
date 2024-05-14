@@ -11,18 +11,9 @@ void PlanningFSM::init(ros::NodeHandle& nh){
   nh.param("bspline/limit_ratio", NonUniformBspline::limit_ratio_, -1.0);
 
   /* ---------- fsm param ---------- */
-  nh.param("fsm/flight_type", flight_type_, 1);
   nh.param("fsm/thresh_replan", thresh_replan_, -1.0);
   nh.param("fsm/thresh_no_replan", thresh_no_replan_, -1.0);
   nh.param("fsm/safety_distance", safety_distance, 0.01);
-  nh.param("fsm/wp_num", wp_num_, -1);
-
-  // 怎么使用的
-  for (int i = 0; i < wp_num_; i++){
-    nh.param("fsm/wp" + to_string(i) + "_x", waypoints_[i][0], -1.0);
-    nh.param("fsm/wp" + to_string(i) + "_y", waypoints_[i][1], -1.0);
-    nh.param("fsm/wp" + to_string(i) + "_z", waypoints_[i][2], -1.0);
-  }
 
   current_wp_ = 0;
   exec_state_ = EXEC_STATE::INIT;
@@ -121,8 +112,6 @@ void PlanningFSM::waypointCallback(const geometry_msgs::PoseStampedConstPtr& msg
 //  return;
 //  }
 
-  // two mode: 1. manual setting goal from rviz; 2. preset goal in launch file.
-  if (flight_type_ == FLIGHT_TYPE::MANUAL_GOAL){
       goal_x = msg->pose.position.x;
       goal_y = msg->pose.position.y;
 //    goal_z = waypoints_[current_wp_][2];
@@ -138,14 +127,6 @@ void PlanningFSM::waypointCallback(const geometry_msgs::PoseStampedConstPtr& msg
 //    goal_z = conf(msg->pose.position.z, 1.0, 2.0);
 
     end_pt_ << goal_x, goal_y, goal_z;
-  }else if (flight_type_ == FLIGHT_TYPE::PRESET_GOAL){
-    end_pt_(0) = waypoints_[current_wp_][0];
-    end_pt_(1) = waypoints_[current_wp_][1];
-    end_pt_(2) = waypoints_[current_wp_][2];
-    current_wp_ = (current_wp_ + 1) % wp_num_;
-  }else if(flight_type_ == FLIGHT_TYPE::INPUT_MANUAL){
-    // cout << "please input waypoints_" << endl;
-  }
 
   cout << "[fsm] Get a new goal: " << end_pt_(0) << ", " << end_pt_(1) << ", " << end_pt_(2) << endl;
 

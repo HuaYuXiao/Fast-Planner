@@ -18,19 +18,16 @@
 #include <path_searching/kinodynamic_astar.h>
 #include <bspline_opt/bspline_optimizer_fast.h>
 #include <plan_manage/dyn_planner_manager.h>
-#include "plan_manage/tools.h"
 #include <traj_utils/Bspline.h>
 #include "message_utils.h"
 #include <prometheus_msgs/DroneState.h>
 
 using std::vector;
 
-namespace dyn_planner
-{
+namespace dyn_planner{
 extern ros::Publisher message_pub;
 
-class PlanningFSM
-{
+class PlanningFSM{
 private:
   /* ---------- flag ---------- */
   bool trigger_, have_goal_;
@@ -44,13 +41,6 @@ private:
     EXEC_TRAJ       // 执行轨迹
   };
   EXEC_STATE exec_state_;
-
-  enum FLIGHT_TYPE
-  {
-    MANUAL_GOAL = 1,    // 人工设定目标
-    PRESET_GOAL = 2,    // 预设目标
-    INPUT_MANUAL        // ？
-  };
 
   // 改变执行状态
   void changeExecState(EXEC_STATE new_state, string pos_call);
@@ -73,10 +63,7 @@ private:
   PlanningVisualization::Ptr visualization_;
 
   /* ---------- parameter ---------- */
-  int flight_type_;  // 1 mannual select, 2 hard code
   double thresh_no_replan_, thresh_replan_;
-  double waypoints_[10][3];
-  int wp_num_;
 
   /* ---------- planning api ---------- */
   Eigen::Vector3d start_pt_, start_vel_, start_acc_, end_pt_, end_vel_;

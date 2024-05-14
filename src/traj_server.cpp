@@ -22,8 +22,6 @@ ros::Publisher state_pub, pos_cmd_pub, traj_pub;
 
 nav_msgs::Odometry odom;
 
-bool sim_mode;
-
 // 控制接口
 prometheus_msgs::PositionReference cmd;
 
@@ -231,23 +229,19 @@ int main(int argc, char** argv){
   ros::init(argc, argv, "traj_server");
   ros::NodeHandle node;
 
-  // 是否为仿真模式
-  node.param("sim_mode", sim_mode, true);
-
   // 订阅bspline, replan标志， odom信息（只用于显示）
   ros::Subscriber bspline_sub = node.subscribe("/prometheus/planning/bspline", 10, bsplineCallback);
   ros::Subscriber replan_sub = node.subscribe("/prometheus/fast_planning/replan", 10, replanCallback);
   ros::Subscriber odom_sub = node.subscribe("/prometheus/drone_odom", 50, odomCallbck);
 
-  // 发布当前机器人指令状态
-  ros::Timer cmd_timer = node.createTimer(ros::Duration(0.01), cmdCallback);
-  
+    traj_pub = node.advertise<visualization_msgs::Marker>("/prometheus/planning/traj", 10);
   state_pub = node.advertise<visualization_msgs::Marker>("/prometheus/planning/state", 10);
   pos_cmd_pub = node.advertise<prometheus_msgs::PositionReference>("/prometheus/position_cmd", 50);
-  
+
+    // 发布当前机器人指令状态
+    ros::Timer cmd_timer = node.createTimer(ros::Duration(0.02), cmdCallback);
   // 发布轨迹控制指令，无人机实际轨迹
-  ros::Timer vis_timer = node.createTimer(ros::Duration(0.2), visCallback);
-  traj_pub = node.advertise<visualization_msgs::Marker>("/prometheus/planning/traj", 10);
+  ros::Timer vis_timer = node.createTimer(ros::Duration(0.02), visCallback);
 
   ros::Duration(1.0).sleep();
 

@@ -35,14 +35,13 @@ nav_msgs::Odometry init_odom;
 nav_msgs::Odometry odom_now;
 bool is_run_odom(false);
 bool is_static_mode(true);
-int odom_mode; // 0: manual; 1: sub 
+int odom_mode; // 0: manual; 1: sub
+
 using namespace std;
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>函数声明<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 void trajCallbck(const prometheus_msgs::PositionReference& msg);
 void visualizer_one_points(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud,std::string name);
-void load_map(std::string file_name);
-void pcdpubCallback(const ros::TimerEvent& e);
 void omdpubCallback(const ros::TimerEvent& e);
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>函数定义<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -73,39 +72,6 @@ void visualizer_one_points(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud,std::string
     viewer->spinOnce(100);
 }
 
-// 【加载】加载离线地图
-void load_map(std::string file_name){
-
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_map(new pcl::PointCloud<pcl::PointXYZ>);
-    
-    ros::Time begin = ros::Time::now();	
-    ROS_INFO("begin:%f",begin.toSec());
-
-    // read pcd file
-    pcl::io::loadPCDFile(file_name,*cloud_map);
-    visualizer_one_points(cloud_map,"map");
-
-    // printf load time
-    ros::Time load = ros::Time::now();
-    ROS_INFO("load-begin=%f -%f=%f",load.toSec(),begin.toSec(),load.toSec()-begin.toSec());
-
-    //转成 ros msg
-    pcl::toROSMsg(*cloud_map,cloud_map_msg);		
-    cloud_map_msg.header.frame_id = "map";
-
-    // now, we have map. So can send it. 
-    is_load_map = true;
-}
-
-// 【发布】 发布点云地图
-void pcdpubCallback(const ros::TimerEvent& e) {
-    if (!is_load_map) {
-        printf("no point map!");
-        return;
-    }
-    map_pub.publish(cloud_map_msg);
-}
-
 // 【发布】处理里程计信息，根据模式选择是否发布
 void omdpubCallback(const ros::TimerEvent& e) {
 
@@ -133,9 +99,7 @@ void omdpubCallback(const ros::TimerEvent& e) {
     {
         odom_pub.publish(odom_now);
     }
-    
 }
-
 
 // void waypointpubCallback(const ros::TimerEvent &e){
 //     geometry_msgs::PoseStamped pt;
@@ -159,9 +123,6 @@ void omdpubCallback(const ros::TimerEvent& e) {
 //   cout << "[waypointCallback]: receive goal!" << endl;
 //   ROS_INFO("waypoint: [%f, %f, %f]", msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
 // }
-
-
-
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // test: 
@@ -195,20 +156,13 @@ int main(int argc,char** argv)
         traj_sub = nh.subscribe("/prometheus/fast_planner/position_cmd", 50, trajCallbck);
         pub_odom_timer_ = nh.createTimer(ros::Duration(0.05), &omdpubCallback);
     }
-    // 时间触发发布点云
-    ros::Timer pub_pcd_timer = nh.createTimer(ros::Duration(5.0), &pcdpubCallback);
+
     // ros::Timer pub_waypoint_timer = nh.createTimer(ros::Duration(2.0), &waypointpubCallback);
     
     // 4. get param from launch file
-    std::string load_file_name{".pcd"};
     nh.param("test/init_odom_x", init_odom.pose.pose.position.x, 0.0);
     nh.param("test/init_odom_y", init_odom.pose.pose.position.y, 0.0);
     nh.param("test/init_odom_z", init_odom.pose.pose.position.z, 1.0);
-    nh.param<std::string>("test/file_name", load_file_name, ".pcd");
-    ROS_INFO("file name: %s", load_file_name.c_str());
-
-    // 5. load map
-    load_map(load_file_name);
 
     // 6. loop
     ros::spin();
