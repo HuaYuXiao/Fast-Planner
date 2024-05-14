@@ -11,15 +11,15 @@
 #include <std_msgs/Empty.h>
 #include <std_msgs/Int8.h>
 #include <std_msgs/Bool.h>
-#include <traj_utils/planning_visualization.h>
+#include <traj_utils/planning_visualization_fast.h>
 #include <plan_env/sdf_map.h>
 #include <plan_env/edt_environment.h>
 #include <plan_env/global_point_sdf.h>
 #include <path_searching/kinodynamic_astar.h>
-#include <bspline_opt/bspline_optimizer.h>
+#include <bspline_opt/bspline_optimizer_fast.h>
 #include <plan_manage/dyn_planner_manager.h>
 #include "plan_manage/tools.h"
-#include "prometheus_plan_manage/Bspline.h"
+#include <traj_utils/Bspline.h>
 #include "message_utils.h"
 #include <prometheus_msgs/DroneState.h>
 

@@ -4,7 +4,7 @@
 #include <ros/ros.h>
 #include <path_searching/astar.h>
 #include <path_searching/kinodynamic_astar.h>
-#include <bspline_opt/bspline_optimizer.h>
+#include <bspline_opt/bspline_optimizer_fast.h>
 #include <bspline_opt/non_uniform_bspline.h>
 #include <plan_env/edt_environment.h>
 
@@ -36,9 +36,7 @@ private:
   Eigen::Vector3d getFarPoint(const vector<Eigen::Vector3d>& path, Eigen::Vector3d x1, Eigen::Vector3d x2);
 
 public:
-  DynPlannerManager()
-  {
-  }
+  DynPlannerManager(){}
   ~DynPlannerManager();
 
   /* ---------- main API ---------- */
@@ -76,8 +74,7 @@ public:
 
   /* ---------- evaluation ---------- */
   void getSolvingTime(double& ts, double& to, double& ta);
-  void getCostCurve(vector<double>& cost, vector<double>& time)
-  {
+  inline void getCostCurve(vector<double>& cost, vector<double>& time){
     bspline_optimizer_->getCostCurve(cost, time);
   }
 
