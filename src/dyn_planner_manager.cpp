@@ -36,17 +36,15 @@ void DynPlannerManager::setEnvironment(const EDTEnvironment::Ptr& env)
   edt_env_ = env;
 }
 
-bool DynPlannerManager::checkTrajCollision()
-{
+bool DynPlannerManager::checkTrajCollision(){
   /* check collision */
-  for (double t = t_start_; t <= t_end_; t += 0.02)
-  {
+  for (double t = t_start_; t <= t_end_; t += 0.02){
     Eigen::Vector3d pos = traj_pos_.evaluateDeBoor(t);
     double dist = dynamic_ ? edt_env_->evaluateCoarseEDT(pos, time_start_ + t - t_start_) :
                              edt_env_->evaluateCoarseEDT(pos, -1.0);
 
-    if (dist < margin_)
-    {
+    if (dist < margin_){
+        cout << "[manager] dist < margin_" << endl;
       return false;
     }
   }

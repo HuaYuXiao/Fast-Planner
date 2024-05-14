@@ -100,7 +100,7 @@ void PlanningFSM::init(ros::NodeHandle& nh){
   // 发布紧急停止指令
   safety_pub_ = nh.advertise<std_msgs::Int8>("/prometheus/planning/stop_cmd", 10);
   // 发布B样条
-  bspline_pub_ = nh.advertise<prometheus_plan_manage::Bspline>("/prometheus/planning/bspline", 10);
+  bspline_pub_ = nh.advertise<traj_utils::Bspline>("/prometheus/planning/bspline", 10);
   // 发布消息
 //  message_pub = nh.advertise<prometheus_msgs::Message>("/prometheus/message/fast_planner", 10);
 
@@ -147,7 +147,7 @@ void PlanningFSM::waypointCallback(const geometry_msgs::PoseStampedConstPtr& msg
     // cout << "please input waypoints_" << endl;
   }
 
-  cout << "[fsm] Get a new goal: (" << end_pt_(0) << ", " << end_pt_(1) << ", " << end_pt_(2) << ")" << endl;
+  cout << "[fsm] Get a new goal: " << end_pt_(0) << ", " << end_pt_(1) << ", " << end_pt_(2) << endl;
 
   // 绘制目标点
   visualization_->drawGoal(end_pt_, 0.1, Eigen::Vector4d(0, 1, 0, 1.0));
@@ -345,7 +345,7 @@ void PlanningFSM::safetyCallback(const ros::TimerEvent& e){
     safety_pub_.publish(replan);
     
     if (dist <= planner_manager_->margin_){
-        cout << "[fsm] goal dangerous" << endl;
+        cout << "[fsm] dist <= margin_, goal dangerous" << endl;
 //      pub_message(message_pub, prometheus_msgs::Message::WARN,  NODE_NAME, "[safetyCallback] goal dangerous");
       
       // ROS_INFO("goal pos: [%f, %f, %f], goal sdf: %f", end_pt_(0), end_pt_(1), end_pt_(2), dist);
@@ -367,6 +367,7 @@ void PlanningFSM::safetyCallback(const ros::TimerEvent& e){
                                                    planner_manager_->time_start_ + planner_manager_->traj_duration_) :
                        edt_env_->evaluateCoarseEDT(new_pt, -1.0);
             if (dist > planner_manager_->margin_){
+                cout << "dist > margin_" << endl;
               /* reset end_pt_ */
               goal(0) = new_x;
               goal(1) = new_y;
@@ -433,7 +434,7 @@ bool PlanningFSM::planSearchOpt(){
     planner_manager_->retrieveTrajectory();
 
     /* publish traj */
-    prometheus_plan_manage::Bspline bspline;
+      traj_utils::Bspline bspline;
     bspline.order = 3;
     bspline.start_time = planner_manager_->time_traj_start_;
     bspline.traj_id = planner_manager_->traj_id_;
@@ -444,7 +445,7 @@ bool PlanningFSM::planSearchOpt(){
       pt.x = pvt(0);
       pt.y = pvt(1);
       pt.z = pvt(2);
-      bspline.pts.push_back(pt);
+      bspline.pos_pts.push_back(pt);
     }
 
     Eigen::VectorXd knots = planner_manager_->traj_pos_.getKnot();

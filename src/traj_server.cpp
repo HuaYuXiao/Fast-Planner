@@ -2,19 +2,18 @@
 * traj_server.cpp
 *
 * Author: Tao JIANG, Yuhua QI
-*
-* Update Time: 2021.01.05
+* Maintainer: Eason Hua
+* Update Time: 2024.5.14
 *
 ***************************************************************************************************************************/
 #include <ros/ros.h>
-#include "fast_planner/Bspline.h"
-#include "bspline_opt/non_uniform_bspline.h"
-#include "nav_msgs/Odometry.h"
-#include "std_msgs/Empty.h"
-#include "visualization_msgs/Marker.h"
-
-#include "prometheus_msgs/PositionReference.h"
-#include "prometheus_msgs/ControlCommand.h"
+#include <traj_utils//Bspline.h>
+#include <bspline_opt/non_uniform_bspline.h>
+#include <nav_msgs/Odometry.h>
+#include <std_msgs/Empty.h>
+#include <visualization_msgs/Marker.h>
+#include <prometheus_msgs/PositionReference.h>
+#include <prometheus_msgs/ControlCommand.h>
 
 using namespace dyn_planner;
 
@@ -107,18 +106,18 @@ void drawState(Eigen::Vector3d pos, Eigen::Vector3d vec, int id,
 }
 
 // 【订阅】处理bspline数据，生成traj：pos,vel,acc
-void bsplineCallback(fast_planner::BsplineConstPtr msg) {
+void bsplineCallback(traj_utils::BsplineConstPtr msg) {
   Eigen::VectorXd knots(msg->knots.size());
   for (int i = 0; i < msg->knots.size(); ++i) {
     knots(i) = msg->knots[i];
   }
 
-  Eigen::MatrixXd ctrl_pts(msg->pts.size(), 3);
-  for (int i = 0; i < msg->pts.size(); ++i) {
+  Eigen::MatrixXd ctrl_pts(msg->pos_pts.size(), 3);
+  for (int i = 0; i < msg->pos_pts.size(); ++i) {
     Eigen::Vector3d pt;
-    pt(0) = msg->pts[i].x;
-    pt(1) = msg->pts[i].y;
-    pt(2) = msg->pts[i].z;
+    pt(0) = msg->pos_pts[i].x;
+    pt(1) = msg->pos_pts[i].y;
+    pt(2) = msg->pos_pts[i].z;
     ctrl_pts.row(i) = pt.transpose();
   }
 
