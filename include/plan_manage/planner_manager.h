@@ -2,23 +2,18 @@
 #define _KGB_TRAJECTORY_GENERATOR_H_
 
 #include <ros/ros.h>
-#include <path_searching/astar.h>
 #include <path_searching/kinodynamic_astar.h>
 #include <bspline_opt/bspline_optimizer_fast.h>
 #include <bspline_opt/non_uniform_bspline.h>
 #include <plan_env/edt_environment.h>
 
-namespace dyn_planner
-{
-class DynPlannerManager
-{
+namespace dyn_planner{
+class DynPlannerManager{
 private:
   /* algorithm */
   // shared_ptr<KinodynamicAstar> path_finder;
 
   EDTEnvironment::Ptr edt_env_;
-
-  Astar::Ptr path_finder0_;
 
   KinodynamicAstar::Ptr path_finder_;
 
@@ -65,7 +60,6 @@ public:
   void retrieveTrajectory();
 
   void setParam(ros::NodeHandle& nh);
-  void setPathFinder0(const Astar::Ptr& finder);
   void setPathFinder(const KinodynamicAstar::Ptr& finder);
   void setOptimizer(const BsplineOptimizer::Ptr& optimizer);
   void setEnvironment(const EDTEnvironment::Ptr& env);

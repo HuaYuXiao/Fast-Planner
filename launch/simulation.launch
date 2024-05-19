@@ -1,0 +1,25 @@
+<launch>
+    <!-- parameter for planner -->
+    <arg name="model" default="p450_3Dlidar_D435i"/>
+    <arg name="planner" default="Fast-Planner"/>
+
+    <!-- world -->
+    <include file="$(find prometheus_gazebo)/launch/GFKD.launch"/>
+
+    <!-- 1号无人机 -->
+    <include file="$(find prometheus_gazebo)/launch/sitl_$(arg model).launch"/>
+
+    <include file="$(find uav_control)/launch/uav_control_indoor.launch"/>
+
+    <!-- STATION -->
+    <include file="$(find prometheus_station)/launch/prometheus_station.launch"/>
+
+    <!-- 启动octomap建图 -->
+    <include file="$(find fast_planner)/launch/mapping.launch"/>
+
+    <!-- 启动导航 -->
+    <include file="$(find fast_planner)/launch/$(arg planner).launch"/>
+
+    <!-- 启动rviz -->
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find fast_planner)/config/$(arg planner).rviz"/>
+</launch>

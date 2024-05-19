@@ -17,7 +17,7 @@
   <depend>pcl_conversions</depend>
   <depend>pcl_ros</depend>
   <depend>tf</depend>
-  <build_depend>rospy</build_depend>
+  <depend>rospy</depend>
   <depend>octomap_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
@@ -37,9 +37,6 @@
   <exec_depend>message_runtime</exec_depend>
   <exec_depend>octomap</exec_depend>
 
-  <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
   </export>
 </package>
