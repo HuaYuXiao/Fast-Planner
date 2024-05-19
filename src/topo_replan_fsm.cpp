@@ -61,7 +61,7 @@ namespace fast_planner {
 
         replan_pub_  = nh.advertise<std_msgs::Empty>("/planning/replan", 20);
         new_pub_     = nh.advertise<std_msgs::Empty>("/planning/new", 20);
-        bspline_pub_ = nh.advertise<plan_manage::Bspline>("/planning/bspline", 20);
+        bspline_pub_ = nh.advertise<fast_planner::Bspline>("/planning/bspline", 20);
     }
 
     void TopoReplanFSM::waypointCallback(const nav_msgs::PathConstPtr& msg) {
@@ -389,7 +389,7 @@ namespace fast_planner {
             /* publish newest trajectory to server */
 
             /* publish traj */
-            plan_manage::Bspline bspline;
+            fast_planner::Bspline bspline;
             bspline.order      = 3;
             bspline.start_time = locdat->start_time_;
             bspline.traj_id    = locdat->traj_id_;

@@ -23,7 +23,7 @@
 
 
 
-#include "bspline/non_uniform_bspline.h"
+#include "bspline_opt/non_uniform_bspline.h"
 #include "nav_msgs/Odometry.h"
 #include "plan_manage/Bspline.h"
 #include "quadrotor_msgs/PositionCommand.h"
@@ -125,7 +125,7 @@ void drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& 
     cmd_vis_pub.publish(mk_state);
 }
 
-void bsplineCallback(plan_manage::BsplineConstPtr msg) {
+void bsplineCallback(fast_planner::BsplineConstPtr msg) {
     // parse pos traj
 
     Eigen::MatrixXd pos_pts(msg->pos_pts.size(), 3);

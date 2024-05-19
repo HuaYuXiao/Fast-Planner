@@ -19,10 +19,6 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
 
 ## 安装
 
-Before use, make sure you have installed following packages:
-
-- [libboost](https://www.boost.org/users/history/version_1_65_1.html): suggest version: 1.65.1
-- [nlopt](https://github.com/stevengj/nlopt.git): **NEVER** install with `apt install ros-noetic-nlopt`!
 
 
 ## Release Note
@@ -37,19 +33,21 @@ Before use, make sure you have installed following packages:
 
 ## Compilation
 
-```bash
-catkin_make install --source src/Fast-Planner --build build/fast_planner
-```
+Before use, make sure you have installed following packages:
+
+- [libboost](https://www.boost.org/users/history/version_1_65_1.html): suggest version: 1.65.1
+- [nlopt](https://github.com/stevengj/nlopt.git): **NEVER** install with `apt install ros-noetic-nlopt`!
 
 ```
--- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- ~~  traversing 5 packages in topological order:
 -- ~~  - plan_env
 -- ~~  - bspline_opt
 -- ~~  - path_searching
 -- ~~  - traj_utils
--- ~~  - prometheus_plan_manage
--- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+```bash
+catkin_make install --source src/Fast-Planner --build build/fast_planner
 ```
 
 

@@ -30,8 +30,8 @@
 #include <vector>
 #include <ros/ros.h>
 
-#include <bspline/non_uniform_bspline.h>
-#include <poly_traj/polynomial_traj.h>
+#include <bspline_opt/non_uniform_bspline.h>
+#include <traj_utils/polynomial_traj.h>
 #include <path_searching/topo_prm.h>
 
 using std::vector;

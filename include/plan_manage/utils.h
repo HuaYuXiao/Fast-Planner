@@ -23,36 +23,22 @@
 
 
 
-#include <ros/ros.h>
-#include <visualization_msgs/Marker.h>
-#include <plan_manage/kino_replan_fsm.h>
-#include <plan_manage/topo_replan_fsm.h>
-#include <plan_manage/backward.hpp>
+#include <Eigen/Eigen>
+#include <vector>
 
-namespace backward {
-    backward::SignalHandling sh;
-}
+Eigen::Vector3d getFarPoint(const std::vector<Eigen::Vector3d>& path, Eigen::Vector3d x1,
+                            Eigen::Vector3d x2) {
+    double max_dist = -1000;
+    Eigen::Vector3d vl = (x2 - x1).normalized();
+    Eigen::Vector3d far_pt;
 
-using namespace fast_planner;
-
-int main(int argc, char** argv) {
-    ros::init(argc, argv, "fast_planner_node");
-    ros::NodeHandle nh("~");
-
-    int planner;
-    nh.param("planner_node/planner", planner, -1);
-
-    TopoReplanFSM topo_replan;
-    KinoReplanFSM kino_replan;
-
-    if (planner == 1) {
-        kino_replan.init(nh);
-    } else if (planner == 2) {
-        topo_replan.init(nh);
+    for (int i = 1; i < path.size() - 1; ++i) {
+        double dist = ((path[i] - x1).cross(vl)).norm();
+        if (dist > max_dist) {
+            max_dist = dist;
+            far_pt = path[i];
+        }
     }
 
-    ros::Duration(1.0).sleep();
-    ros::spin();
-
-    return 0;
+    return far_pt;
 }

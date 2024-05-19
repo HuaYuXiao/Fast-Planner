@@ -61,7 +61,7 @@ namespace fast_planner {
 
         replan_pub_  = nh.advertise<std_msgs::Empty>("/planning/replan", 10);
         new_pub_     = nh.advertise<std_msgs::Empty>("/planning/new", 10);
-        bspline_pub_ = nh.advertise<plan_manage::Bspline>("/planning/bspline", 10);
+        bspline_pub_ = nh.advertise<fast_planner::Bspline>("/planning/bspline", 10);
     }
 
     void KinoReplanFSM::waypointCallback(const nav_msgs::PathConstPtr& msg) {
@@ -316,7 +316,7 @@ namespace fast_planner {
             auto info = &planner_manager_->local_data_;
 
             /* publish traj */
-            plan_manage::Bspline bspline;
+            fast_planner::Bspline bspline;
             bspline.order      = 3;
             bspline.start_time = info->start_time_;
             bspline.traj_id    = info->traj_id_;
