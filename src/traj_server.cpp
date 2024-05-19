@@ -1,259 +1,318 @@
-/***************************************************************************************************************************
-* traj_server.cpp
+/**
+* This file is part of Fast-Planner.
 *
-* Author: Tao JIANG, Yuhua QI
-* Maintainer: Eason Hua
-* Update Time: 2024.5.14
+* Copyright 2019 Boyu Zhou, Aerial Robotics Group, Hong Kong University of Science and Technology, <uav.ust.hk>
+* Developed by Boyu Zhou <bzhouai at connect dot ust dot hk>, <uv dot boyuzhou at gmail dot com>
+* for more information see <https://github.com/HKUST-Aerial-Robotics/Fast-Planner>.
+* If you use this code, please cite the respective publications as
+* listed on the above website.
 *
-***************************************************************************************************************************/
+* Fast-Planner is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Fast-Planner is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with Fast-Planner. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+
+#include "bspline_opt/non_uniform_bspline.h"
+#include "nav_msgs/Odometry.h"
+#include "plan_manage/Bspline.h"
+#include "quadrotor_msgs/PositionCommand.h"
+#include "std_msgs/Empty.h"
+#include "visualization_msgs/Marker.h"
 #include <ros/ros.h>
-#include <traj_utils//Bspline.h>
-#include <bspline_opt/non_uniform_bspline.h>
-#include <nav_msgs/Odometry.h>
-#include <std_msgs/Empty.h>
-#include <visualization_msgs/Marker.h>
-#include <prometheus_msgs/PositionReference.h>
-#include <prometheus_msgs/ControlCommand.h>
 
-using namespace dyn_planner;
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>变量声明及定义<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-ros::Publisher state_pub, pos_cmd_pub, traj_pub;
+ros::Publisher cmd_vis_pub, pos_cmd_pub, traj_pub;
 
 nav_msgs::Odometry odom;
 
-bool sim_mode;
+quadrotor_msgs::PositionCommand cmd;
+// double pos_gain[3] = {5.7, 5.7, 6.2};
+// double vel_gain[3] = {3.4, 3.4, 4.0};
+double pos_gain[3] = { 5.7, 5.7, 6.2 };
+double vel_gain[3] = { 3.4, 3.4, 4.0 };
 
-// 控制接口
-prometheus_msgs::PositionReference cmd;
+using fast_planner::NonUniformBspline;
 
-bool receive_traj = false;
-vector<NonUniformBspline> traj;
-ros::Time time_traj_start;
-int traj_id;
-double traj_duration;
-double t_cmd_start, t_cmd_end;
+bool receive_traj_ = false;
+vector<NonUniformBspline> traj_;
+double traj_duration_;
+ros::Time start_time_;
+int traj_id_;
 
-vector<Eigen::Vector3d> traj_cmd, traj_real;
+// yaw control
+double last_yaw_;
+double time_forward_;
 
-Eigen::Vector3d hover_pt;
+vector<Eigen::Vector3d> traj_cmd_, traj_real_;
 
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>函数声明与定义<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-void displayTrajWithColor(vector<Eigen::Vector3d> path, double resolution, Eigen::Vector4d color, int id){
-  visualization_msgs::Marker mk;
-  mk.header.frame_id = "map";
-  mk.header.stamp = ros::Time::now();
-  mk.type = visualization_msgs::Marker::SPHERE_LIST;
-  mk.action = visualization_msgs::Marker::DELETE;
-  mk.id = id;
+void displayTrajWithColor(vector<Eigen::Vector3d> path, double resolution, Eigen::Vector4d color,
+                          int id) {
+    visualization_msgs::Marker mk;
+    mk.header.frame_id = "world";
+    mk.header.stamp = ros::Time::now();
+    mk.type = visualization_msgs::Marker::SPHERE_LIST;
+    mk.action = visualization_msgs::Marker::DELETE;
+    mk.id = id;
 
-  traj_pub.publish(mk);
+    traj_pub.publish(mk);
 
-  mk.action = visualization_msgs::Marker::ADD;
-  mk.pose.orientation.x = 0.0;
-  mk.pose.orientation.y = 0.0;
-  mk.pose.orientation.z = 0.0;
-  mk.pose.orientation.w = 1.0;
+    mk.action = visualization_msgs::Marker::ADD;
+    mk.pose.orientation.x = 0.0;
+    mk.pose.orientation.y = 0.0;
+    mk.pose.orientation.z = 0.0;
+    mk.pose.orientation.w = 1.0;
 
-  mk.color.r = color(0);
-  mk.color.g = color(1);
-  mk.color.b = color(2);
-  mk.color.a = color(3);
+    mk.color.r = color(0);
+    mk.color.g = color(1);
+    mk.color.b = color(2);
+    mk.color.a = color(3);
 
-  mk.scale.x = resolution;
-  mk.scale.y = resolution;
-  mk.scale.z = resolution;
+    mk.scale.x = resolution;
+    mk.scale.y = resolution;
+    mk.scale.z = resolution;
 
-  geometry_msgs::Point pt;
-  for (int i = 0; i < int(path.size()); i++) {
-    pt.x = path[i](0);
-    pt.y = path[i](1);
-    pt.z = path[i](2);
-    mk.points.push_back(pt);
-  }
-  // 发布真实轨迹
-  traj_pub.publish(mk);
-  ros::Duration(0.001).sleep();
+    geometry_msgs::Point pt;
+    for (int i = 0; i < int(path.size()); i++) {
+        pt.x = path[i](0);
+        pt.y = path[i](1);
+        pt.z = path[i](2);
+        mk.points.push_back(pt);
+    }
+    traj_pub.publish(mk);
+    ros::Duration(0.001).sleep();
 }
 
-void drawState(Eigen::Vector3d pos, Eigen::Vector3d vec, int id,
-               Eigen::Vector4d color) {
-  visualization_msgs::Marker mk_state;
-  mk_state.header.frame_id = "map";
-  mk_state.header.stamp = ros::Time::now();
-  mk_state.id = id;
-  mk_state.type = visualization_msgs::Marker::ARROW; // 箭头
-  mk_state.action = visualization_msgs::Marker::ADD;
-  mk_state.pose.orientation.w = 1.0;
-  mk_state.scale.x = 0.1;
-  mk_state.scale.y = 0.2;
-  mk_state.scale.z = 0.3;
-  geometry_msgs::Point pt;
-  pt.x = pos(0);
-  pt.y = pos(1);
-  pt.z = pos(2);
-  mk_state.points.push_back(pt);
-  pt.x = pos(0) + vec(0);
-  pt.y = pos(1) + vec(1);
-  pt.z = pos(2) + vec(2);
-  mk_state.points.push_back(pt);
-  mk_state.color.r = color(0);
-  mk_state.color.g = color(1);
-  mk_state.color.b = color(2);
-  mk_state.color.a = color(3);
-  // 发布当前机器人状态
-  state_pub.publish(mk_state);
+void drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& id,
+             const Eigen::Vector4d& color) {
+    visualization_msgs::Marker mk_state;
+    mk_state.header.frame_id = "world";
+    mk_state.header.stamp = ros::Time::now();
+    mk_state.id = id;
+    mk_state.type = visualization_msgs::Marker::ARROW;
+    mk_state.action = visualization_msgs::Marker::ADD;
+
+    mk_state.pose.orientation.w = 1.0;
+    mk_state.scale.x = 0.1;
+    mk_state.scale.y = 0.2;
+    mk_state.scale.z = 0.3;
+
+    geometry_msgs::Point pt;
+    pt.x = pos(0);
+    pt.y = pos(1);
+    pt.z = pos(2);
+    mk_state.points.push_back(pt);
+
+    pt.x = pos(0) + vec(0);
+    pt.y = pos(1) + vec(1);
+    pt.z = pos(2) + vec(2);
+    mk_state.points.push_back(pt);
+
+    mk_state.color.r = color(0);
+    mk_state.color.g = color(1);
+    mk_state.color.b = color(2);
+    mk_state.color.a = color(3);
+
+    cmd_vis_pub.publish(mk_state);
 }
 
-// 【订阅】处理bspline数据，生成traj：pos,vel,acc
-void bsplineCallback(traj_utils::BsplineConstPtr msg) {
-  Eigen::VectorXd knots(msg->knots.size());
-  for (int i = 0; i < msg->knots.size(); ++i) {
-    knots(i) = msg->knots[i];
-  }
+void bsplineCallback(fast_planner::BsplineConstPtr msg) {
+    // parse pos traj
 
-  Eigen::MatrixXd ctrl_pts(msg->pos_pts.size(), 3);
-  for (int i = 0; i < msg->pos_pts.size(); ++i) {
-    Eigen::Vector3d pt;
-    pt(0) = msg->pos_pts[i].x;
-    pt(1) = msg->pos_pts[i].y;
-    pt(2) = msg->pos_pts[i].z;
-    ctrl_pts.row(i) = pt.transpose();
-  }
+    Eigen::MatrixXd pos_pts(msg->pos_pts.size(), 3);
 
-  NonUniformBspline bspline(ctrl_pts, msg->order, 0.1);
-  bspline.setKnot(knots);
+    Eigen::VectorXd knots(msg->knots.size());
+    for (int i = 0; i < msg->knots.size(); ++i) {
+        knots(i) = msg->knots[i];
+    }
 
-  time_traj_start = msg->start_time;
-  traj_id = msg->traj_id;
+    for (int i = 0; i < msg->pos_pts.size(); ++i) {
+        pos_pts(i, 0) = msg->pos_pts[i].x;
+        pos_pts(i, 1) = msg->pos_pts[i].y;
+        pos_pts(i, 2) = msg->pos_pts[i].z;
+    }
 
-  traj.clear();
-  traj.push_back(bspline);
-  traj.push_back(traj[0].getDerivative());
-  traj.push_back(traj[1].getDerivative());
+    NonUniformBspline pos_traj(pos_pts, msg->order, 0.1);
+    pos_traj.setKnot(knots);
 
-  traj[0].getTimeSpan(t_cmd_start, t_cmd_end);
-  traj_duration = t_cmd_end - t_cmd_start;
+    // parse yaw traj
 
-  receive_traj = true;
+    Eigen::MatrixXd yaw_pts(msg->yaw_pts.size(), 1);
+    for (int i = 0; i < msg->yaw_pts.size(); ++i) {
+        yaw_pts(i, 0) = msg->yaw_pts[i];
+    }
+
+    NonUniformBspline yaw_traj(yaw_pts, msg->order, msg->yaw_dt);
+
+    start_time_ = msg->start_time;
+    traj_id_ = msg->traj_id;
+
+    traj_.clear();
+    traj_.push_back(pos_traj);
+    traj_.push_back(traj_[0].getDerivative());
+    traj_.push_back(traj_[1].getDerivative());
+    traj_.push_back(yaw_traj);
+    traj_.push_back(yaw_traj.getDerivative());
+
+    traj_duration_ = traj_[0].getTimeSum();
+
+    receive_traj_ = true;
 }
 
-// 【订阅】replan出现的话，更新时间，在0.25s后或轨迹运行完后轨迹发布停止
 void replanCallback(std_msgs::Empty msg) {
-  /* reset duration */
-  const double time_out = 0.25;
-  ros::Time time_now = ros::Time::now();
-  double t_stop = (time_now - time_traj_start).toSec() + time_out;  //在0.25s后停止发布轨迹
-  traj_duration = min(t_stop, traj_duration);
-  t_cmd_end = t_cmd_start + traj_duration;
+    /* reset duration */
+    const double time_out = 0.01;
+    ros::Time time_now = ros::Time::now();
+    double t_stop = (time_now - start_time_).toSec() + time_out;
+    traj_duration_ = min(t_stop, traj_duration_);
 }
 
-// 【订阅】只是用于显示
+void newCallback(std_msgs::Empty msg) {
+    traj_cmd_.clear();
+    traj_real_.clear();
+}
+
 void odomCallbck(const nav_msgs::Odometry& msg) {
-  if (msg.child_frame_id == "X" || msg.child_frame_id == "O") return;
+    if (msg.child_frame_id == "X" || msg.child_frame_id == "O") return;
 
-  odom = msg;
+    odom = msg;
 
-  traj_real.push_back(Eigen::Vector3d(odom.pose.pose.position.x,
-                                      odom.pose.pose.position.y,
-                                      odom.pose.pose.position.z));
-  // 只存储最多10000个轨迹点
-  if (traj_real.size() > 10000)
-    traj_real.erase(traj_real.begin(), traj_real.begin() + 1000);
+    traj_real_.push_back(
+            Eigen::Vector3d(odom.pose.pose.position.x, odom.pose.pose.position.y, odom.pose.pose.position.z));
+
+    if (traj_real_.size() > 10000) traj_real_.erase(traj_real_.begin(), traj_real_.begin() + 1000);
 }
 
-void visCallback(const ros::TimerEvent& e){
-  // 可视化机器人真实运动轨迹（odom）
-  displayTrajWithColor(traj_real, 0.03, Eigen::Vector4d(0.925, 0.054, 0.964, 1),
-                       1);
-  // 可视化轨迹指令
-  displayTrajWithColor(traj_cmd, 0.03, Eigen::Vector4d(1, 1, 0, 1), 2);
+void visCallback(const ros::TimerEvent& e) {
+    // displayTrajWithColor(traj_real_, 0.03, Eigen::Vector4d(0.925, 0.054, 0.964,
+    // 1),
+    //                      1);
+
+    displayTrajWithColor(traj_cmd_, 0.05, Eigen::Vector4d(0, 1, 0, 1), 2);
 }
 
-// 【发布】根据轨迹生成控制指令
-void cmdCallback(const ros::TimerEvent& e){
-  /* no publishing before receive traj */
-  if (!receive_traj) return;
+void cmdCallback(const ros::TimerEvent& e) {
+    /* no publishing before receive traj_ */
+    if (!receive_traj_) return;
 
-  ros::Time time_now = ros::Time::now();
-  double t_cur = (time_now - time_traj_start).toSec();
+    ros::Time time_now = ros::Time::now();
+    double t_cur = (time_now - start_time_).toSec();
 
-  Eigen::Vector3d pos, vel, acc;
+    Eigen::Vector3d pos, vel, acc, pos_f;
+    double yaw, yawdot;
 
-  if (t_cur < traj_duration && t_cur >= 0.0){
-    pos = traj[0].evaluateDeBoor(t_cmd_start + t_cur);
-    vel = traj[1].evaluateDeBoor(t_cmd_start + t_cur);
-    acc = traj[2].evaluateDeBoor(t_cmd_start + t_cur);
-  } else if (t_cur >= traj_duration) {
-    /* hover when finish traj */
-    // 如果replan超时，就悬停
-    pos = traj[0].evaluateDeBoor(t_cmd_end);
-    vel.setZero();
-    acc.setZero();
-  } else {
-    cout << "[Traj server] invalid time." << endl;
-  }
+    if (t_cur < traj_duration_ && t_cur >= 0.0) {
+        pos = traj_[0].evaluateDeBoorT(t_cur);
+        vel = traj_[1].evaluateDeBoorT(t_cur);
+        acc = traj_[2].evaluateDeBoorT(t_cur);
+        yaw = traj_[3].evaluateDeBoorT(t_cur)[0];
+        yawdot = traj_[4].evaluateDeBoorT(t_cur)[0];
 
-  cmd.header.stamp = time_now;
-  cmd.header.frame_id = "map";
+        double tf = min(traj_duration_, t_cur + 2.0);
+        pos_f = traj_[0].evaluateDeBoorT(tf);
 
-  cmd.Move_mode = prometheus_msgs::PositionReference::TRAJECTORY;  //TRAJECTORY
-  cmd.Move_frame = prometheus_msgs::PositionReference::ENU_FRAME; //ENU_FRAME
-  cmd.time_from_start = t_cur;
+    } else if (t_cur >= traj_duration_) {
+        /* hover when finish traj_ */
+        pos = traj_[0].evaluateDeBoorT(traj_duration_);
+        vel.setZero();
+        acc.setZero();
+        yaw = traj_[3].evaluateDeBoorT(traj_duration_)[0];
+        yawdot = traj_[4].evaluateDeBoorT(traj_duration_)[0];
 
-  cmd.position_ref[0] = pos(0);
-  cmd.position_ref[1] = pos(1);
-  cmd.position_ref[2] = pos(2);
+        pos_f = pos;
 
-  cmd.velocity_ref[0] = vel(0);
-  cmd.velocity_ref[1] = vel(1);
-  cmd.velocity_ref[2] = vel(2);
+    } else {
+        cout << "[Traj server]: invalid time." << endl;
+    }
 
-  cmd.acceleration_ref[0] = acc(0);
-  cmd.acceleration_ref[1] = acc(1);
-  cmd.acceleration_ref[2] = acc(2);
+    cmd.header.stamp = time_now;
+    cmd.header.frame_id = "world";
+    cmd.trajectory_flag = quadrotor_msgs::PositionCommand::TRAJECTORY_STATUS_READY;
+    cmd.trajectory_id = traj_id_;
 
-  cmd.yaw_ref = 0.0;
+    cmd.position.x = pos(0);
+    cmd.position.y = pos(1);
+    cmd.position.z = pos(2);
 
-  // 发布控制指令
-  pos_cmd_pub.publish(cmd);
+    cmd.velocity.x = vel(0);
+    cmd.velocity.y = vel(1);
+    cmd.velocity.z = vel(2);
 
-  drawState(pos, vel, 0, Eigen::Vector4d(0, 1, 0, 1));
-  drawState(pos, acc, 1, Eigen::Vector4d(0, 0, 1, 1));
+    cmd.acceleration.x = acc(0);
+    cmd.acceleration.y = acc(1);
+    cmd.acceleration.z = acc(2);
 
-  traj_cmd.push_back(pos);
-  if (pos.size() > 10000)
-    traj_cmd.erase(traj_cmd.begin(), traj_cmd.begin() + 1000);
+    cmd.yaw = yaw;
+    cmd.yaw_dot = yawdot;
+
+    auto pos_err = pos_f - pos;
+    // if (pos_err.norm() > 1e-3) {
+    //   cmd.yaw = atan2(pos_err(1), pos_err(0));
+    // } else {
+    //   cmd.yaw = last_yaw_;
+    // }
+    // cmd.yaw_dot = 1.0;
+
+    last_yaw_ = cmd.yaw;
+
+    pos_cmd_pub.publish(cmd);
+
+    // draw cmd
+
+    // drawCmd(pos, vel, 0, Eigen::Vector4d(0, 1, 0, 1));
+    // drawCmd(pos, acc, 1, Eigen::Vector4d(0, 0, 1, 1));
+
+    Eigen::Vector3d dir(cos(yaw), sin(yaw), 0.0);
+    drawCmd(pos, 2 * dir, 2, Eigen::Vector4d(1, 1, 0, 0.7));
+    // drawCmd(pos, pos_err, 3, Eigen::Vector4d(1, 1, 0, 0.7));
+
+    traj_cmd_.push_back(pos);
+    if (traj_cmd_.size() > 10000) traj_cmd_.erase(traj_cmd_.begin(), traj_cmd_.begin() + 1000);
 }
 
-// 主函数
-int main(int argc, char** argv){
-  ros::init(argc, argv, "traj_server");
-  ros::NodeHandle node;
+int main(int argc, char** argv) {
+    ros::init(argc, argv, "traj_server");
+    ros::NodeHandle node;
+    ros::NodeHandle nh("~");
 
-  // 是否为仿真模式
-  node.param("sim_mode", sim_mode, true);
+    ros::Subscriber bspline_sub = node.subscribe("planning/bspline", 10, bsplineCallback);
+    ros::Subscriber replan_sub = node.subscribe("planning/replan", 10, replanCallback);
+    ros::Subscriber new_sub = node.subscribe("planning/new", 10, newCallback);
+    ros::Subscriber odom_sub = node.subscribe("/odom_world", 50, odomCallbck);
 
-  // 订阅bspline, replan标志， odom信息（只用于显示）
-  ros::Subscriber bspline_sub = node.subscribe("/prometheus/planning/bspline", 10, bsplineCallback);
-  ros::Subscriber replan_sub = node.subscribe("/prometheus/fast_planning/replan", 10, replanCallback);
-  ros::Subscriber odom_sub = node.subscribe("/prometheus/drone_odom", 50, odomCallbck);
+    cmd_vis_pub = node.advertise<visualization_msgs::Marker>("planning/position_cmd_vis", 10);
+    pos_cmd_pub = node.advertise<quadrotor_msgs::PositionCommand>("/position_cmd", 50);
+    traj_pub = node.advertise<visualization_msgs::Marker>("planning/travel_traj", 10);
 
-  // 发布当前机器人指令状态
-  ros::Timer cmd_timer = node.createTimer(ros::Duration(0.01), cmdCallback);
-  
-  state_pub = node.advertise<visualization_msgs::Marker>("/prometheus/planning/state", 10);
-  pos_cmd_pub = node.advertise<prometheus_msgs::PositionReference>("/prometheus/position_cmd", 50);
-  
-  // 发布轨迹控制指令，无人机实际轨迹
-  ros::Timer vis_timer = node.createTimer(ros::Duration(0.2), visCallback);
-  traj_pub = node.advertise<visualization_msgs::Marker>("/prometheus/planning/traj", 10);
+    ros::Timer cmd_timer = node.createTimer(ros::Duration(0.01), cmdCallback);
+    ros::Timer vis_timer = node.createTimer(ros::Duration(0.25), visCallback);
 
-  ros::Duration(1.0).sleep();
+    /* control parameter */
+    cmd.kx[0] = pos_gain[0];
+    cmd.kx[1] = pos_gain[1];
+    cmd.kx[2] = pos_gain[2];
 
-  cout << "[Traj server] ready." << endl;
+    cmd.kv[0] = vel_gain[0];
+    cmd.kv[1] = vel_gain[1];
+    cmd.kv[2] = vel_gain[2];
 
-  ros::spin();
+    nh.param("traj_server/time_forward", time_forward_, -1.0);
+    last_yaw_ = 0.0;
 
-  return 0;
+    ros::Duration(1.0).sleep();
+
+    ROS_WARN("[Traj server]: ready.");
+
+    ros::spin();
+
+    return 0;
 }
