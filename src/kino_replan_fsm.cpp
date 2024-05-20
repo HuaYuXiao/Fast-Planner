@@ -29,22 +29,13 @@
 namespace fast_planner {
 
     void KinoReplanFSM::init(ros::NodeHandle& nh) {
-        current_wp_  = 0;
         exec_state_  = FSM_EXEC_STATE::INIT;
         have_target_ = false;
         have_odom_   = false;
 
         /*  fsm param  */
-        nh.param("fsm/flight_type", target_type_, -1);
         nh.param("fsm/thresh_replan", replan_thresh_, -1.0);
         nh.param("fsm/thresh_no_replan", no_replan_thresh_, -1.0);
-
-        nh.param("fsm/waypoint_num", waypoint_num_, -1);
-        for (int i = 0; i < waypoint_num_; i++) {
-            nh.param("fsm/waypoint" + to_string(i) + "_x", waypoints_[i][0], -1.0);
-            nh.param("fsm/waypoint" + to_string(i) + "_y", waypoints_[i][1], -1.0);
-            nh.param("fsm/waypoint" + to_string(i) + "_z", waypoints_[i][2], -1.0);
-        }
 
         /* initialize main modules */
         planner_manager_.reset(new FastPlannerManager);
@@ -57,7 +48,7 @@ namespace fast_planner {
 
         waypoint_sub_ =
                 nh.subscribe("/waypoint_generator/waypoints", 1, &KinoReplanFSM::waypointCallback, this);
-        odom_sub_ = nh.subscribe("/odom_world", 1, &KinoReplanFSM::odometryCallback, this);
+        odom_sub_ = nh.subscribe("/prometheus/drone_odom", 1, &KinoReplanFSM::odometryCallback, this);
 
         replan_pub_  = nh.advertise<std_msgs::Empty>("/planning/replan", 10);
         new_pub_     = nh.advertise<std_msgs::Empty>("/planning/new", 10);
@@ -70,15 +61,7 @@ namespace fast_planner {
         cout << "Triggered!" << endl;
         trigger_ = true;
 
-        if (target_type_ == TARGET_TYPE::MANUAL_TARGET) {
-            end_pt_ << msg->poses[0].pose.position.x, msg->poses[0].pose.position.y, 1.0;
-
-        } else if (target_type_ == TARGET_TYPE::PRESET_TARGET) {
-            end_pt_(0)  = waypoints_[current_wp_][0];
-            end_pt_(1)  = waypoints_[current_wp_][1];
-            end_pt_(2)  = waypoints_[current_wp_][2];
-            current_wp_ = (current_wp_ + 1) % waypoint_num_;
-        }
+        end_pt_ << msg->poses[0].pose.position.x, msg->poses[0].pose.position.y, odom_pos_(2);
 
         visualization_->drawGoal(end_pt_, 0.3, Eigen::Vector4d(1, 0, 0, 1.0));
         end_vel_.setZero();
@@ -121,14 +104,9 @@ namespace fast_planner {
     }
 
     void KinoReplanFSM::execFSMCallback(const ros::TimerEvent& e) {
-        static int fsm_num = 0;
-        fsm_num++;
-        if (fsm_num == 100) {
             printFSMExecState();
             if (!have_odom_) cout << "no odom." << endl;
             if (!trigger_) cout << "wait for goal." << endl;
-            fsm_num = 0;
-        }
 
         switch (exec_state_) {
             case INIT: {

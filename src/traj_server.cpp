@@ -58,7 +58,7 @@ vector<Eigen::Vector3d> traj_cmd_, traj_real_;
 void displayTrajWithColor(vector<Eigen::Vector3d> path, double resolution, Eigen::Vector4d color,
                           int id) {
     visualization_msgs::Marker mk;
-    mk.header.frame_id = "world";
+    mk.header.frame_id = "map";
     mk.header.stamp = ros::Time::now();
     mk.type = visualization_msgs::Marker::SPHERE_LIST;
     mk.action = visualization_msgs::Marker::DELETE;
@@ -95,7 +95,7 @@ void displayTrajWithColor(vector<Eigen::Vector3d> path, double resolution, Eigen
 void drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& id,
              const Eigen::Vector4d& color) {
     visualization_msgs::Marker mk_state;
-    mk_state.header.frame_id = "world";
+    mk_state.header.frame_id = "map";
     mk_state.header.stamp = ros::Time::now();
     mk_state.id = id;
     mk_state.type = visualization_msgs::Marker::ARROW;
@@ -235,7 +235,7 @@ void cmdCallback(const ros::TimerEvent& e) {
     }
 
     cmd.header.stamp = time_now;
-    cmd.header.frame_id = "world";
+    cmd.header.frame_id = "map";
     cmd.trajectory_flag = quadrotor_msgs::PositionCommand::TRAJECTORY_STATUS_READY;
     cmd.trajectory_id = traj_id_;
 
@@ -287,10 +287,10 @@ int main(int argc, char** argv) {
     ros::Subscriber bspline_sub = node.subscribe("planning/bspline", 10, bsplineCallback);
     ros::Subscriber replan_sub = node.subscribe("planning/replan", 10, replanCallback);
     ros::Subscriber new_sub = node.subscribe("planning/new", 10, newCallback);
-    ros::Subscriber odom_sub = node.subscribe("/odom_world", 50, odomCallbck);
+    ros::Subscriber odom_sub = node.subscribe("/prometheus/drone_odom", 50, odomCallbck);
 
     cmd_vis_pub = node.advertise<visualization_msgs::Marker>("planning/position_cmd_vis", 10);
-    pos_cmd_pub = node.advertise<quadrotor_msgs::PositionCommand>("/position_cmd", 50);
+    pos_cmd_pub = node.advertise<quadrotor_msgs::PositionCommand>("/prometheus/quadrotor_position_cmd", 50);
     traj_pub = node.advertise<visualization_msgs::Marker>("planning/travel_traj", 10);
 
     ros::Timer cmd_timer = node.createTimer(ros::Duration(0.01), cmdCallback);

@@ -29,22 +29,14 @@
 namespace fast_planner {
 
     void TopoReplanFSM::init(ros::NodeHandle& nh) {
-        current_wp_  = 0;
         exec_state_  = FSM_EXEC_STATE::INIT;
         have_target_ = false;
         collide_     = false;
 
         /*  fsm param  */
-        nh.param("fsm/flight_type", target_type_, -1);
         nh.param("fsm/thresh_replan", replan_time_threshold_, -1.0);
         nh.param("fsm/thresh_no_replan", replan_distance_threshold_, -1.0);
-        nh.param("fsm/waypoint_num", waypoint_num_, -1);
         nh.param("fsm/act_map", act_map_, false);
-        for (int i = 0; i < waypoint_num_; i++) {
-            nh.param("fsm/waypoint" + to_string(i) + "_x", waypoints_[i][0], -1.0);
-            nh.param("fsm/waypoint" + to_string(i) + "_y", waypoints_[i][1], -1.0);
-            nh.param("fsm/waypoint" + to_string(i) + "_z", waypoints_[i][2], -1.0);
-        }
 
         /* initialize main modules */
         planner_manager_.reset(new FastPlannerManager);
@@ -57,7 +49,7 @@ namespace fast_planner {
 
         waypoint_sub_ =
                 nh.subscribe("/waypoint_generator/waypoints", 1, &TopoReplanFSM::waypointCallback, this);
-        odom_sub_ = nh.subscribe("/odom_world", 1, &TopoReplanFSM::odometryCallback, this);
+        odom_sub_ = nh.subscribe("/prometheus/drone_odom", 1, &TopoReplanFSM::odometryCallback, this);
 
         replan_pub_  = nh.advertise<std_msgs::Empty>("/planning/replan", 20);
         new_pub_     = nh.advertise<std_msgs::Empty>("/planning/new", 20);
@@ -69,34 +61,14 @@ namespace fast_planner {
         cout << "Triggered!" << endl;
 
         vector<Eigen::Vector3d> global_wp;
-        if (target_type_ == TARGET_TYPE::REFENCE_PATH) {
-            for (int i = 0; i < waypoint_num_; ++i) {
-                Eigen::Vector3d pt;
-                pt(0) = waypoints_[i][0];
-                pt(1) = waypoints_[i][1];
-                pt(2) = waypoints_[i][2];
-                global_wp.push_back(pt);
-            }
-        } else {
 
-            if (target_type_ == TARGET_TYPE::MANUAL_TARGET) {
                 target_point_(0) = msg->poses[0].pose.position.x;
                 target_point_(1) = msg->poses[0].pose.position.y;
-                target_point_(2) = 1.0;
+        target_point_(2) = odom_pos_(2);
                 std::cout << "manual: " << target_point_.transpose() << std::endl;
-
-            } else if (target_type_ == TARGET_TYPE::PRESET_TARGET) {
-                target_point_(0) = waypoints_[current_wp_][0];
-                target_point_(1) = waypoints_[current_wp_][1];
-                target_point_(2) = waypoints_[current_wp_][2];
-
-                current_wp_ = (current_wp_ + 1) % waypoint_num_;
-                std::cout << "preset: " << target_point_.transpose() << std::endl;
-            }
 
             global_wp.push_back(target_point_);
             visualization_->drawGoal(target_point_, 0.3, Eigen::Vector4d(1, 0, 0, 1.0));
-        }
 
         planner_manager_->setGlobalWaypoints(global_wp);
         end_vel_.setZero();
