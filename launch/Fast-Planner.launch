@@ -1,10 +1,12 @@
 <launch>
     <!-- size of map, change the size in x, y, z according to your application -->
+    <!-- 定义仅在launch文件中起作用的局部变量大小，即地图大小-->
     <arg name="map_size_x" value="16.0"/>
     <arg name="map_size_y" value="10.0"/>
     <arg name="map_size_z" value=" 3.0"/>
 
     <!-- main algorithm params -->
+    <!--嵌套复用advanced_param.xml，从而引入主要优化参数 -->
     <include file="$(find fast_planner)/launch/kino_algorithm.xml">
         <arg name="map_size_x_" value="$(arg map_size_x)"/>
         <arg name="map_size_y_" value="$(arg map_size_y)"/>
@@ -17,8 +19,12 @@
         <arg name="fy" value="387.229248046875"/>
 
         <!-- maximum velocity and acceleration the drone will reach -->
-        <arg name="max_vel" value="0.5"/>
-        <arg name="max_acc" value="0.8"/>
+        <arg name="max_vel" value="1.0"/>
+        <arg name="max_acc" value="1.6"/>
+        <arg name="max_jerk" value="2.4"/>
+
+        <!--always set to 1.5 times grater than sensing horizen-->
+        <arg name="planning_horizon" value="6"/>
     </include>
 
     <!-- trajectory server -->

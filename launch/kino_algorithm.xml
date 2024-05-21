@@ -8,18 +8,27 @@
     <arg name="fx"/>
     <arg name="fy"/>
 
+    <!-- maximum velocity and acceleration the drone will reach -->
     <arg name="max_vel"/>
     <arg name="max_acc"/>
+    <arg name="max_jerk"/>
+
+    <arg name="planning_horizon"/>
 
     <!-- main node -->
-    <node pkg="fast_planner" name="fast_planner_node" type="fast_planner_node" output="screen"
-          launch-prefix="gnome-terminal --">
+    <node pkg="fast_planner" name="fast_planner_node" type="fast_planner_node"
+          output="screen" launch-prefix="gnome-terminal --">
         <!-- replanning method -->
         <param name="planner_node/planner" value="1" type="int"/>
 
         <!-- planning fsm -->
+        <!-- time to replan, the less, the higher frequency -->
         <param name="fsm/thresh_replan" value="0.05" type="double"/>
+        <!-- 目标点与无人机当前位置小于no_replan_thresh_就不需要再规划到这个点的轨迹 -->
         <param name="fsm/thresh_no_replan" value="0.2" type="double"/>
+        <!--always set to 1.5 times grater than sensing horizen-->
+        <param name="fsm/planning_horizon" value="$(arg planning_horizon)" type="double"/>
+        <param name="fsm/emergency_time_" value="1.0" type="double"/>
 
         <param name="sdf_map/resolution" value="0.1"/>
         <param name="sdf_map/map_size_x" value="$(arg map_size_x_)"/>
@@ -57,13 +66,14 @@
         <param name="sdf_map/max_ray_length" value="4.5"/>
 
         <param name="sdf_map/esdf_slice_height" value="0.3"/>
+        <!-- virtual ceiling, restrict the height of planning -->
         <param name="sdf_map/visualization_truncate_height" value="2.85"/>
         <param name="sdf_map/virtual_ceil_height" value="3.0"/>
         <param name="sdf_map/show_occ_time" value="false"/>
         <param name="sdf_map/show_esdf_time" value="false"/>
         <!-- 1: pose; 2: odom -->
         <param name="sdf_map/pose_type" value="2"/>
-        <param name="sdf_map/frame_id" value="base_link"/>
+        <param name="sdf_map/frame_id" value="map"/>
 
         <!-- planner manager -->
         <param name="manager/max_vel" value="$(arg max_vel)" type="double"/>
