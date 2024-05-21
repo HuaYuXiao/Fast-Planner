@@ -35,7 +35,7 @@ namespace fast_planner {
 
     FastPlannerManager::~FastPlannerManager() { std::cout << "des manager" << std::endl; }
 
-    void FastPlannerManager::initPlanModules(ros::NodeHandle& nh) {
+    void FastPlannerManager::initPlanModules(ros::NodeHandle &nh) {
         /* read algorithm parameters */
 
         nh.param("manager/max_vel", pp_.max_vel_, -1.0);
