@@ -4,7 +4,7 @@
     <arg name="planner" default="Fast-Planner"/>
 
     <!-- world -->
-    <include file="$(find prometheus_gazebo)/launch/GFKD.launch"/>
+    <include file="$(find prometheus_gazebo)/launch/Eason_indoor.launch"/>
 
     <!-- 1号无人机 -->
     <include file="$(find prometheus_gazebo)/launch/sitl_$(arg model).launch"/>

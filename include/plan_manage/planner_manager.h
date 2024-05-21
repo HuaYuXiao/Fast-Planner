@@ -54,7 +54,7 @@ namespace fast_planner {
 
         void planYaw(const Eigen::Vector3d& start_yaw);
 
-        void initPlanModules(ros::NodeHandle& nh);
+        void initPlanModules(ros::NodeHandle &nh);
         void setGlobalWaypoints(vector<Eigen::Vector3d>& waypoints);
 
         bool checkTrajCollision(double& distance);

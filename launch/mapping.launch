@@ -4,33 +4,5 @@
     <node pkg="tf" type="static_transform_publisher" name="tf_world_map"
           args="0 0 0 0 0 0 world map 100"/>
 
-    <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
-        <param name="resolution" value="0.05" />
-        <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
-        <param name="frame_id" type="string" value="map" />
-        <!-- maximum range to integrate (speedup!) -->
-        <param name="sensor_model/max_range" value="5.0" />
-        <!-- data source to integrate (PointCloud2) -->
-        <remap from="cloud_in" to="/prometheus/sensors/3Dlidar_scan" />
-    </node>
-
-    <!-- 启动rtabmap_ros建图 -->
-<!--    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">-->
-<!--        <arg name="rtabmap_args"       value="&#45;&#45;delete_db_on_start"/>-->
-<!--        <arg name="frame_id"           value="base_link"/>-->
-<!--        <arg name="visual_odometry"    value="false"/>-->
-<!--        &lt;!&ndash; RGB-D related topics &ndash;&gt;-->
-<!--        <arg name="approx_sync"         value="true"/>-->
-<!--        <arg name="rgb_topic"          value="/camera/color/image_raw"/>-->
-<!--        <arg name="depth_topic"        value="/camera/depth/image_raw"/>-->
-<!--        <arg name="camera_info_topic"  value="/camera/color/camera_info"/>-->
-<!--        <arg name="odom_topic"         value="/prometheus/drone_odom"/>-->
-<!--        &lt;!&ndash; 发布地图的坐标系 &ndash;&gt;-->
-<!--        <arg name="map_frame_id"       value="map"/>-->
-<!--        &lt;!&ndash;visualization&ndash;&gt;-->
-<!--        <arg name="rtabmapviz"         value="false"/>-->
-<!--        <arg name="rviz"               value="false"/>-->
-<!--    </include>-->
-
     <node pkg="uav_octomapping" type="pcl_merge" name="pcl_merge"/>
 </launch>

@@ -17,12 +17,9 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
 >[__Robust and Efficient Quadrotor Trajectory Generation for Fast Autonomous Flight__](https://ieeexplore.ieee.org/document/8758904), Boyu Zhou, Fei Gao, Luqi Wang, Chuhao Liu and Shaojie Shen, IEEE Robotics and Automation Letters (RA-L), 2019.
 
 
-## 安装
-
-
-
 ## Release Note
 
+- v1.1.0: upgrade `sdf_map`
 - v1.0.1: 
   - remove `flight_type`
   - remove `message_pub`
@@ -30,21 +27,12 @@ Fast-planner可以在及其短的时间内（几毫秒）生成高质量轨迹(�
   - remove `pcdpubCallback`
   - remove `sim_mode`
 
-
-## Compilation
+## Installation
 
 Before use, make sure you have installed following packages:
 
 - [libboost](https://www.boost.org/users/history/version_1_65_1.html): suggest version: 1.65.1
 - [nlopt](https://github.com/stevengj/nlopt.git): **NEVER** install with `apt install ros-noetic-nlopt`!
-
-```
--- ~~  traversing 5 packages in topological order:
--- ~~  - plan_env
--- ~~  - bspline_opt
--- ~~  - path_searching
--- ~~  - traj_utils
-```
 
 ```bash
 catkin_make install --source src/Fast-Planner --build build/fast_planner
@@ -61,15 +49,5 @@ roslaunch fast_planner simulation.launch
 * 从rviz输入目标点信息，目标点高度不要为负值，x,y方向不要超出地图范围（地图参数在launch文件中设置）
 * 运行轨迹优化，加载离线地图，等待目标点输入.
 
-```bash
-roslaunch prometheus_plan_manage sitl_fast_planning_3dlidar.launch 
-roslaunch prometheus_plan_manage prometheus_planning_test_static.launch
-```
-
-* 运行rviz显示地图、轨迹，同时给出目标点.  
-
-```bash
-roslaunch prometheus_plan_manage rviz_static.launch
-```
 
 [img](log/2024-05-14/rosgraph.png)
